@@ -16,6 +16,46 @@
         
 </head>
 
+<style>
+
+body {background-color: #cfe4ff;}
+    fieldset {background-color: darkgrey;
+        
+        color: white;
+        margin: 10%;
+        padding: 4%;
+        justify-items: bottom;
+        align-content: center;
+    }
+    .container {
+  height: 200px;
+  position: relative;
+  border: 3px solid darkgrey;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+        
+        
+        
+        
+
+        
+</style>
+
 <body class="sb-nav-fixed">
 
     <jsp:include page="nav.html" />
@@ -26,7 +66,24 @@
 
         <div id="layoutSidenav_content">
             <main>
-               <h1>estoque</h1>
+
+                
+                <fieldset>
+                    <div class="container">
+                        <div class="center">
+                Codigo <input type="text" class="Codigo">    <button><i class="fas fa-search"></i></button> 
+
+                <br>
+                <button class="btn btn-outline-secondary" type="button" class="Alterar"> Alterar</button>
+                <br>
+                <button class="btn btn-outline-secondary" type="button" class= "Atualizar"> Atualizar</button>
+                <br>
+                <button class="btn btn-outline-secondary" type="button" class="Extrair" > Extrair</button>
+            </div>
+        </div>
+            </fieldset>
+        
+
             </main>
     <jsp:include page="footer.html" />
 	  </div>
