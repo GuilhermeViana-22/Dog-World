@@ -30,7 +30,11 @@
                     <br />
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <h2>Funcionários</h2>
+                            <h2>Bem vindo</h2>
+                            <h2>Bem vindo</h2>
+                            <h2>Bem vindo</h2>
+                            <h2>Bem vindo</h2>
+                            <h2>Bem vindo</h2>
                         </div>
                     </div>
                     <div class="row">
