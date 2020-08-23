@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>System Dog World ||  Funcionários</title>
+    <title>System Dog World || Relatórios </title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
@@ -25,6 +25,8 @@
     <jsp:include page="menu_lateral.html" />
 
         <div id="layoutSidenav_content">
+
+        
             <main>
                 <div class="container-fluid">
                     <br />
@@ -49,49 +51,51 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <i class="fas fa-table mr-1"></i>
-                                                Demonstrativo de Funcionarios
+                                                Ùltimas Vendas
                                             </div>
                                             <div class="card-body">
                                                 <table class="table table-bordered">
                                                     <tr>
-                                                        <th>Matricula</th>
+                                                        <th>Código</th>
                                                         <th>Nome</th>
-                                                        <th>E-mail</th>
-                                                        <th>Cargo</th>
-                                                        <th>Salário</th>
-                                                        <th>Data de Admissão</th>
+                                                        <th>Produtos</th>
+                                                        <th>Total</th>
                                                     </tr>
                                                     <tr>
-                                                        <td class="td">20065-1</td>
-                                                        <td>Eduardo Batista de Souza</td>
-                                                        <td>Eduardo.Batista@gmail.com</td>
-                                                        <td>Gerente de Vendas</td>
-                                                        <td>1.100,00</td>
-                                                        <td>10/05/2020</td>
+                                                        <td class="td">136857</td>
+                                                        <td>Gustavo Brito</td>
+                                                        <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
+                                                        <td>R$ 89, 99</td>
             
                                                     </tr>
                                                     <tr>
-                                                        <td class="td">20665-1</td>
-                                                        <td>Eduardo Batista de Souza</td>
-                                                        <td>Eduardo.Batista@gmail.com</td>
-                                                        <td>Gerente de Vendas</td>
-                                                        <td>3.100,00</td>
-                                                        <td>10/05/2020</td>
+                                                        <td class="td" >134587</td>
+                                                        <td>Pedro oliveira</td>
+                                                        <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
+                                                        <td>R$ 89, 99</td>
             
                                                     </tr>
                                                     <tr>
-                                                        <td class="td">2066065-1</td>
-                                                        <td>Eduardo Batista de Souza</td>
-                                                        <td>Eduardo.Batista@gmail.com</td>
-                                                        <td>Gerente de Vendas</td>
-                                                        <td>2.100,00</td>
-                                                        <td>10/05/2020</td>
+                                                        <td class="td">136598</td>
+                                                        <td>Lucas Marques</td>
+                                                        <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
+                                                        <td>R$ 89, 99</td>
             
                                                     </tr>
-                                                 
-                                                  
-                                                 
-                    
+                                                    <tr>
+                                                        <td class="td">136485</td>
+                                                        <td>Marcos Garcia</td>
+                                                        <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
+                                                        <td>R$ 89, 99</td>
+            
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td">136456</td>
+                                                        <td>Eliane</td>
+                                                        <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
+                                                        <td>R$ 89, 99</td>
+            
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>

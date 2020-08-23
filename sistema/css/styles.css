@@ -10303,13 +10303,13 @@ body {font-family: Verdana, sans-serif;}
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color: #ddd;
+  background-color: #007bff;
 }
 
 .weekdays li {
   display: inline-block;
   width: 13.6%;
-  color: #666;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -10327,6 +10327,12 @@ body {font-family: Verdana, sans-serif;}
   margin-bottom: 5px;
   font-size:12px;
   color: #777;
+}
+.estilo li:hover {
+  background: #8e969e;
+  color: #000;
+  
+
 }
 
 .days li .active {
