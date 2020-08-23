@@ -123,7 +123,7 @@
                                 </label>
                             </div>
                             <br>
-                            <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-cart-plus"></i>Salvar</button>
                             <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
                             <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Excluir</button>
                         </div>

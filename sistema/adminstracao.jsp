@@ -35,7 +35,7 @@
 
         <div id="layoutSidenav_content">
             <main>
-               for="cargo">Cargo</label>
+             
                         <h5>input your code here</h5>
               
 
