@@ -80,7 +80,8 @@
                             
                         </div>
                       
-                    <input type="button" value="Alterar">
+                    <input type="button" value="Alterar"> <br>
+                    Método de pagamento:
                     <select name="example_length" aria-controls="example" 
                             class="custom-select custom-select-sm form-control form-control-sm">
                             <option value="">--Selecione--</option>
