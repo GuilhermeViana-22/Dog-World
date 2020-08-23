@@ -33,8 +33,8 @@
 
 
     <script>
-        var user = "Elton";
-        var senha = 123;
+        var user = "admin";
+        var senha = "admin";
 
 
         function valida() {
@@ -42,18 +42,18 @@
             var sen = document.getElementById("logins").value;
 
 
-            if (usu != "Elton") {
+            if (usu != "admin") {
                 alert("Put the username");
-            } else if (sen != 123) {
+            } else if (sen != "admin") {
                 alert("Put the Password");
             } else {
                 alert("Welcome !");
 
 
                 window.open("http://localhost:8080/aps/trunk/sistema/");
-                //window.closed.href = "file:///C:/Users/elton/Desktop/Elton/projetoweb/amor/login.html?";
+                //window.closed.href = "C:/xampp/tomcat/webapps/ROOT/aps/trunk/sistema/login.html";
                 //window.location.assign("http://localhost:8080/aps/trunk/sistema/");
-                //window.close("C:/xampp/tomcat/webapps/ROOT/aps/trunk/sistema")
+                // window.close("C:/xampp/tomcat/webapps/ROOT/aps/trunk/sistema/login.html")
             }
 
 
