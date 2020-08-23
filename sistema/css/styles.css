@@ -10263,8 +10263,18 @@ body {
 .td{
   color: #007bff;
 }
-.btn{
-  
+/*cor do texto do formulario do funcionario JSO*/
+.text-input{
+  color: #e9ecef;
+  padding: 9px;;
+
+}
+/*Background do forumulario.jsp*/
+#section-form{
+  display: block;
+  padding: 10px;
+  background: rgb(9,5,71);
+  background: linear-gradient(90deg, rgba(9,5,71,1) 0%, rgba(53,60,68,1) 0%, rgba(2,15,31,1) 96%);
 }
 /*Essa parte do código refere-se ao estilo do calendário , não mexer daqui pra cima que refere-se ao dashborad*/
 * {box-sizing: border-box;}

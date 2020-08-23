@@ -22,7 +22,15 @@
    
     <div id="layoutSidenav">
 
+        <!--Tag de incorporação ao menu no codigo html
+
+-->>
+
     <jsp:include page="menu_lateral.html" />
+
+    <!--Tag de incorporação ao menu no codigo html
+
+-->>
 
         <div id="layoutSidenav_content">
 
@@ -65,35 +73,35 @@
                                                         <td class="td">136857</td>
                                                         <td>Gustavo Brito</td>
                                                         <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                                        <td>R$ 89, 99</td>
+                                                        <td>R$ 89,99</td>
             
                                                     </tr>
                                                     <tr>
                                                         <td class="td" >134587</td>
                                                         <td>Pedro oliveira</td>
                                                         <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                                        <td>R$ 89, 99</td>
+                                                        <td>R$ 89,99</td>
             
                                                     </tr>
                                                     <tr>
                                                         <td class="td">136598</td>
                                                         <td>Lucas Marques</td>
                                                         <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                                        <td>R$ 89, 99</td>
+                                                        <td>R$ 89,99</td>
             
                                                     </tr>
                                                     <tr>
                                                         <td class="td">136485</td>
                                                         <td>Marcos Garcia</td>
                                                         <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                                        <td>R$ 89, 99</td>
+                                                        <td>R$ 89,99</td>
             
                                                     </tr>
                                                     <tr>
                                                         <td class="td">136456</td>
                                                         <td>Eliane</td>
                                                         <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                                        <td>R$ 89, 99</td>
+                                                        <td>R$ 89,99</td>
             
                                                     </tr>
                                                 </table>
