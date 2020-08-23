@@ -12,7 +12,22 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+
+        
+    
+    </script>
+
+    <style>
+        .container{overflow: hidden;}
+        .tab{float: under;}
+        .tab-1{margin-left: 50px}
+        .tab-1 input{display:block; margin-bottom: 2px;}
+        .tab-2{margin-left: 100px}
+        .tab-2 input{display:block; margin-bottom: 2px;}
+
+
+    </style>
         
 </head>
 
@@ -24,20 +39,62 @@
 
     <jsp:include page="menu_lateral.html" />
 
+
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid">
-                    <br />
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12">
-                           <h1>Insert your code here</h1>
+               <div id="dadosCliente">
+                Nome:<input type="text"><br>
+                CPF:<input type="text"> <button><i class="fas fa-search"></i></button><br><br>
+
+            </div>
+
+                <fieldset>
+                   
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Quantidade</th>
+                                <th scope="col">Valor</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+
+                        </tbody>
+                    </table>
+                   
+                    
+                    <div class="container">
+                        <div class="tab tab-2">
+                            Codigo:<input type="text" name="Codigo" id=Codigo>
+                            Valor:<input type="text"name="Valor" id=Valor>
+                            Quantidade:<input type="text"name="Quantidade" id=Quantidade>
+                            Nome:<input type="text"name="Nome" id=Nome><br>
+
+                            <input type="button" value="Inserir" onclick="addTable();" ><br>
+                            <input type="button" value="Cancelar"> <br><br>
+                            
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12">
-                        </div>
-                    </div>
-                </div>
+                      
+                    <input type="button" value="Alterar">
+                    <select name="example_length" aria-controls="example" 
+                            class="custom-select custom-select-sm form-control form-control-sm">
+                            <option value="">--Selecione--</option>
+                            <option value="debito">Debito</option>
+                            <option value="credito">Credito</option>
+                            <option value="dinheiro">Dinheiro</option>
+                           
+
+                        </select>
+                    <input type="button" value="Finalizar">
+                    <input type="button" value="Cancelar">
+                    
+
+                </fieldset>
             </main>
     <jsp:include page="footer.html" />
 	  </div>
