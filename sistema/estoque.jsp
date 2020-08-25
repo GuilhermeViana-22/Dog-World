@@ -19,7 +19,7 @@
 <style>
 
 body {background-color: #cfe4ff;}
-    fieldset {background-color: darkgrey;
+    fieldset {
         
         color: white;
         margin: 10%;
@@ -29,17 +29,11 @@ body {background-color: #cfe4ff;}
     }
     .container {
   height: 200px;
-  position: relative;
-  border: 3px solid darkgrey;
+  position: absolute;
+  
 }
 
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+
 .center {
   margin: 0;
   position: absolute;
@@ -62,7 +56,7 @@ body {background-color: #cfe4ff;}
             <main>
 
                 
-                <fieldset>
+               
                     <div class="container">
                         <div class="center">
                 Codigo <input type="text" class="Codigo">    <button><i class="fas fa-search"></i></button> 
@@ -75,7 +69,7 @@ body {background-color: #cfe4ff;}
                 <button class="btn btn-outline-secondary" type="button" class="Extrair" > Extrair</button>
             </div>
         </div>
-            </fieldset>
+          
         
 
             </main>
