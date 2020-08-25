@@ -62,11 +62,21 @@ body {background-color: #cfe4ff;}
                 Codigo <input type="text" class="Codigo">    <button><i class="fas fa-search"></i></button> 
 
                 <br>
-                <button class="btn btn-outline-secondary" type="button" class="Alterar"> Alterar</button>
-                <br>
-                <button class="btn btn-outline-secondary" type="button" class= "Atualizar"> Atualizar</button>
-                <br>
-                <button class="btn btn-outline-secondary" type="button" class="Extrair" > Extrair</button>
+                <div class="form-group row col-mb-2">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success">Alterar</button>
+                    </div>
+                </div>
+                <div class="form-group row col-md-2">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-warning">Atualizar</button>
+                    </div>
+                </div>
+                <div class="form-group row col-mb-2">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Extrair</button>
+                    </div>
+                </div>
             </div>
         </div>
           
