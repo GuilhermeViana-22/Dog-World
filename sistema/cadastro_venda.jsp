@@ -25,6 +25,15 @@
         .tab-1 input{display:block; margin-bottom: 2px;}
         .tab-2{margin-left: 100px}
         .tab-2 input{display:block; margin-bottom: 2px;}
+        .form-group{
+            margin-right: 400px;
+            display: inline-block;
+            padding: 11px 21px;
+            vertical-align: middle;
+            border-radius:6px;
+            
+
+        }
 
 
     </style>
@@ -43,8 +52,14 @@
         <div id="layoutSidenav_content">
             <main>
                <div id="dadosCliente">
-                Nome:<input type="text"><br>
-                CPF:<input type="text"> <button><i class="fas fa-search"></i></button><br><br>
+                <div class="form-group">
+                    <label class="small mb-2" for="inputFirstName">Nome</label>
+                    <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                </div>
+                <div class="form-group">
+                    <label class="small mb-2" for="inputFirstName">CPF</label>
+                    <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o CPF" />
+                </div>
 
             </div>
 
@@ -70,10 +85,22 @@
                     
                     <div class="container">
                         <div class="tab tab-2">
-                            Codigo:<input type="text" name="Codigo" id=Codigo>
-                            Valor:<input type="text"name="Valor" id=Valor>
-                            Quantidade:<input type="text"name="Quantidade" id=Quantidade>
-                            Nome:<input type="text"name="Nome" id=Nome><br>
+                            <div class="form-group">
+                                <label class="small mb-2" for="inputFirstName">Código</label>
+                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Código" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-2" for="inputFirstName">Valor</label>
+                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Valor" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-2" for="inputFirstName">Quantidade</label>
+                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite a Quantidade" />
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-2" for="inputFirstName">Nome</label>
+                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                            </div>
 
                             <input type="button" value="Inserir" onclick="addTable();" ><br>
                             <input type="button" value="Cancelar"> <br><br>
