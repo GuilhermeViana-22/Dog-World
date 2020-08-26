@@ -36,9 +36,12 @@
             <main>
                 <!--
                -->
-
                 <form>
-                    <label class="small mb-6" for="inputLastName"><h3>Cliente</h3></label>
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Cliente</h3>
+                    </div>
+
+
                     <div class="form-group row">
                         <div class="col-md-3">
                             <div class="form-group">
@@ -81,7 +84,7 @@
                         <div class="form-group ">
 
                             <div class="col-md-15">
-                                <label for="inputEmail3" class="col-sm-1 col-form-label">Email</label>
+                                <label for="inputEmail" class="col-sm-1 col-form-label">Email</label>
                                 <input type="email" class="form-control py-2" id="inputEmail" placeholder="Email">
                             </div>
                         </div>
@@ -89,7 +92,7 @@
                             <label for="inputAddress">Endereço</label>
                             <input type="text" class="form-control py-3" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-5">
                             <label for="inputAddress2">Complemento</label>
                             <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
                         </div>
@@ -115,78 +118,129 @@
 
                         </div>
 
-
-
-
-
-                    </div>
-                    <label class="small mb-6" for="inputLastName"><h3>Animal</h3></label>
-                    <div class="form-group row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="small mb-2" for="inputFirstName">Nome</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="small mb-2" for="inputLastName">Idade</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a idade" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="small mb-1" for="inputLastName">RGA</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o CPF" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="small mb-1" for="inputLastName">Raça</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a Raça" />
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3 mb-0">
-                            <label for="inputLastName">Sexo</label>
-                            <select id="inputLastName" class="form-control py-2 ">
-                            <option selected>---Escolher---</option>
-                            <option>Macho</option>
-                            <option>Femea</option>
-                          </select>
-                        </div>
-
-                        <div class="form-group row col-mb-2">
-                            <div class="col-sm-10">
+                        <div class="form-group row col-md-2 ">
+                            <div class="col-sm-4">
                                 <button type="submit" class="btn btn-success">Salvar</button>
                             </div>
                         </div>
-                        <div class="form-group row col-md-2">
+                        <div class="form-group row col-md-2 ">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-warning">localizar</button>
                             </div>
                         </div>
-                        <div class="form-group row col-mb-2">
+                        <div class="form-group row ">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Atualizar</button>
                             </div>
                         </div>
 
+
+
+                    </div>
+
+
+
+                    <div class="card ">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-1">Animal</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                                      Novo Animal
+                                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                                      Existente
+                                                    </label>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="small mb-2" for="inputFirstName">Nome</label>
+                                            <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="small mb-2" for="inputLastName">Idade</label>
+                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a idade" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">RGA</label>
+                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o CPF" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Raça</label>
+                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a Raça" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputLastName">Sexo</label>
+                                        <select id="inputLastName" class="form-control py-2 ">
+                                                        <option selected>---Escolher---</option>
+                                                        <option>Macho</option>
+                                                        <option>Femea</option>
+                                                      </select>
+                                    </div>
+                                    <div class="form-group row col-md-2 ">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-success">Salvar</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row col-md-2">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-warning">localizar</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row col-mb-1">
+                                        <div class="col-sm-2">
+                                            <button type="submit" class="btn btn-primary">Atualizar</button>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </form>
+
+
+
+
+
+
+
+
+
+
+
 
             </main>
             <jsp:include page="footer.html" />
-            </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
 </body>
 
 </html>
