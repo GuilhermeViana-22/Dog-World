@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>System Dog World || Login</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/stylelogin.css">
@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <img src="img/1_BOM_GAROTO_01_E.jpg" id="imgb">
+    <img src="img/pets.jpg" id="imgb">
     <div class="container">
         <img src="img/utilizador.png" width="100px" height="100px" id="imgl">
         <form method="">
             <h1>Login</h1>
-            <p id="pl">Username</p>
-            <input type="text" id="loginu" placeholder="Put your username"><br><br>
-            <p id="pl">Password</p>
-            <input type="Password" id="logins" placeholder="Put your Password"><br><br>
-            <input type="submit" id="entrar" value="Enter" onclick="valida()">
+            <p id="pl">Usuario</p>
+            <input type="text" id="loginu" placeholder="Digite a matricula"><br><br>
+            <p id="pl">Senha</p>
+            <input type="Password" id="logins" placeholder="Digite sua senha"><br><br>
+            <input type="submit" id="entrar" value="Entrar" onclick="valida()">
 
 
 
@@ -44,6 +44,7 @@
 
             if (usu != "admin") {
                 alert("Put the username");
+
             } else if (sen != "admin") {
                 alert("Put the Password");
             } else {

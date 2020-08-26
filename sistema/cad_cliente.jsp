@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>System Dog World || Relatórios </title>
+    <title>System Dog World || cliente </title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -57,8 +57,8 @@
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="small mb-2" for="inputLastName">Idade</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a idade" />
+                                <label class="small mb-2" for="inputLastName">Data de nascimento</label>
+                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o nascimento" />
                             </div>
                         </div>
                         <div class="col-md-4">

@@ -22,7 +22,7 @@ body {
     border: 2px, solid, #000;
     border-radius: 80px 0px 80px 0px;
     color: #fff;
-    background-color: rgba(0, 0, 5, 0.8);
+    background-color: rgba(0, 0, 5, 0.6);
     top: 50%;
     left: 50%;
     position: absolute;
@@ -40,6 +40,7 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #pl {
@@ -78,6 +79,6 @@ h1 {
 
 #entrar:hover {
     cursor: pointer;
-    background: #ff4d4d;
+    background: #3CB371;
     transition: 0.2s;
 }
