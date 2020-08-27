@@ -70,22 +70,22 @@
                             <label class="small mb-2" for="inputLastName">Valor</label>
                             <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Valor" />
                         </div>
-                       </div>
 
-                       <div class="form-group row col-md-2 ">
-                        <div class="col-sm-10">
-                        <button type="button" class="btn btn-success"><i class="fas fa-cart-plus"></i>    Inserir</button>
-                        </div>
-                    </div>
-                    <div class="form-group row col-md-2 ">
-                        <div class="col-sm-10">
+                        
+                        <div class="col-md-6 col-xs-12">
+                            <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
                             <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
+                            <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
+                            <br>
                         </div>
+                  
+
+              
+                    <div class="form-group row col-md-2 ">
+                      
                     </div>
                    <div class="form-group row col-md-2">
-                       <div class="col-sm-10">
-                    <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
-                        </div>
+                     
                     </div>
                     <table class="table table-dark">
                         <thead>
