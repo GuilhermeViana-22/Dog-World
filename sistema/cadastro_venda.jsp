@@ -76,13 +76,13 @@
                             <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
                             <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
                             <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
-                            <br>
+                            
                         </div>
                   
 
               
                     <div class="form-group row col-md-2 ">
-                      
+                   <br><br>
                     </div>
                    <div class="form-group row col-md-2">
                      
