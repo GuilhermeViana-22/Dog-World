@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>System Dog World</title>
+    <title>System Dog World || Cadastra Venda</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
@@ -21,8 +21,6 @@
     <style>
         .container{overflow: hidden;}
         .tab{float: under;}
-        .tab-1{margin-left: 50px}
-        .tab-1 input{display:block; margin-bottom: 2px;}
         .tab-2{margin-left: 100px}
         .tab-2 input{display:block; margin-bottom: 2px;}
         .form-group{
@@ -31,8 +29,10 @@
             padding: 11px 21px;
             vertical-align: middle;
             border-radius:6px;
+        }
+        table#myTable{
+            margin-right: 500px;
             
-
         }
 
 
@@ -65,7 +65,7 @@
 
                 <fieldset>
                    
-                    <table class="table table-striped table-dark">
+                    <table class="table table-striped table-dark" id="myTable">
                         <thead>
                             <tr>
                                 <th scope="col">Codigo</th>
@@ -81,11 +81,12 @@
 
                         </tbody>
                     </table>
-                   
                     
+                    
+                    <form>
                     <div class="container">
-                        <div class="tab tab-2">
-                            <div class="form-group">
+                        
+                            <div class="form-group row">
                                 <label class="small mb-2" for="inputFirstName">Código</label>
                                 <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Código" />
                             </div>
@@ -106,7 +107,7 @@
                             <input type="button" value="Cancelar"> <br><br>
                             
                         </div>
-                      
+                    </form> 
                     <input type="button" value="Alterar"> <br>
                     Método de pagamento:
                     <select name="example_length" aria-controls="example" 
