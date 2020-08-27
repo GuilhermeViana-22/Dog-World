@@ -49,12 +49,11 @@
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o CPF" />
                     </div>
 
-                    <div>
-
-                  
+                    <div class="container-fluid">
                        <div class="form-group row">
+                       
                         <div class="form-group">
-                            <label class="small mb-2" for="inputFirstName">  Produto</label>
+                            <label class="small mb-2" for="inputFirstName">Produto</label>
                             <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Nome do produto" />
                         </div>
                         <div class="form-group">
@@ -70,19 +69,15 @@
                             <label class="small mb-2" for="inputLastName">Valor</label>
                             <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Valor" />
                         </div>
-
-                        
-                        <div class="col-md-6 col-xs-12">
+                       
+                        <div id="botoes" class="col-md-6 col-xs-12">
                             <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
                             <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
                             <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
-                            
                         </div>
-                  
-
-              
+                    </div>
                     <div class="form-group row col-md-2 ">
-                   <br><br>
+                   
                     </div>
                    <div class="form-group row col-md-2">
                      
@@ -94,8 +89,6 @@
                             <th scope="col">Quantidade</th>
                             <th scope="col">Produto</th>
                             <th scope="col">Preço</th>
-                            
-                            
                           </tr>
                         </thead>
                         <tbody>

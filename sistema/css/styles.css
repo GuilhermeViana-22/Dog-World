@@ -10364,3 +10364,6 @@ body {font-family: Verdana, sans-serif;}
 @media screen and (max-width: 190px) {
   .weekdays li, .days li {width: 12.2%;}
 }
+#botoes{
+  padding: 20px;
+}
