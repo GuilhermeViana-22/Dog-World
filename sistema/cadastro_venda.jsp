@@ -9,122 +9,139 @@
     <meta name="author" content="" />
     <title>System Dog World || Cadastra Venda</title>
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous">
+
+        
+    
     </script>
 
-
-
+    
+        
 </head>
 
 <body class="sb-nav-fixed">
 
     <jsp:include page="nav.html" />
-
+   
     <div id="layoutSidenav">
 
-        <jsp:include page="menu_lateral.html" />
+    <jsp:include page="menu_lateral.html" />
 
 
         <div id="layoutSidenav_content">
             <main>
-                <div id="dadosCliente">
+               
+                <form>
                     <div class="form-group">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">Cadastrar Venda</h3>
+                        </div>
+                      <div class="form-group">
                         <label class="small mb-2" for="inputFirstName">Nome</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="small mb-2" for="inputFirstName">CPF</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o CPF" />
                     </div>
 
-                </div>
+                    <div>
 
-                <fieldset>
-
-                    <table class="table table-striped table-dark" id="myTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Codigo</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Quantidade</th>
-                                <th scope="col">Valor</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-
-                        </tbody>
-                    </table>
-
-
-                    <form>
-                        <div class="container">
-
-                            <div class="form-group row">
-                                <label class="small mb-1" for="inputFirstName">Código</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Código" />
-                            </div>
-                            <div class="form-group">
-                                <label class="small mb-2" for="inputFirstName">Valor</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Valor" />
-                            </div>
-                            <div class="form-group">
-                                <label class="small mb-2" for="inputFirstName">Quantidade</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite a Quantidade" />
-                            </div>
-                            <div class="form-group">
-                                <label class="small mb-2" for="inputFirstName">Nome</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
-                            </div>
-                            <div class="form-group row col-md-1 ">
-                                <div class="col-sm-15">
-                                    <button type="submit" class="btn btn-success">Inserir</button>
-                                </div>
-                            </div>
-                            <div class="form-group row col-md-2 ">
-                                <div class="col-sm-15">
-                                    <button type="submit" class="btn btn-danger">Cancelar</button>
-                                </div>
-                            </div>
-
-
+                  
+                       <div class="form-group row">
+                        <div class="form-group">
+                            <label class="small mb-2" for="inputFirstName">  Produto</label>
+                            <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Nome do produto" />
                         </div>
-                    </form>
+                        <div class="form-group">
+                            <label class="small mb-2" for="inputLastName">Código</label>
+                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Código" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="small mb-2" for="inputLastName">Quantidade</label>
+                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a Quantidade" />
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-2" for="inputLastName">Valor</label>
+                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Valor" />
+                        </div>
+                       </div>
+
+                       <div class="form-group row col-md-2 ">
+                        <div class="col-sm-10">
+                        <button type="button" class="btn btn-success"><i class="fas fa-cart-plus"></i>    Inserir</button>
+                        </div>
+                    </div>
                     <div class="form-group row col-md-2 ">
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-warning">Alterar</button>
-                        </div>
-                    </div> <br> Método de pagamento:
-                    <select name="example_length" aria-controls="example" class="custom-select custom-select-sm form-control form-control-sm">
-                            <option value="">--Selecione--</option>
-                            <option value="debito">Debito</option>
-                            <option value="credito">Credito</option>
-                            <option value="dinheiro">Dinheiro</option>
-                           
-
-                    </select>
-                    <div class="form-group row col-md-5 ">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
                         </div>
                     </div>
-                    <div class="form-group row col-md-1 ">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-danger">Cancelar</button>
+                   <div class="form-group row col-md-2">
+                       <div class="col-sm-10">
+                    <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
                         </div>
                     </div>
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Preço</th>
+                            
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>001</td>
+                            <td>Ração golden sabor carne</td>
+                            <td>2</td>
+                            <td>R$60,00 </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>001</td>
+                            <td>Ração golden sabor carne para gatos</td>
+                            <td>2</td>
+                            <td>R$60,00 </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>001</td>
+                            <td>Ração golden sabor Frango</td>
+                            <td>2</td>
+                            <td>R$60,00 </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                   
+                    </div>
+                    <div class="form-group form-check">
+                     
+                      
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
 
 
-                </fieldset>
+
+
             </main>
-            <jsp:include page="footer.html" />
-        </div>
+    <jsp:include page="footer.html" />
+	  </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
