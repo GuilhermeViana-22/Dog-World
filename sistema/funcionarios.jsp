@@ -39,7 +39,7 @@
                         <ul class="flex-outer">
                             <li>
                                 <label class="text-input"  for="matricula">Matricula</label>
-                                <input type="text" class="form-control"  id="form-input" placeholder="Digite o número matricula">
+                                <input type="text" class="form-control"  id="form-input" placeholder="Digite o número matricula" width="">
                             </li>
                             <li>
                                 <label class="text-input" for="nome">Nome</label>
@@ -69,42 +69,49 @@
                                 <button type="button" class="btn btn-secondary">Salvar</button>
                                 <button type="button" class="btn btn-secondary">Alterar</button>
                                 <button type="button" class="btn btn-secondary">Deletar</button>
-                                <br>   <br>
+                                
                             </li>
                             <li>
                     </form>
                 </div>
                </section>
-
+               <div>
+                <br>
+            </div>
 
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 col-xs-12">
                             <label>
-                                Mostrar
-        
+                               <h6><strong> Mostrar:</strong></h6>
                                 <select name="example_length" aria-controls="example"
                                     class="custom-select custom-select-sm form-control form-control-sm">
-                                    <option value="10">5</option>
-                                    <option value="25">10</option>
-                                    <option value="50">15</option>
-                                    <option value="100">30</option>
+                                    <option value="###"> ------Selecione-------</option>
+                                    <option value="###">Vendas</option>
+                                    <option value="###">Administração</option>
+                                    <option value="###">Gerência</option>
+                                    <option value="###">Diretoria</option>
+                                    <option value="###">Operador</option>
         
                                 </select>
         
                             </label>
                         </div> 
-
                         <div class="col-md-6 col-xs-12 col-sm-12">
                             <div id="example_filter" class="dataTables_filter">
-                                <label>Pesquisar:<input
-                                        type="search" class="form-control form-control-sm" placeholder=""
+                                <!---Pesquisa por nome de colaborador em  tabela-->
+
+                                <label><h6><strong> Pesquisar:</strong></h6><input
+                                    
+                                        type="search" class="form-control form-control-sm" style="width: 400px;" placeholder=""
                                         aria-controls="example"></label>
                             </div>
                         </div>
                     </div>
 
-                  
+                    <div>
+                        <br>
+                    </div>
                    
                     <table class="table table-striped table-dark" style="background: rgb(9,5,71);
                     background: linear-gradient(90deg, rgba(9,5,71,1) 0%, rgba(53,60,68,1) 0%, rgba(2,15,31,1) 96%);;">
