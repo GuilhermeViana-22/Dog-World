@@ -8,6 +8,7 @@ function progress() {
     function frame() {
         if (progress == 500 && counter == 100) {
             clearInterval(id);
+            window.open("http://localhost:8080/aps/trunk/sistema/");
 
         } else {
             progress += 5;
@@ -15,12 +16,11 @@ function progress() {
             prg.style.width = progress + 'px';
             percent.innerHTML = counter + '%';
 
+
         }
+
     }
+
 }
 
 progress();
-
-
-
-
