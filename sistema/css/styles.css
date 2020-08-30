@@ -10367,3 +10367,7 @@ body {font-family: Verdana, sans-serif;}
 #botoes{
   padding: 20px;
 }
+/*está parte é o css da tela de relatorios*/
+.hidden{
+  display: none;
+}

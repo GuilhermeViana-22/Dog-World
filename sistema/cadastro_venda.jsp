@@ -39,19 +39,18 @@
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Cadastrar Venda</h3>
                         </div>
-                      <div class="form-group">
+                      <div class="col-md-6 col-xs-12">
                         <label class="small mb-2" for="inputFirstName">Nome</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
                     </div>
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 col-xs-12">
                         <label class="small mb-2" for="inputFirstName">CPF</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o CPF" />
                     </div>
 
                     <div class="container-fluid">
                        <div class="form-group row">
-                       
                         <div class="form-group">
                             <label class="small mb-2" for="inputFirstName">Produto</label>
                             <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Nome do produto" />
