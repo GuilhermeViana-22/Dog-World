@@ -9,23 +9,41 @@
     <meta name="author" content="" />
     <title>System Dog World</title>
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        #img {
+            position: relative;
+            left: 30%;
+            height: 30%;
+            width: 500px;
+            height: 500px;
+        }
         
+        @media screen and (min-width: 300px) and (max-width: 500px) {
+            #img {
+                position: relative;
+                left: 20%;
+                height: 30%;
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
 
     <jsp:include page="nav.html" />
-   
+
     <div id="layoutSidenav">
 
-    <jsp:include page="menu_lateral.html" />
+        <jsp:include page="menu_lateral.html" />
 
         <div id="layoutSidenav_content">
             <main>
+                <!----
                 <div class="container-fluid">
                     <br />
                     <div class="row">
@@ -102,13 +120,46 @@
 
 
                 </div>
+                <img src="img/dg.png" id="img">
+            -->
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="img/pets.jpg" alt="Primeiro Slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="img/imgc2.jpg" alt="Segundo Slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="img/imgc3.jpg" alt="Terceiro Slide">
+
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="img/imgc4.jpg" alt="Terceiro Slide">
+
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
             </main>
-    <jsp:include page="footer.html" />
-	  </div>
+            <jsp:include page="footer.html" />
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>

@@ -105,34 +105,37 @@
                                 <label for="inputEstado">Cidade</label>
                                 <select id="inputEstado" class="form-control">
                                 <option selected>Escolher...</option>
-                                <option>...</option>
+                                <option>Guarulhos</option>
+                                <option>Campinas</option>
+                                <option>São Bernardo do Campo</option>
+                                <option>Santo André</option>
+                                <option>São José dos Campos</option>
+                                <option>Osasco</option>
+                                <option>Ribeirão Preto</option>
+                                <option>Sorocaba</option>
+                                <option>Mauá</option>
+                                <option>São José do Rio Preto</option>
+                                <option>Santos</option>
+                                <option>Mogi das Cruzes</option>
+                                <option>Diadema</option>
                               </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputEstado">Estado</label>
                                 <select id="inputEstado" class="form-control">
                                 <option selected>Escolher...</option>
-                                <option>...</option>
+                                <option>São Paulo</option>
                               </select>
                             </div>
 
                         </div>
 
-                        <div class="form-group row col-md-2 ">
-                            <div class="col-sm-4">
-                                <button type="submit" class="btn btn-success">Salvar</button>
-                            </div>
+                        <div id="botoes" class="col-md-6 col-xs-12">
+                            <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                            <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
+                            <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
                         </div>
-                        <div class="form-group row col-md-2 ">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-warning">localizar</button>
-                            </div>
-                        </div>
-                        <div class="form-group row ">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Atualizar</button>
-                            </div>
-                        </div>
+
 
 
 
@@ -193,21 +196,13 @@
                                                         <option>Femea</option>
                                                       </select>
                                     </div>
-                                    <div class="form-group row col-md-2 ">
-                                        <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-success">Salvar</button>
-                                        </div>
+
+                                    <div id="botoes" class="col-md-6 col-xs-12">
+                                        <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                        <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
+                                        <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
                                     </div>
-                                    <div class="form-group row col-md-2">
-                                        <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-warning">localizar</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row col-mb-1">
-                                        <div class="col-sm-2">
-                                            <button type="submit" class="btn btn-primary">Atualizar</button>
-                                        </div>
-                                    </div>
+
 
 
 
