@@ -196,36 +196,102 @@
                                                         <option>Femea</option>
                                                       </select>
                                     </div>
+                                    <div class="row w-100">
+                                        <div class="col-xl-12 col-md-12 ">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <i class="fas fa-table mr-6"></i> Animais
+                                                </div>
+                                                <div class="card-body mr-1">
+                                                    <table class="table table-bordered">
+                                                        <tr>
+                                                            <th>RGA</th>
+                                                            <th>Nome</th>
+                                                            <th>idade</th>
+                                                            <th>Raça</th>
+                                                            <th>Observação</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td">136857</td>
+                                                            <td>Max</td>
+                                                            <td>chitsu</td>
+                                                            <td>3 anos</td>
+                                                            <td>Alergico a talco</td>
 
-                                    <div id="botoes" class="col-md-6 col-xs-12">
-                                        <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
-                                        <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
-                                        <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td">134587</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td">136598</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td">136485</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td">136456</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
                                     </div>
 
 
-
-
                                 </div>
-                            </form>
+                                <div id="botoes" class="col-md-6 col-xs-12">
+                                    <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                    <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
+                                    <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
+                                </div>
+
+
+
+
                         </div>
+                        </form>
                     </div>
-                </form>
-
-
-
-
-
-
-
-
-
-
-
-
-            </main>
-            <jsp:include page="footer.html" />
         </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <jsp:include page="footer.html" />
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
