@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>System Dog World || cliente </title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -14,6 +15,77 @@
 
 </head>
 
+<script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+           
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+           
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+          
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+            
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+                
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
 <body class="sb-nav-fixed">
 
     <jsp:include page="nav.html" />
@@ -88,9 +160,10 @@
                                 <input type="email" class="form-control py-2" id="inputEmail" placeholder="Email">
                             </div>
                         </div>
+                        <form method="get" action=".">
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Endereço</label>
-                            <input type="text" class="form-control py-3" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                            <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
                         </div>
                         <div class="form-group col-md-5">
                             <label for="inputAddress2">Complemento</label>
@@ -99,34 +172,22 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputCEP">CEP</label>
-                                <input type="text" class="form-control" id="inputCEP">
+                                <input name="cep" type="text" class="form-control" id="cep" value=""
+                                onblur="pesquisacep(this.value);">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputEstado">Cidade</label>
-                                <select id="inputEstado" class="form-control">
-                                <option selected>Escolher...</option>
-                                <option>Guarulhos</option>
-                                <option>Campinas</option>
-                                <option>São Bernardo do Campo</option>
-                                <option>Santo André</option>
-                                <option>São José dos Campos</option>
-                                <option>Osasco</option>
-                                <option>Ribeirão Preto</option>
-                                <option>Sorocaba</option>
-                                <option>Mauá</option>
-                                <option>São José do Rio Preto</option>
-                                <option>Santos</option>
-                                <option>Mogi das Cruzes</option>
-                                <option>Diadema</option>
-                              </select>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputLastName">Cidade</label>
+                                    <input name="cidade" id="cidade" class="form-control py-2"  type="text" placeholder="" />
+                                </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputEstado">Estado</label>
-                                <select id="inputEstado" class="form-control">
-                                <option selected>Escolher...</option>
-                                <option>São Paulo</option>
-                              </select>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputLastName">Estado</label>
+                                    <input name="uf" class="form-control py-2" type="text" placeholder="" id="uf"/>
+                                </div>
                             </div>
+                        </form>
 
                         </div>
 
