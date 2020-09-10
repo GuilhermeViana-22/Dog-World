@@ -2,11 +2,11 @@
  * This function allows you to go to an specific frame of the animation
  * Remember the frames are a percentage number, so it goes from 0 to 100
  **/
-function goTo(frame) {
-    reset(); // Just reset
 
-    //For some reason Javascript needs a time to remove animate class. I tried to use as callback from reset but it just didnt work. 
-    setTimeout(function() {
+reset(); // Just reset
+
+//For some reason Javascript needs a time to remove animate class. I tried to use as callback from reset but it just didnt work. 
+setTimeout(function(frame) {
         //Get components
         var chart = document.getElementById("radioChartContent"),
             pVal = document.getElementById("percentValue");
@@ -19,7 +19,7 @@ function goTo(frame) {
         //Get percentage one by one
         var currTimeout = setInterval(function() {
             //Check is reach the limit
-            if (currentPercent == frame || currentPercent > 100) {
+            if (currentPercent == frame || currentPercent > 99) {
 
                 //Clear interval
                 clearInterval(currTimeout);
@@ -34,9 +34,20 @@ function goTo(frame) {
                 //show new percentage
                 pVal.innerHTML = currentPercent + "%";
             }
-        }, 10); //We are using 10 cause it reference by a 1 second (1000 miliseconds) animation. If you're using 4 seconds, change to 40 as  example
-    }, 100);
-}
+            if (currentPercent == 100) {
+                window.open("http://localhost:8080/aps/trunk/sistema/");
+
+            }
+
+        }, 10);
+
+        //We are using 10 cause it reference by a 1 second (1000 miliseconds) animation. If you're using 4 seconds, change to 40 as  example
+    },
+
+    100
+
+);
+
 
 //Reset to initial position
 function reset() {
