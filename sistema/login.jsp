@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <img src="img/pets.jpg" id="imgb">
 
     <div class="container">
@@ -20,15 +18,35 @@
         <form method="">
             <h1>Login</h1>
             <p id="pl">Usuario</p>
-            <input type="text" id="loginu" placeholder="Digite a matricula"><br><br>
+            <input type="text" id="loginu" name="usu" placeholder="Digite a matricula"><br><br>
             <p id="pl">Senha</p>
-            <input type="Password" id="logins" placeholder="Digite sua senha"><br><br>
+            <input type="Password" id="logins" name="sen"  placeholder="Digite sua senha"><br><br>
             <input type="submit" id="entrar" value="Entrar" onclick="valida()">
+            <label name="span"></label>
 
 
 
         </form>
+<%
+string usuario = request.getparanmeter("usu");
+string senha = request.getparanmeter("sen");
+string span = request.getparanmeter("span");
+if(usuario != "admin"){
+    span.setText("Digite os campos necessario");
 
+
+}else if (senha != "admin"){
+span.setText("Digite os campos necessario");
+
+}else{
+
+response.sendRedirect("http://localhost:8080/aps/trunk/sistema/charger_progress.html");
+
+}
+
+
+
+%>
 
 
         <a href="recupera_senha.html">Esqueci a senha </a>
@@ -37,7 +55,7 @@
     </div>
 
 
-    <script>
+    <script>/*
         var user = "admin";
         var senha = "admin";
 
@@ -63,7 +81,7 @@
             }
 
 
-        }
+        }*/
     </script>
 
 </body>

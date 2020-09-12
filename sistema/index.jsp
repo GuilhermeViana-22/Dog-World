@@ -34,7 +34,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-
+ 
     <jsp:include page="nav.html" />
 
     <div id="layoutSidenav">
