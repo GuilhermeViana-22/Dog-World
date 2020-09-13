@@ -43,7 +43,6 @@
 
         <div id="layoutSidenav_content">
             <main>
-                <!----
                 <div class="container-fluid">
                     <br />
                     <div class="row">
@@ -53,7 +52,6 @@
                                     <div class="col-md-10"><i class="fas fa-chart-line" style="font-size: 35px;"></i>
                                         Total de vendas de hoje </i></div>
                                     <div class="col-md-2">R$ 253,00</div>
-
                                 </div>
                             </div>
                         </div>
@@ -121,7 +119,7 @@
 
                 </div>
                 <img src="img/dg.png" id="img">
-            -->
+        
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
