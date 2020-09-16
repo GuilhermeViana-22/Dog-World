@@ -92,15 +92,15 @@
 
     <div id="layoutSidenav">
 
-        <!--Tag de incorporação ao menu no codigo html
+        <!--Tag de incorporação ao menu no codigo html-->
 
--->>
+
 
         <jsp:include page="menu_lateral.html" />
 
-        <!--Tag de incorporação ao menu no codigo html
+        <!--Tag de incorporação ao menu no codigo html-->
 
--->>
+
 
         <div id="layoutSidenav_content">
 
@@ -108,40 +108,41 @@
             <main>
                 <!--
                -->
-                <form>
+                <form id="formExemplo" data-toggle="validator" role="form">
                     <div class="card-header">
                         <h3 class="text-center font-weight-light my-4">Cliente</h3>
                     </div>
 
 
-                    <div class="form-group row">
+                    <div class="form-group row" >
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="small mb-2" for="inputFirstName">Nome</label>
-                                <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                                <label class="small mb-2" for="textNome">Nome</label>
+                                <input class="form-control py-2" id="textNome" type="text" placeholder="Digite o nome " required />
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="small mb-2" for="inputLastName">Sobrenome</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o sobrenome" />
+                                <input class="form-control py-2" id="inputLastName"  type="text" placeholder="Digite o sobrenome"  required/>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="small mb-2" for="inputLastName">Data de nascimento</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o nascimento" />
+                                <label class="small mb-2" for="dtNasc">Data de nascimento</label>
+                                <input class="form-control py-2" id="dtNasc" type="text" placeholder="Digite o nascimento"required />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="small mb-1" for="inputLastName">CPF</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o CPF" />
+                                <label class="small mb-1" for="txtCpf">CPF</label>
+                                <input class="form-control py-2" id="txtCpf" type="text" placeholder="Digite o CPF" required />
                             </div>
                         </div>
                         <div class="form-group col-md-3 mb-0">
-                            <label for="inputLastName">Sexo</label>
-                            <select id="inputLastName" class="form-control py-2 ">
+                            <label for="cmbSexo">Sexo</label>
+                            <select id="cmbSexo" class="form-control py-2 " required>
                             <option selected>---Escolher---</option>
                             <option>Masculino</option>
                             <option>Feminino</option>
@@ -149,50 +150,63 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="small mb-1" for="inputLastName">Telefone/Celular</label>
-                                <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Telefone" />
+                                <label class="small mb-1" for="txtTelefone">Telefone/Celular</label>
+                                <input class="form-control py-2" id="txtTelefone" type="text" placeholder="Digite o Telefone" required />
                             </div>
                         </div>
                         <div class="form-group ">
 
                             <div class="col-md-15">
-                                <label for="inputEmail" class="col-sm-1 col-form-label">Email</label>
-                                <input type="email" class="form-control py-2" id="inputEmail" placeholder="Email">
+                                <label for="inputEmail" for="txtEmail" class="col-sm-1 col-form-label">Email</label>
+                                <input type="email" class="form-control py-2" id="txtEmail" placeholder="Email" required>
                             </div>
                         </div>
                         <form method="get" action=".">
                         <div class="form-group col-md-6">
-                            <label for="inputAddress">Endereço</label>
+                            <label for="rua">Endereço</label>
                             <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="inputAddress2">Complemento</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
+                            <label for="txtComp">Complemento</label>
+                            <input type="text" class="form-control" id="txtComp" placeholder="Apartamento, hotel, casa, etc." required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="inputCEP">CEP</label>
-                                <input name="cep" type="text" class="form-control" id="cep" value=""
-                                onblur="pesquisacep(this.value);">
+                                <label for="txtCep">CEP</label>
+                                <input type="text" class="form-control" id="txtCep" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Cidade</label>
-                                    <input name="cidade" id="cidade" class="form-control py-2"  type="text" placeholder="" />
-                                </div>
+                                <label for="cnbCidade">Cidade</label>
+                                <select id="cnbCidade" class="form-control">
+                                <option selected>---Selecione---</option>
+                                <option>Guarulhos</option>
+                                <option>Campinas</option>
+                                <option>São Bernardo do Campo</option>
+                                <option>Santo André</option>
+                                <option>São José dos Campos</option>
+                                <option>Osasco</option>
+                                <option>Ribeirão Preto</option>
+                                <option>Sorocaba</option>
+                                <option>Mauá</option>
+                                <option>São José do Rio Preto</option>
+                                <option>Santos</option>
+                                <option>Mogi das Cruzes</option>
+                                <option>Diadema</option>
+                              </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Estado</label>
-                                    <input name="uf" class="form-control py-2" type="text" placeholder="" id="uf"/>
-                                </div>
+                                <label for="cmbEstado">Estado</label>
+                                <select id="inputEstado" class="form-control">
+                                <option selected>Escolher...</option>
+                                <option>São Paulo</option>
+                              </select>
                             </div>
                         </form>
 
                         </div>
 
                         <div id="botoes" class="col-md-6 col-xs-12">
-                            <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
                             <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
                             <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
                         </div>
@@ -331,29 +345,26 @@
                                 </div>
 
 
-
+                            </form>
 
                         </div>
-                        </form>
-                    </div>
-        </div>
-        </form>
+                        
+                    </div>                   
+                </form>
+                
+            </main>
+            <jsp:include page="footer.html" />
+         </div>
+     
+     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-        </main>
-        <jsp:include page="footer.html" />
+     
+        
+        
+     
     </div>
-    </div>
+    
+    <script src="js/validator.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
