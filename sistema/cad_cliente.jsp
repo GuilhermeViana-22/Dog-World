@@ -134,6 +134,7 @@
                                 <input class="form-control py-2" id="dtNasc" type="text" placeholder="Digite o nascimento"required />
                             </div>
                         </div>
+                        <form method="get" action=".">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="small mb-1" for="txtCpf">CPF</label>
@@ -161,47 +162,35 @@
                                 <input type="email" class="form-control py-2" id="txtEmail" placeholder="Email" required>
                             </div>
                         </div>
+                        
                         <form method="get" action=".">
-                        <div class="form-group col-md-6">
-                            <label for="rua">Endereço</label>
-                            <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label for="txtComp">Complemento</label>
-                            <input type="text" class="form-control" id="txtComp" placeholder="Apartamento, hotel, casa, etc." required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="txtCep">CEP</label>
-                                <input type="text" class="form-control" id="txtCep" required>
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress">Endereço</label>
+                                <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="cnbCidade">Cidade</label>
-                                <select id="cnbCidade" class="form-control">
-                                <option selected>---Selecione---</option>
-                                <option>Guarulhos</option>
-                                <option>Campinas</option>
-                                <option>São Bernardo do Campo</option>
-                                <option>Santo André</option>
-                                <option>São José dos Campos</option>
-                                <option>Osasco</option>
-                                <option>Ribeirão Preto</option>
-                                <option>Sorocaba</option>
-                                <option>Mauá</option>
-                                <option>São José do Rio Preto</option>
-                                <option>Santos</option>
-                                <option>Mogi das Cruzes</option>
-                                <option>Diadema</option>
-                              </select>
+                            <div class="form-group col-md-5">
+                                <label for="inputAddress2">Complemento</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="cmbEstado">Estado</label>
-                                <select id="inputEstado" class="form-control">
-                                <option selected>Escolher...</option>
-                                <option>São Paulo</option>
-                              </select>
-                            </div>
-                        </form>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputCEP">CEP</label>
+                                    <input name="cep" type="text" class="form-control" id="cep" value=""
+                                    onblur="pesquisacep(this.value);">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Cidade</label>
+                                        <input name="cidade" id="cidade" class="form-control py-2"  type="text" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Estado</label>
+                                        <input name="uf" class="form-control py-2" type="text" placeholder="" id="uf"/>
+                                    </div>
+                                </div>
+                            </form>
 
                         </div>
 
