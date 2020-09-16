@@ -168,7 +168,7 @@
                                 <label for="inputAddress">Endereço</label>
                                 <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
                             </div>
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-3">
                                 <label for="inputAddress2">Complemento</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
                             </div>

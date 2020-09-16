@@ -8,7 +8,7 @@ function progress() {
     function frame() {
         if (progress == 500 && counter == 100) {
             clearInterval(id);
-            window.open("http://localhost:8080/aps/trunk/sistema/index.jsp");
+            window.open("http://localhost:8080/aps/trunk/sistema");
 
         } else {
             progress += 10;
