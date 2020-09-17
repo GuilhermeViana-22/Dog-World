@@ -108,7 +108,10 @@
             <main>
                 <!--
                -->
+               <div class="container-fluid">
+
                 <form id="formExemplo" data-toggle="validator" role="form">
+                 
                     <div class="card-header">
                         <h3 class="text-center font-weight-light my-4">Cliente</h3>
                     </div>
@@ -126,12 +129,15 @@
                             <div class="form-group">
                                 <label class="small mb-2" for="inputLastName">Sobrenome</label>
                                 <input class="form-control py-2" id="inputLastName"  type="text" placeholder="Digite o sobrenome"  required/>
+                            
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label class="small mb-2" for="dtNasc">Data de nascimento</label>
                                 <input class="form-control py-2" id="dtNasc" type="text" placeholder="Digite o nascimento"required />
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <form method="get" action=".">
@@ -139,10 +145,11 @@
                             <div class="form-group">
                                 <label class="small mb-1" for="txtCpf">CPF</label>
                                 <input class="form-control py-2" id="txtCpf" type="text" placeholder="Digite o CPF" required />
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-group col-md-3 mb-0">
-                            <label for="cmbSexo">Sexo</label>
+                            <label class="small mb-1" for="cmbSexo">Sexo</label>
                             <select id="cmbSexo" class="form-control py-2 " required>
                             <option selected>---Escolher---</option>
                             <option>Masculino</option>
@@ -153,35 +160,38 @@
                             <div class="form-group">
                                 <label class="small mb-1" for="txtTelefone">Telefone/Celular</label>
                                 <input class="form-control py-2" id="txtTelefone" type="text" placeholder="Digite o Telefone" required />
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-group ">
 
                             <div class="col-md-15">
-                                <label for="inputEmail" for="txtEmail" class="col-sm-1 col-form-label">Email</label>
-                                <input type="email" class="form-control py-2" id="txtEmail" placeholder="Email" required>
+                                <label for="inputEmail" for="txtEmail" class="small md-3 ">Email</label>
+                                <input type="email" class="form-control py-0" id="txtEmail" placeholder="Email" required>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         
                         <form method="get" action=".">
-                            <div class="form-group col-md-6">
-                                <label for="inputAddress">Endereço</label>
-                                <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputAddress2">Complemento</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputCEP">CEP</label>
+                        <div class="form-row">
+                                <div class="col-md-15">
+                                    <label for="inputCEP" class="small col-md-3 mb-1">CEP</label>
                                     <input name="cep" type="text" class="form-control" id="cep" value=""
                                     onblur="pesquisacep(this.value);">
                                 </div>
-                                <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress" class="small mb-1">Endereço</label>
+                                <input name="rua" type="text" class="form-control py-3" id="rua"  placeholder="Rua dos Bobos, nº 0">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputAddress2" class="small mb-1">Complemento</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Apartamento, hotel, casa, etc.">
+                            </div>
+                            
+                                <div class="form-group col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputLastName">Cidade</label>
-                                        <input name="cidade" id="cidade" class="form-control py-2"  type="text" placeholder="" />
+                                        <input name="cidade" id="cidade" class="form-control py-1"  type="text" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
@@ -204,7 +214,7 @@
 
 
                     </div>
-
+                    
 
 
                     <div class="card ">
@@ -212,13 +222,13 @@
                             <h3 class="text-center font-weight-light my-1">Animal</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form data-toggle="validator" role="form">
 
                                 <div class="form-check">
+                                    
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                                      Novo Animal
-                                                    </label>
+                            
+                                    <label class="form-check-label" for="exampleRadios1"> Novo Animal</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
@@ -229,36 +239,40 @@
                                 <div class="form-group row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="small mb-2" for="inputFirstName">Nome</label>
-                                            <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                                            <label class="small mb-2" for="NomeAnimal">Nome</label>
+                                            <input class="form-control py-2" id="NomeAnimal" type="text" placeholder="Digite o nome" required/>
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label class="small mb-2" for="inputLastName">Idade</label>
-                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a idade" />
+                                            <label class="small mb-2" for="idadeAnimal">Idade</label>
+                                            <input class="form-control py-2" id="idadeAnimal" type="text" placeholder="Digite a idade" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">RGA</label>
-                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o CPF" />
+                                            <label class="small mb-1" for="RgaAni">RGA</label>
+                                            <input class="form-control py-2" id="RgaAni" type="text" placeholder="Digite o RGA" />
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">Raça</label>
-                                            <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a Raça" />
+                                            <label class="small mb-1" for="Raça">Raça</label>
+                                            <input class="form-control py-2" id="Raça" type="text" placeholder="Digite a Raça" required/>
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputLastName">Sexo</label>
-                                        <select id="inputLastName" class="form-control py-2 ">
+                                        <label for="SexoAni " class="small mb-1">Sexo</label>
+                                        <select id="SexoAni" class="form-control py-2 ">
                                                         <option selected>---Escolher---</option>
                                                         <option>Macho</option>
                                                         <option>Femea</option>
-                                                      </select>
+                                        </select>
                                     </div>
                                     <div class="row w-100">
                                         <div class="col-xl-12 col-md-12 ">
@@ -328,9 +342,9 @@
 
                                 </div>
                                 <div id="botoes" class="col-md-6 col-xs-12">
-                                    <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
-                                    <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
-                                    <button type="button" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
+                                    <button type="Submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                    <button type="Submit" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
+                                    <button type="Submit" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
                                 </div>
 
 
@@ -338,9 +352,10 @@
 
                         </div>
                         
-                    </div>                   
-                </form>
-                
+                    </div>
+                                   
+                   </form>
+                </div>
             </main>
             <jsp:include page="footer.html" />
          </div>

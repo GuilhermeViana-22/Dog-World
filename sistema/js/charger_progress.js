@@ -8,7 +8,9 @@ function progress() {
     function frame() {
         if (progress == 500 && counter == 100) {
             clearInterval(id);
-            window.open("http://localhost:8080/aps/trunk/sistema");
+            // window.open('http://localhost:8080/aps/trunk/sistema');
+            //window.closed('http://localhost:8080/aps/trunk/sistema/charger_progress.html')
+            window.open('http://localhost:8080/aps/trunk/sistema', 'janela');
 
         } else {
             progress += 10;
