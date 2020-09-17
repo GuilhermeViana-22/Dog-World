@@ -32,8 +32,6 @@ body {background-color: #cfe4ff;}
   position: absolute;
   
 }
-
-
 .center {
   margin: 0;
   position: absolute;
@@ -55,8 +53,6 @@ body {background-color: #cfe4ff;}
         <div id="layoutSidenav_content">
             <main>
 
-                
-               
                     <div class="container">
                         <div class="center">
                 Codigo <input type="text" class="Codigo">    <button><i class="fas fa-search"></i></button> 
