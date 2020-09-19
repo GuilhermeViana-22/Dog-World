@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Set-2020 às 22:07
+-- Tempo de geração: 20-Set-2020 às 00:45
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -56,6 +56,14 @@ CREATE TABLE `clientes` (
   `ativo` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`cod_cliente`, `nome_CLIENTE`, `email`, `cpf`, `telefone`, `endereco`, `COMPLEMENTO`, `CEP`, `dt_nascimento`, `ativo`) VALUES
+(1, 'cobasi', 'cobasi@cobasi.com.br', '34235435352', '3242432432', 'Rua zero a esquerda, 69', '', '3425423', '2020-09-01', 1),
+(2, 'petdog', 'petdog@email.com', '3432565', '4222222', 'rua um a esquerda, 69', '', '3243242', '2020-09-02', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -71,13 +79,20 @@ CREATE TABLE `funcionario` (
   `email_funcionario` varchar(300) NOT NULL,
   `endereco_funcionario` varchar(300) NOT NULL,
   `dtNascimento_funcionario` date NOT NULL,
-  `sexo` tinyint(1) NOT NULL,
+  `sexo` char(1) NOT NULL,
   `horario` time NOT NULL,
   `dt_admisao` date NOT NULL,
   `salario` int(11) NOT NULL,
   `cargo` varchar(300) NOT NULL,
   `senha` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`cod_funcionario`, `nome_funcionario`, `rg_funcionario`, `cpf_funcionario`, `telefone`, `email_funcionario`, `endereco_funcionario`, `dtNascimento_funcionario`, `sexo`, `horario`, `dt_admisao`, `salario`, `cargo`, `senha`) VALUES
+(1, 'Guilherme', '43523454235', '123456', '11123456789', 'gguicido.viana@gmail.com', 'Rua zero a esquerda, 69', '2020-06-02', 'M', '11:20:00', '2020-09-25', 1200, 'Funcionário', '123456');
 
 --
 -- Índices para tabelas despejadas
@@ -116,13 +131,13 @@ ALTER TABLE `animal`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `cod_funcionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
