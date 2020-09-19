@@ -16,7 +16,7 @@
 
 <body class="sb-nav-fixed">
 
-    <jsp:include page="nav.html" />
+    <?php include 'nav.html'; ?>
 
     <div id="layoutSidenav">
 
@@ -24,7 +24,7 @@
 
 -->>
 
-        <jsp:include page="menu_lateral.html" />
+        <?php include 'menu_lateral.html'; ?>
 
         <!--Tag de incorporação ao menu no codigo html
 
@@ -85,7 +85,7 @@
 
 
             </main>
-            <jsp:include page="footer.html" />
+            <?php include 'footer.html'; ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

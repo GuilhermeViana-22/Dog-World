@@ -88,7 +88,7 @@
     </script>
 <body class="sb-nav-fixed">
 
-    <jsp:include page="nav.html" />
+    <?php include 'nav.html'; ?>
 
     <div id="layoutSidenav">
 
@@ -96,7 +96,7 @@
 
 
 
-        <jsp:include page="menu_lateral.html" />
+        <?php include 'menu_lateral.html'; ?>
 
         <!--Tag de incorporação ao menu no codigo html-->
 
@@ -113,7 +113,7 @@
                 <form id="formExemplo" data-toggle="validator" role="form">
                  
                     <div class="card-header">
-                        <h3 class="text-center font-weight-light my-4">Funcion&aacute;rio</h3>
+                        <h3 class="text-center font-weight-light my-4">Cliente</h3>
                     </div>
 
 
@@ -163,12 +163,13 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                          <p>  <div class="col-md-15">
-                            <label for="inputEmail" for="txtEmail" class="small md-3 ">Email</label>
-                            <input type="email" class="form-control py-0" id="txtEmail" placeholder="Email" required>
-                            <div class="help-block with-errors"></div>
-                        </div></p>
+                        <div class="form-group ">
+
+                            <div class="col-md-15">
+                                <label for="inputEmail" for="txtEmail" class="small md-3 ">Email</label>
+                                <input type="email" class="form-control py-0" id="txtEmail" placeholder="Email" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
                         </div>
                         
                         <form method="get" action=".">
@@ -356,7 +357,7 @@
                    </form>
                 </div>
             </main>
-            <jsp:include page="footer.html" />
+            <?php include 'footer.html'; ?>
          </div>
      
      </div>
