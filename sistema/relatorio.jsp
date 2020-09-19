@@ -113,10 +113,7 @@
                 </ol>
                 <br><br>
                 <div class="paineis-ativaveis">
-                    <div class="painel painel-1" ><h1>Primeiro painel</h1></div>
-                    <div class="painel painel-2" style="display:none"><h2>Segundo Painel</h2></div>
-                    <div class="painel painel-3" style="display:none"><h3>Terceiro Painel</h3></div>
-                    <div class="painel painel-4" style="display:none"><h4>Quarto Painel</h4></div>
+            
                 
                 </div>
                 <section id="tables-vendas" class="hidden">
