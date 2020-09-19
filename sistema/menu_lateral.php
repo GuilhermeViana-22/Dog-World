@@ -20,6 +20,8 @@
                         <a class="nav-link" href="cad_cliente.php">Cadastro de Cliente</a>
                     </nav>
                 </div>
+
+                <?php if($_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "Funcionário") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subfinaceiro" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-coins"></i></div>
                     Financeiro
@@ -33,6 +35,8 @@
                         <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
                     </nav>
                 </div>
+                <?php } ?>
+
                 <div class="collapse" id="subvendas" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
              
                 </div>
@@ -58,7 +62,7 @@
         <div class="sb-sidenav-footer">
             <div class="small">Bem vindo :</div>
             <!--Programar nome de us�ario-->
-            Guilherme Viana
+            <?php echo $_SESSION["nome"]; ?>
         </div>
     </nav>
 </div>

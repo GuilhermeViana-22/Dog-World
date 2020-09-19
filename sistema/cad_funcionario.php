@@ -88,7 +88,7 @@
     </script>
 <body class="sb-nav-fixed">
 
-    <?php include 'nav.html'; ?>
+    <?php include 'nav.php'; ?>
 
     <div id="layoutSidenav">
 
@@ -96,7 +96,7 @@
 
 
 
-        <?php include 'menu_lateral.html'; ?>
+        <?php include 'menu_lateral.php'; ?>
 
         <!--Tag de incorporação ao menu no codigo html-->
 
@@ -356,7 +356,7 @@
                    </form>
                 </div>
             </main>
-            <?php include 'footer.html'; ?>
+            <?php include 'footer.php'; ?>
          </div>
      
      </div>

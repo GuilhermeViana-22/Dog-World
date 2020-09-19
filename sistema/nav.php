@@ -1,4 +1,6 @@
-﻿<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+﻿<?php include 'banco.php';  include 'verifica_login.php';  ?>
+
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
     <!---
         href="/aps/trunk/sistema/
@@ -25,7 +27,7 @@
                 <a class="dropdown-item" href="#">Editar Perfil</a>
                 <a class="dropdown-item" href="#">Configura&ccedil;&otilde;es</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">Sair</a>
+                <a class="dropdown-item" href="logout.php">Sair</a>
             </div>
         </li>
     </ul>

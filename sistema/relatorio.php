@@ -84,7 +84,7 @@
     <!--Tag de incorporação ao menu no codigo html
 
 -->>
-    <?php include 'nav.html'; ?>
+    <?php include 'nav.php'; ?>
 
     <!---- mudar a referência quebra o projeto do arquivo, faça uma cópia se precisar editar
     
@@ -95,7 +95,7 @@
         <!--Tag de incorporação ao menu no codigo html
 
 -->>
-        <?php include 'menu_lateral.html'; ?>
+        <?php include 'menu_lateral.php'; ?>
 
         <div id="layoutSidenav_content">
             <main>                
@@ -317,7 +317,7 @@
                 </section>
 
             </main>
-            <?php include 'footer.html'; ?>
+            <?php include 'footer.php'; ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

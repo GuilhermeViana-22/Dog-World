@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -36,11 +35,11 @@
 <body class="sb-nav-fixed">
  
 
-        <?php include 'nav.html';    ?>
+        <?php include 'nav.php';    ?>
 
     <div id="layoutSidenav">
 
-        <?php include 'menu_lateral.html';?>
+        <?php include 'menu_lateral.php';?>
 
         <div id="layoutSidenav_content">
             <main>
@@ -79,7 +78,7 @@
                     </a>
                 </div>
             </main>
-            <?php include 'footer.html'; ?>
+            <?php include 'footer.php'; ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

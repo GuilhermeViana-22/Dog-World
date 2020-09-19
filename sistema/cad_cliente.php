@@ -88,7 +88,7 @@
     </script>
 <body class="sb-nav-fixed">
 
-    <?php include 'nav.html'; ?>
+    <?php include 'nav.php'; ?>
 
     <div id="layoutSidenav">
 
@@ -96,7 +96,7 @@
 
 
 
-        <?php include 'menu_lateral.html'; ?>
+        <?php include 'menu_lateral.php'; ?>
 
         <!--Tag de incorporação ao menu no codigo html-->
 
@@ -215,8 +215,48 @@
 
                     </div>
                     
+                    <div class="container" style="border:1px black solid;">
+                    <table class="table table-stripped">
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
 
 
+                    <?php 
+                        $queryClietes = $conexao->query("SELECT * FROM clientes");
+                        while($dados = $queryClietes->fetch_assoc()) {
+                    ?>
+
+                    <tr>
+                        <td><?php echo $dados["nome_CLIENTE"]; ?></td>
+                    </tr>  
+
+                    <?php                        
+                        }
+                    ?>
+                 
+                    </table>
+                    
+                    <select class="form-control">
+
+                    <?php 
+                        $queryClietes = $conexao->query("SELECT * FROM clientes");
+                        while($dados = $queryClietes->fetch_assoc()) {
+                    ?>
+                   
+                    <option>
+                        <?php echo $dados["nome_CLIENTE"] . ""; ?>
+                    </option>  
+
+                    <?php                        
+                        }
+                    ?>
+
+                 </select>
+
+
+                    </div>
+                    <br/>
                     <div class="card ">
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-1">Animal</h3>
@@ -357,7 +397,7 @@
                    </form>
                 </div>
             </main>
-            <?php include 'footer.html'; ?>
+            <?php include 'footer.php'; ?>
          </div>
      
      </div>
