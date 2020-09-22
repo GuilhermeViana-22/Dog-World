@@ -31,8 +31,10 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="financeiro.php">Demonstrativo</a>
                         <a class="nav-link" href="cad_funcionario.php">Cadastrar Funcion&aacute;rio</a>
+                        <a class="nav-link" href="cad_funcionariov2.php">Cadastrar Funcion&aacute;rio (versão 2 em andamento)</a>
                         <a class="nav-link" href="cad_cliente.php">Cadastro de Cliente</a>
                         <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
+
                     </nav>
                 </div>
                 <?php } ?>
