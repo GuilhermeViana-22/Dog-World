@@ -130,7 +130,7 @@
                                 <div class="small-box bg-yellow">
                                     <div class="inner">
                                         <h3>15</h3>
-                                        <strong>Administradores</strong>
+                                        Administradores
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-pie-graph"></i>
@@ -139,6 +139,8 @@
                             </div>
 
                         </section>
+                        <div class="container">
+
                 <div id="" class="row">
                     <div class="row w-100">
                         <div class="col-md-8">
@@ -243,6 +245,7 @@
                             </div>
 
                         </div>
+                        
                         <div class="col-md-4">
                             <div class="box box-success">
                                 <div class="box-header with-border">
@@ -542,12 +545,14 @@
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-success">Salvar</button>
                                     </div>
+
                                 </form>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-
+                </div>
 
             </main>
             <?php include 'footer.php'; ?>
