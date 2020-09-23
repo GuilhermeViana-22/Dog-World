@@ -23,7 +23,7 @@
     <!---- mudar a referência quebra o projeto do arquivo, faça uma cópia se precisar editar
     
     
-    -->>
+    -->
 
     <div id="layoutSidenav">
 
