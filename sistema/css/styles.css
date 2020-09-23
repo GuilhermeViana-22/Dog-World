@@ -10379,3 +10379,8 @@ body {font-family: Verdana, sans-serif;}
 .func{
   background-color: rgb(235, 235, 250);
 }
+#tabela{
+  display: block;
+  display: border, 1px, solid;
+  background-color: #000000;
+}
