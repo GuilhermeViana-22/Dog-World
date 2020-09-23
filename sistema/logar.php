@@ -1,6 +1,6 @@
 <?php
 include 'banco.php';
-try{
+
     $cpf = $_REQUEST["cpf"];
     $senha = $_REQUEST["senha"];
     $query = $conexao->query("SELECT * FROM funcionario WHERE cpf_funcionario = '" . $cpf . "' AND senha = '" . $senha . "'");
@@ -22,11 +22,11 @@ try{
     }
 
 
-}catch{
 
 
 
-}
+
+
 
 
 

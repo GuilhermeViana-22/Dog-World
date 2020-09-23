@@ -237,7 +237,7 @@
                  
                     </table>
                     
-                    <select class="form-control">
+                    
 
                     <?php 
                         $queryClietes = $conexao->query("SELECT * FROM clientes");
