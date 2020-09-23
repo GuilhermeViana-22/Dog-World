@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>System Dog World || cliente </title>
+    <title>System Dog World || Funcionário </title>
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
