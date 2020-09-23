@@ -11,7 +11,7 @@
      
     echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;
      
-    mysqli_close($conexao);
+    mysqli_close($conexao);;
 
 
 
