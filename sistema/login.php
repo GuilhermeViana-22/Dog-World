@@ -6,7 +6,16 @@
     <title>System Dog World || Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/stylelogin.css">
+<<<<<<< .mine
+    
+||||||| .r81
+
+    
+=======
+>>>>>>> .r82
+</head>
 <body>
+
     <img src="img/pets.jpg" id="imgb">
 
     <div class="container">
@@ -26,13 +35,13 @@
             Erro ao fazer login.
         </div>
 
-        <?php } elseif(isset($_GET["erro"]) && $_GET["erro"] == 2) { ?>
+        <?php } else if(isset($_GET["erro"]) && $_GET["erro"] == 2) { ?>
 
         <div class="painel-erro">
             Você não está logado.<br/>Faça o login.
         </div>
         <?php } ?>
-<br/>
+          <br/>
         <a href="recupera_senha.html">Esqueci a senha </a>
 
     </div>
