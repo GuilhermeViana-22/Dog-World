@@ -7,6 +7,8 @@
                         Lembrando que qualquer alteração feita nessa parte gera um código de erro 404 do xammp
                         não será localizado nenhum arquivo
                         -->
+
+                        <?php if($_SESSION["cargo"] == "Atendente") { ?>      
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#controleusu" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
 
@@ -20,6 +22,7 @@
                         <a class="nav-link" href="cad_cliente.php">Cadastro de Cliente</a>
                     </nav>
                 </div>
+                        <?php } ?>
 
                 <?php if($_SESSION["cargo"] == "Gerente") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subfinaceiro" aria-expanded="false" aria-controls="collapseLayouts">
@@ -39,6 +42,7 @@
                 <div class="collapse" id="subvendas" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
              
                 </div>
+                
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subestoque" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i> </div>
                     Estoque
@@ -51,10 +55,12 @@
 
                     </nav>
                 </div>
+                
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subagendamento" aria-expanded="false" aria-controls="collapseLayouts">
             
                 </a>
                 <?php } ?>
+                 
             </div>
 
         </div>
