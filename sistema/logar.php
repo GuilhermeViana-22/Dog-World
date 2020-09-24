@@ -1,13 +1,13 @@
 <?php
 include 'banco.php';
 
-    $cpf = $_REQUEST["cpf"];
+    $email_funcionario = $_REQUEST["email_funcionario"];
     $senha = $_REQUEST["senha"];
-    $query = $conexao->query("SELECT * FROM funcionario WHERE cpf_funcionario = '" . $cpf . "' AND senha = '" . $senha . "'");
+    $query = $conexao->query("SELECT * FROM funcionario WHERE email_funcionario = '" . $email_funcionario . "' AND senha = '" . $senha . "'");
     
     if($query->num_rows > 0) {
         
-        $_SESSION["cpf"] = $cpf;
+        $_SESSION["email_funcionario"] = $email_funcionario;
         while($dados = $query->fetch_assoc()) {
             $_SESSION["nome"] = $dados["nome_funcionario"];
             $_SESSION["cargo"] = $dados["cargo"];

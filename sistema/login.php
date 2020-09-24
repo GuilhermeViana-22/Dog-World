@@ -16,7 +16,7 @@
         <form action="logar.php" method="POST">
             <h1>Login</h1>
             <p id="pl">Usuario</p>
-            <input type="text" id="loginu" name="cpf" placeholder="Digite a matricula"><br><br>
+            <input type="text" id="loginu" name="email_funcionario" placeholder="Digite a matricula"><br><br>
             <p id="pl">Senha</p>
             <input type="Password" id="logins" name="senha" placeholder="Digite sua senha"><br><br>
             <input type="submit" id="entrar" value="Entrar">
