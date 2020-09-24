@@ -37,12 +37,12 @@
                         <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
                     </nav>
                 </div>
-                
+                <?php } ?>
 
                 <div class="collapse" id="subvendas" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
              
                 </div>
-                
+                <?php if($_SESSION["cargo"] == "Gerente" || "Estoquista") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subestoque" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i> </div>
                     Estoque
