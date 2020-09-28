@@ -24,7 +24,7 @@
                 </div>
                         <?php } ?>
 
-                <?php if($_SESSION["cargo"] == "Gerente") { ?>
+                <?php if($_SESSION["cargo"] == "Gerente" || "Financeiro") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subfinaceiro" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-coins"></i></div>
                     Financeiro

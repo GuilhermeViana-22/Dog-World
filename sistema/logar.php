@@ -2,8 +2,8 @@
 include 'banco.php';
 
     $email_funcionario = $_REQUEST["email_funcionario"];
-    $senha = $_REQUEST["senha"];
-    $query = $conexao->query("SELECT * FROM funcionario WHERE email_funcionario = '" . $email_funcionario . "' AND senha = '" . $senha . "'");
+    $senha_funcionario = $_REQUEST["senha_funcionario"];
+    $query = $conexao->query("SELECT * FROM funcionario WHERE email_funcionario = '" . $email_funcionario . "' AND senha_funcionario = '" . $senha_funcionario . "'");
     
     if($query->num_rows > 0) {
         
