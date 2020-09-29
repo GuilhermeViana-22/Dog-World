@@ -13,10 +13,12 @@
     <meta name="author" content="" />
     <title>Page Title - SB Admin</title>
     <link href="css/styles.css" rel="stylesheet" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <?php// include 'banco.php'; ?>
 
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -30,45 +32,75 @@
                                         <h3 class="text-center font-weight-light my-3">Recuperar senha</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">Matricula</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Digite a matricula" />
+                                                        <label class="small mb-1" for="emailfun">Email</label>
+                                                        <input class="form-control py-4" id="emailfun" type="text" name="email" laceholder="Digite o email" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputLastName">CPF</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Digite o CPF" />
+                                                        <label class="small mb-1" for="cpffun">CPF</label>
+                                                        <input class="form-control py-4" id="cpffun" type="text" name="cpf" placeholder="Digite o CPF" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="botoes" class="col-md-6  ">
-                                                <button type="button" class="btn btn-success"><i class="fas fa-paw"></i> Localizar</button>
-
-                                            </div>
-
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputPassword">Nova senha</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Digite a nova senha" readonly />
+                                            <div class="error-content">
+                                                <div class="form-row" id="new">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="small mb-1" for="novasenha">Nova senha</label>
+                                                            <input class="form-control py-4" id="novasenha" type="password" placeholder="Digite a nova senha" />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputConfirmPassword">Confirmar Senha</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Repita a nova senha" readonly />
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="small mb-1" for="inputConfirmPassword">Confirmar Senha</label>
+                                                            <input class="form-control py-4" id="inputConfirmPassword" type="password" name="nsenha" placeholder="Repita a nova senha" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="botoes" class="col-md-6 ">
-                                                <button type="button" class="btn btn-primary  "><i class="fas fa-paw"></i> Alterar</button>
+                                                <button type="submit" class="btn btn-primary  " name="atualizar"><i class="fas fa-paw"></i> Alterar</button>
 
                                             </div>
-                                            <a type="submit" class="btn btn-primary btn-lg btn-block" href="login.html"><i class="fas fa-paw"></i>Fazer login  </a>
+
+                                            <?php 
+                                            $conexao = new mysqli('localhost', 'root','','dog_world');
+                                            
+                                            if (isset($_POST["atualizar"])) {
+                                               
+                                                $email = $_POST['email'];
+                                                $cpf = $_POST['cpf'];
+
+                                                $sql = "update funcionario set senha_funcionario = '$_POST[nsenha]' where cpf_funcionario = '$_POST[cpf]' and email_funcionario = '$_POST[email]'";
+
+                                                $resul = mysqli_query($conexao, $sql);
+
+                                                if ($resul) {
+                                                    echo ' <script type="text/javascript"> alert("Atualizado!")</script>';
+                                                    mysqli_close($conexao);
+                                                } else {
+                                                    echo ' <script type="text/javascript"> alert("Erro ao atualizar!")</script>';
+                                                    mysqli_close($conexao);
+                                                }
+                                            } ?>
+
+
+
+
+
+
+
+
+
+
+                                            <br>
+
+                                            <a type="submit" class="btn btn-primary btn-lg btn-block" href="login.php"><i class="fas fa-paw"></i>Fazer login </a>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">

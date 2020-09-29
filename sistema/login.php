@@ -35,7 +35,7 @@
         </div>
         <?php } ?>
           <br/>
-        <a href="recupera_senha.html">Esqueci a senha </a>
+        <a href="recupera_senha.php">Esqueci a senha </a>
 
     </div>
     <script>
