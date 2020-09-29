@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2020 às 05:52
--- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.9
+-- Tempo de geração: 29-Set-2020 às 19:36
+-- Versão do servidor: 10.4.13-MariaDB
+-- versão do PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -100,6 +100,13 @@ CREATE TABLE `fornecedor` (
   `ativo` char(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`idfornecedor`, `nome_fornecedor`, `cnpj_fornecedor`, `endereco_fornecedor`, `telefone_fornecedor`, `ativo`) VALUES
+(1, 'Golden ração', '12345678000112', 'r.Dos Bocós', '1140028922', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +133,13 @@ CREATE TABLE `funcionario` (
   `estado_funcionario` varchar(45) NOT NULL,
   `senha_funcionario` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`idfuncionario`, `nome_funcionario`, `sexo_funcionario`, `ativo`, `dt_nascimento_funcionario`, `dt_admissao`, `email_funcionario`, `cargo_funcionario`, `telefone_funcionario`, `cpf_funcionario`, `rg_funcionario`, `salario_funcionario`, `endereco_funcionario`, `cep_funcionario`, `numero_funcionario`, `cidade_funcionario`, `estado_funcionario`, `senha_funcionario`) VALUES
+(1, 'Thiago Massaharu Nashiro', 'M', '1', '1999-08-21', '2020-09-23', 'thiago@dogworld.com', 'Gerente', '1140028922', '123', '123', 1000.00, 'R. avenida zero', '11111-111', '40028922', 'Ana Julia', 'SP', '12');
 
 -- --------------------------------------------------------
 
@@ -272,13 +286,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `produto`

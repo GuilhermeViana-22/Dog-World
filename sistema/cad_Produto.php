@@ -31,12 +31,12 @@
 -->>
 
         <div id="layoutSidenav_content">
-
+       
 
             <main>
                 <!-- formulario com os inputs de cadastro
                -->
-                <form>
+                <form action="banco.php" method="post" name="produto">
                     <div class="card-header">
                         <h3 class="text-center font-weight-light my-4">Produto</h3>
                     </div>
@@ -46,45 +46,62 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputnumber">Cod_Produto</label>
-                                    <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o Codigo" />
+                                    <input class="form-control py-2" id="inputFirstName" name="codigo_produto" type="text" placeholder="Digite o Codigo" readonly/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputfirstName">Nome</label>
-                                    <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o Nome" />
+                                    <input class="form-control py-2" id="inputLastName" name="nome_produto" type="text" placeholder="Digite o Nome" />
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputLastName">Data</label>
-                                    <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a data" readonly />
+                                    <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a data"  />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">lote</label>
-                                    <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o lote" />
+                                    <input class="form-control py-2" id="inputLastName" name="lote_produto" type="text" placeholder="Digite o lote" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">quantidade</label>
-                                    <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite a quanridade" />
+                                    <label class="small mb-1" for="inputLastName">Quantidade</label>
+                                    <input class="form-control py-2" id="inputLastName" name="qtda_produto" type="text" placeholder="Digite a quanridade" />
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputLastName">Valor</label>
+                                    <input class="form-control py-2" id="inputLastName" name="valor_produto" type="text" placeholder="Digite a quanridade" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputLastName">Fornecedor</label>
+                                    <input class="form-control py-2" id="inputLastName" name="fornecedor_idfornecedor" type="text" placeholder="Digite a quanridade" />
                                 </div>
                             </div>
                             <div class="form-group col-md-4 mb-0">
                                 <label for="inputLastName">Categoria</label>
-                                <select id="inputLastName" class="form-control py-2 ">
-                            <option selected>---Escolher---</option>
+                                <select id="inputLastName" name="categoria_produto" class="form-control py-2 ">
+                            <option selected id="categoria_produto">---Escolher---</option>
                             <option>Shanpoo</option>
                             <option>Condicionador</option>
                             <option>Sabonete</option>
+                            <option>Ração</option>
+                            <option>Remedios</option>
+                            <option>Itens</option>
+                            <option>Brinquedos</option>
                           </select>
                             </div>
 
                             <div id="botoes" class="col-md-6 col-xs-12">
-                                <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
+                                <button type="button" name="cadastrar_produto" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
                                 <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
                                 <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
                             </div>
