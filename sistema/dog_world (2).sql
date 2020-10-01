@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Out-2020 às 05:32
+-- Tempo de geração: 01-Out-2020 às 23:27
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -35,8 +35,23 @@ CREATE TABLE `animal` (
   `tipo` char(100) DEFAULT NULL,
   `sexo` varchar(1) DEFAULT NULL,
   `obsercacao` varchar(1000) NOT NULL,
-  `cpf` int(17) NOT NULL
+  `cpf` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `animal`
+--
+
+INSERT INTO `animal` (`id_animal`, `nome`, `raça`, `rga`, `tipo`, `sexo`, `obsercacao`, `cpf`) VALUES
+(1, 'max', 'pug', '1223363', 'cachorro', 'M', '', ''),
+(2, 'rex', 'pastor alemão', '', 'cachorro', 'M', '', ''),
+(3, 'juli', 'persa', '122883', 'gato', 'F', 'So shanpoo persa', ''),
+(4, 'nina', 'ragdoll', '', 'gato', 'F', '', ''),
+(5, 'marley', 'golden retriever', '7896325', 'cachorro', 'M', 'nao dar pestiscos', ''),
+(6, 'totó', 'siames', '1274363', 'gato', 'M', '', ''),
+(7, 'dragao', 'pincher', '', 'cachorro', 'M', '', ''),
+(8, 'lisa', 'pastor de shetland', '4783363', 'cachorro', 'F', 'Nao usar shappoo com sal', ''),
+(9, 'cherry', 'maine coon', '', 'gato', 'M', 'tem alergia a talco', '');
 
 -- --------------------------------------------------------
 
@@ -63,6 +78,7 @@ CREATE TABLE `atendimento` (
 --
 
 CREATE TABLE `cliente` (
+  `id_cliente` int(11) NOT NULL,
   `nome` varchar(300) DEFAULT NULL,
   `sobrenome` varchar(300) DEFAULT NULL,
   `cpf` varchar(17) NOT NULL,
@@ -75,9 +91,23 @@ CREATE TABLE `cliente` (
   `num_comp` varchar(100) NOT NULL,
   `cidade` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL,
-  `ativo` char(1) NOT NULL,
-  `id_animal` int(11) NOT NULL
+  `ativo` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nome`, `sobrenome`, `cpf`, `dt_nascimento`, `sexo`, `telefone`, `email`, `cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `ativo`) VALUES
+(1, 'maria eduarda ', 'silva', '78965412322', '1995-05-02', 'F', '1122222222', 'maria_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
+(2, 'maria eduarda ', 'silva', '78995412322', '1995-05-02', 'F', '1122222222', 'maria_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
+(3, 'jose antonio', 'olivera', '72965412322', '1980-05-02', 'M', '1122222222', 'jose_j@gmail.com', '78963254', 'rua birita', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
+(4, ' Eduarda ', 'santana ', '78965412322', '1995-05-02', 'F', '1122222222', 'duda_j@gmail.com', '78963254', 'rua guarulhos', '65 ap 256', 'sao paulo', 'sao paulo', 's'),
+(5, 'Leonardo matheus ', 'nunes', '18965412322', '1995-05-02', 'M', '1122222222', 'thuesleo_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
+(6, 'mariza evelin ', 'santos', '38965412422', '1995-05-02', 'M', '1122222222', 'marizinha_gata@gmail.com', '78963254', 'rua igarape', '74', 'sao paulo', 'sao paulo', 's'),
+(7, 'lucas  ', 'araujo silva', '58967412322', '1995-05-02', 'F', '1122222222', 'lucas_zlle@hotmail.com', '78963254', 'rua alagoas', '45 ap 5', 'sao paulo', 'sao paulo', 'M'),
+(8, 'julia ', 'santos', '79965412322', '1995-05-02', 'F', '1122222662', 'jldsantos@gmail.com', '78963254', 'rua da missao', '235 ap 56', 'sao paulo', 'sao paulo', 's'),
+(9, 'adriano carlos ', 'lima', '38965417322', '1998-04-02', 'F', '1123622222', 'cano_dri12@gmail.com', '78963254', 'av ribeirao', '105', ' mogi das cruzes', 'sao paulo', 's');
 
 -- --------------------------------------------------------
 
@@ -191,8 +221,7 @@ ALTER TABLE `atendimento`
 -- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`cpf`(15)),
-  ADD UNIQUE KEY `FK_cliente_animal` (`id_animal`) USING BTREE;
+  ADD PRIMARY KEY (`id_cliente`);
 
 --
 -- Índices para tabela `fornecedor`
@@ -229,13 +258,19 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `atendimento`
 --
 ALTER TABLE `atendimento`
   MODIFY `cod_servico` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `fornecedor`
@@ -266,10 +301,10 @@ ALTER TABLE `vendas`
 --
 
 --
--- Limitadores para a tabela `cliente`
+-- Limitadores para a tabela `animal`
 --
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `FK_cliente_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`);
+ALTER TABLE `animal`
+  ADD CONSTRAINT `FK_cliente` FOREIGN KEY (`id_animal`) REFERENCES `cliente` (`id_cliente`);
 
 --
 -- Limitadores para a tabela `produto`
