@@ -32,6 +32,18 @@
                                         <h3 class="text-center font-weight-light my-3">Recuperar senha</h3>
                                     </div>
                                     <div class="card-body">
+                                        <?php if (isset($_GET["erro"])) { ?>
+
+                                            <div class="alert alert-danger">
+                                                Erro ao recuperar senha.
+                                            </div>
+
+                                        <?php } else if (isset($_GET["sucesso"])) { ?>
+
+                                            <div class="alert alert-success">
+                                                Você alterou sua senha com sucesso.
+                                            </div>
+                                        <?php } ?>
                                         <form action="" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-6">
@@ -68,7 +80,7 @@
 
                                             </div>
 
-                                          
+
 
 
 

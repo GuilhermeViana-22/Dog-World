@@ -9,23 +9,19 @@
                                                
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
-
-        $sql = "update funcionario set senha_funcionario = '$_POST[nsenha]' where cpf_funcionario = '$_POST[cpf]' and email_funcionario = '$_POST[email]'";
-
-        $resul = mysqli_query($conexao, $sql);
-
-        if ($resul) {
+        $sql = "update funcionario set senha = '$_POST[nsenha]' where cpf = '$_POST[cpf]' and email = '$_POST[email]'";
+        $resul = $conexao->query($sql);
+        $linhasAfetadas = $conexao->affected_rows;
+        if ($linhasAfetadas > 0) {
             echo ' <script type="text/javascript"> alert("Atualizado!")</script>';
             mysqli_close($conexao);
+            header("Location: recupera_senha.php?sucesso=1");
         } else {
             echo ' <script type="text/javascript"> alert("Erro ao atualizar!")</script>';
             mysqli_close($conexao);
+            header("Location: recupera_senha.php?erro=1");   
         }
     } 
-    
-
-    
-
     if(isset($_POST['cadastrar_produto'])){
 
         

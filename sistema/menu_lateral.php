@@ -20,6 +20,7 @@
                         <a class="nav-link" href="cadastro_venda.php">Vendas</a>
                         <a class="nav-link" href="agendamento.php">Agendamento</a>
                         <a class="nav-link" href="cad_cliente.php">Cadastro de Cliente</a>
+                        <a class="nav-link" href="cad_animal.php">Cadastro do Animal</a>
                     </nav>
                 </div>
                         <?php } ?>
@@ -33,7 +34,7 @@
                 <div class="collapse" id="subfinaceiro" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="financeiro.php">Demonstrativo</a>
-                        <a class="nav-link" href="cad_fun.php">Cadastrar Funcion&aacute;rio</a>
+                        <a class="nav-link" href="cad_funcionariov2.php">Cadastrar Funcion&aacute;rio</a>
                         <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
                     </nav>
                 </div>
