@@ -201,7 +201,7 @@
                                                     <td><?php echo $dados["email"]; ?></td>
                                                     <td><?php echo $dados["salario"];?></td>
                                                     <td>
-                                                        <a href="cad_cliente.php?id_cliente=<?php echo $dados["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="cad_funcionariov2.php?Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                         &nbsp;&nbsp;
 
 

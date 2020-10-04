@@ -39,181 +39,159 @@
                     <br />
                     <h2>Agendar</h2>
 
-                    <div class="row">
+                    <div class="row" style="background-color:#ADD8E6">
                         <div class="col-xl-12 col-md-12">
                             <br>
                             <div class="form-group row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="small mb-2" for="inputFirstName">Dono</label>
+                                        <input class="form-control py-2" id="inputFirstName" type="text" placeholder="  " />
+                                    </div>
 
-
+                                </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="inputFirstName">RGA</label>
-                                        <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                                        <input class="form-control py-2" id="inputFirstName" type="text" placeholder="" />
                                     </div>
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-2" for="inputLastName">Nome</label>
-                                        <input class="form-control py-2" id="inputLastName" type="text" placeholder="Digite o sobrenome" />
+                                        <input class="form-control py-2" id="inputLastName" type="text" placeholder="" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-12 col-md-12">
-                                    <div class="">
-                                        <h4></h4>
-                                        <ul class="weekdays">
-                                            <li>Seg</li>
-                                            <li>Ter</li>
-                                            <li>Qua</li>
-                                            <li>Qui</li>
-                                            <li>Sex</li>
-                                            <li>Sab</li>
-                                            <li>Dom</li>
-                                        </ul>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputBirth">Data de Agendamento</label>
+                                        <input type="date" class="form-control" id="exampleInputBirth" name="dt_agendamento">
+                                    </div>
+                                </div>
+                                <form class="col-md-6">
 
-                                        <ul class="days">
-                                            <section class="estilo">
-                                                <li>1</li>
-                                                <li>2</li>
-                                                <li>3</li>
-                                                <li>4</li>
-                                                <li>5</li>
-                                                <li>6</li>
-                                                <li>7</li>
-                                                <li>8</li>
-                                                <li>9</li>
-                                                <li>10</li>
-                                                <li>11</li>
-                                                <li>12</li>
-                                                <li>13</li>
-                                                <li>14</li>
-                                                <li>15</li>
-                                                <li>16</li>
-                                                <li>17</li>
-                                                <li>18</li>
-                                                <li>19</li>
-                                                <li>20</li>
-                                                <li>21</li>
-                                                <li>22</li>
-                                                <li>23</li>
-                                                <li>24</li>
-                                                <li>25</li>
-                                                <li>26</li>
-                                                <li>27</li>
-                                                <li>28</li>
-                                                <li>29</li>
-                                                <li>30</li>
-                                                <li>31</li>
-                                            </section>
-                                        </ul>
+                                    <div class="form-check">
+                                        <br>
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Novo
+                                        </label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-check">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Existente
+                                        </label>
+                                    </div>
+                                </form>
+
                                 <br>
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Novo
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Existente
-                                </label>
-                            </div><br>
-                            <label for="inputLastName">Servi&ccedil;os</label>
-                            <select class="form-control">
-                                <option>Selecione</option>
-                                <option>Banho</option>
-                                <option>Tosa</option>
-                                <option> Banho e Tosa</option>
-                            </select>
-                            <label for="inputLastName">Horario</label>
-                            <select class="form-control">
+                                <label for="inputLastName">Servi&ccedil;os</label>
+                                <select class="form-control">
+                                    <option>Selecione</option>
+                                    <option>Banho</option>
+                                    <option>Tosa</option>
+                                    <option> Banho e Tosa</option>
+                                </select>
                                 <label for="inputLastName">Horario</label>
-                                <option>Selecione</option>
-                                <option>12:00</option>
-                                <option>13:30</option>
-                                <option>15:00</option>
-                            </select>
-
-                            <br>
-
-                            <button type="button" class="btn btn-success"><i class="fas fa-cart-plus"></i>Agendar</button>
-                            <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
+                                <select class="form-control">
+                                    <label for="inputLastName">Horario</label>
+                                    <option>Selecione</option>
+                                    <option>12:00</option>
+                                    <option>13:30</option>
+                                    <option>15:00</option>
+                                </select>
 
 
-                            <br><br>
-                            <div class="row w-100">
-                                <div class="col-xl-12 col-md-12 ">
+                                <br>
+
+                                <div class="row-center" style="padding: 30px;">
+                                    <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>Agendar</button>
+                                    <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
+
+                                </div>
+
+                                <br><br>
+
+                                <div class="col-md-12 ">
                                     <div class="card">
+
                                         <div class="card-header">
+
                                             <i class="fas fa-table mr-6"></i> Agendados
-                                        </div>
-                                        <div class="card-body mr-1">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>RGA</th>
-                                                    <th>Nome</th>
-                                                    <th>Data</th>
-                                                    <th>Horario</th>
-                                                    <th>Servi&ccedil;os</th>
-                                                    <th>Observa&ccedil;&atilde;o</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">136857</td>
-                                                    <td>Max</td>
-                                                    <td>21/09/2020</td>
-                                                    <td>13:30</td>
-                                                    <td>Bnho e Tosa</td>
-                                                    <td>Alergico a talco</td>
-                                                    <td>Agendado</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">134587</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">136598</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">136485</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">136456</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
                                         </div>
+                                        <form method="GET" style="margin-top:40px; font-size: 11pt;" action="agendamento.php">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <br />
+                                                        <div style="padding-left:45px;" class="col-md-3">
+                                                            Pesquisa :
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
+                                                                                            echo $_GET["pesquisa"];
+                                                                                        } ?>" name="pesquisa" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="submit" class="btn btn-primary" value="pesquisar">
+                                                </div>
+                                        </form>
                                     </div>
-
+                                    <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_funcionariov2.php">
+                                  
+                                  <div class="card-body mr-2">
+                                          <table class="table table-bordered">
+                                              <tr>
+                                                  <th>Código serviço</th>
+                                                  <th>Nome do cliente</th>
+                                                  <th>Nome do Animal</th>
+                                                  <th>Agendado para </th>
+                                                  <th>Tipo de atendimento</th>
+                                                  <th>Horário</th>
+                                                  <th>Valor</th>
+                                                  <th>Ações</th>
+                                              </tr>
+                                              <?php
+                                              $consultaTabela = "";
+                                              if (isset($_GET["pesquisa"])) {
+                                                  $pesquisa = $_GET["pesquisa"];
+                                                  $consultaTabela = "SELECT * FROM atendimento WHERE cod_cliente LIKE '%$pesquisa%";
+                                              } else {
+                                                  $consultaTabela = "SELECT * FROM atendimento";
+                                              }
+                                              $queryClietes = $conexao->query($consultaTabela);
+                                              while ($dados = $queryClietes->fetch_assoc()) {
+                                              ?>
+                                                  <tr>
+                                                      <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
+                                                      <td style="color:#1E90FF;"><?php echo $dados["cod_servico"]; ?></td>
+                                                      <td><?php echo $dados["cod_cliente"]; ?></td>
+                                                      <td><?php echo $dados["cod_animal"]; ?></td>
+                                                      <!--Converter a data para formato pt-BR-->
+                                                      <td><?php echo date("d/m/Y", strtotime($dados["dt_agendamento"])); ?></td>
+                                                      <td><?php echo $dados["tipo_atendimento"]; ?></td>
+                                                      <td><?php echo $dados["horario"];?></td>
+                                                      <td><?php echo $dados["valor"]; ?></td>
+                                                  
+                                            
+                                                      <td>
+                                                          <a href="agendamento.php?cod_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                          &nbsp;&nbsp;
+  
+  
+  
+                                                          <a href="crud_agendamento.php?excluir=1&id_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                                      </td>
+  
+                                                  </tr>
+                                              <?php } ?>
+                                          </table>
+                                  </form>
 
                                 </div>
 
