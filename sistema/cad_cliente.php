@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,8 +12,12 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <?php
+    #nestes includes temos todos os estados e municipios do brasil na nossa aplicação, como isso ficaria dispensioso e sujando nosso codigo
+    #está sendo utilizado um array em outro arquivo que carrega todas essas informações
     include "estados_brasileiros.php";
     include "cidades_brasileiras.php";
+    #ArrayLIst com os inputs do select
+    # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
     $sexo = array(
         "" => "----Selecione----",
         "M" => "Masculino",
@@ -22,7 +25,6 @@
     );
     ?>
 </head>
-
 <script>
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
@@ -96,29 +98,16 @@
 <body class="sb-nav-fixed">
 
     <?php include 'nav.php'; ?>
-
     <div id="layoutSidenav">
-
         <!--Tag de incorporação ao menu no codigo html-->
-
-
-
         <?php include 'menu_lateral.php'; ?>
-
         <!--Tag de incorporação ao menu no codigo html-->
-
-
-
         <div id="layoutSidenav_content">
-
-
             <main>
                 <!--
                -->
                 <div class="container-fluid">
                     <div class="card">
-
-
                         <?php if (isset($_GET["sucesso"])) { ?>
 
                             <div class="alert alert-success">
@@ -156,12 +145,11 @@
                                 ?>
                             </div>
                         <?php } ?>
-
-
                         <form id="formExemplo" method="post" action="crud_cliente.php" data-toggle="validator" role="form">
                             <?php
                             $dados;
                             if (isset($_GET["id_cliente"])) {
+
                                 $queryCliente = $conexao->query("SELECT * FROM cliente WHERE id_cliente = " . $_GET["id_cliente"]);
                                 $dados = $queryCliente->fetch_assoc();
                             ?>
@@ -174,7 +162,9 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="textNome">Nome</label>
-                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <input class="form-control py-2" value="
+                                        <?php if (isset($_GET["id_cliente"])) {
+                                            #essa função do php pega o valor do input nome
                                                                                     echo $dados["nome"];
                                                                                 } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
                                         <div class="help-block with-errors"></div>
@@ -185,6 +175,7 @@
                                     <div class="form-group">
                                         <label class="small mb-2" for="inputLastName">Sobrenome</label>
                                         <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) {
+                                            #essa função do php pega o valor do input sobrenome
                                                                                     echo $dados["sobrenome"];
                                                                                 } ?>" id="inputLastName" type="text" placeholder="Digite o sobrenome" name="sobrenome" required />
 
@@ -194,17 +185,19 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="dtNasc">Data de nascimento</label>
-                                        <input class="form-control py-2" id="dtNasc" value="<?php if (isset($_GET["id_cliente"])) {
-                                                                                                echo $dados["dt_nascimento"];
-                                                                                            } ?>" type="date" placeholder="Digite o nascimento" name="dt_nascimento" required />
+                                        <input class="form-control py-2" id="dtNasc"
+                                         value="<?php if (isset($_GET["id_cliente"])) {
+                                             #essa função do php pega o valor do input data de nascimento
+                                          echo $dados["dt_nascimento"];
+                                    } ?>" type="date" placeholder="Digite o nascimento" name="dt_nascimento" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="small mb-1" for="txtCpf">CPF</label>
                                         <input class="form-control py-2" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
+                                            #essa função do php pega o valor do input cpf
                                                                                                             echo $dados["cpf"];
                                                                                                         } ?>" placeholder="Digite o CPF" name="cpf" required />
                                         <div class="help-block with-errors"></div>
@@ -212,8 +205,10 @@
                                 </div>
                                 <div class="form-group col-md-3 mb-0">
                                     <label class="small mb-1" for="cmbSexo">Sexo</label>
+
                                     <select id="cmbSexo" class="form-control py-2" name="sexo" required>
                                         <?php
+                                        # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                         if (isset($_GET["id_cliente"])) {
                                             foreach ($sexo as $key => $value) {
                                                 if ($dados["sexo"] == $key) {
@@ -339,10 +334,8 @@
                                     <div class="card-header">
                                         <i class="fas fa-table mr-6"></i> Nossos Clientes
                                     </div>
-
                                     <form method="GET" style="margin-top:15px;" action="cad_cliente.php">
                                         <div class="row">
-
                                             <div class="col-md-6">
                                                 <div class="row">
                                                     <br />
@@ -353,17 +346,12 @@
                                                         <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
                                                                                         echo $_GET["pesquisa"];
                                                                                     } ?>" name="pesquisa" class="form-control">
-
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="submit" class="btn btn-primary" value="pesquisar">
                                             </div>
-
-
-
-
                                         </div>
                                     </form>
                                     <div class="card-body mr-1">
