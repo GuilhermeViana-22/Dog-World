@@ -36,23 +36,36 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <br />
                     <h2>Agendar</h2>
-
-                    <div class="row" style="background-color:#ADD8E6">
+                    <div class="row" style="background-color: #ebf2ff;">
                         <div class="col-xl-12 col-md-12">
                             <br>
                             <div class="form-group row">
-                                <div class="col-md-3">
+                                <!--    <form action="/action_page.php">
+                                    <fieldset>
+                                        <legend>Personalia:</legend>
+                                        <label for="fname">First name:</label>
+                                        <input  class="form-control py-2" id="inputFirstName" type="text" placeholder="  "  type="text" id="fname" name="fname"><br><br>
+                                        <label for="lname">Last name:</label>
+                                        <input type="text" id="lname" name="lname"><br><br>
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" name="email"><br><br>
+                                        <label for="birthday">Birthday:</label>
+                                        <input type="date" id="birthday" name="birthday"><br><br>
+                                        <input type="submit" value="Submit">
+                                    </fieldset>
+                                </form>-->
+                        
+                                    <div class="col-md-3">
                                     <div class="form-group">
-                                        <label class="small mb-2" for="inputFirstName">Dono</label>
+                                        <label class="small mb-2" for="inputFirstName">Código Animal</label>
                                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="  " />
                                     </div>
 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label class="small mb-2" for="inputFirstName">RGA</label>
+                                        <label class="small mb-2" for="inputFirstName">Código cliente</label>
                                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="" />
                                     </div>
 
@@ -69,6 +82,7 @@
                                         <input type="date" class="form-control" id="exampleInputBirth" name="dt_agendamento">
                                     </div>
                                 </div>
+                             
                                 <form class="col-md-6">
 
                                     <div class="form-check">
@@ -87,14 +101,14 @@
                                 </form>
 
                                 <br>
-                                <label for="inputLastName">Servi&ccedil;os</label>
+                                <label style="padding: 20px;" for="inputLastName">Servi&ccedil;os</label>
                                 <select class="form-control">
                                     <option>Selecione</option>
                                     <option>Banho</option>
                                     <option>Tosa</option>
                                     <option> Banho e Tosa</option>
                                 </select>
-                                <label for="inputLastName">Horario</label>
+                                <label style="padding: 20px;" for="inputLastName">Horario</label>
                                 <select class="form-control">
                                     <label for="inputLastName">Horario</label>
                                     <option>Selecione</option>
@@ -122,7 +136,7 @@
                                             <i class="fas fa-table mr-6"></i> Agendados
 
                                         </div>
-                                        <form method="GET" style="margin-top:40px; font-size: 11pt;" action="agendamento.php">
+                                        <form method="GET" style="margin-top:40px; font-size: 11pt;" action=".php">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="row">
@@ -143,55 +157,55 @@
                                         </form>
                                     </div>
                                     <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_funcionariov2.php">
-                                  
-                                  <div class="card-body mr-2">
-                                          <table class="table table-bordered">
-                                              <tr>
-                                                  <th>Código serviço</th>
-                                                  <th>Nome do cliente</th>
-                                                  <th>Nome do Animal</th>
-                                                  <th>Agendado para </th>
-                                                  <th>Tipo de atendimento</th>
-                                                  <th>Horário</th>
-                                                  <th>Valor</th>
-                                                  <th>Ações</th>
-                                              </tr>
-                                              <?php
-                                              $consultaTabela = "";
-                                              if (isset($_GET["pesquisa"])) {
-                                                  $pesquisa = $_GET["pesquisa"];
-                                                  $consultaTabela = "SELECT * FROM atendimento WHERE cod_cliente LIKE '%$pesquisa%";
-                                              } else {
-                                                  $consultaTabela = "SELECT * FROM atendimento";
-                                              }
-                                              $queryClietes = $conexao->query($consultaTabela);
-                                              while ($dados = $queryClietes->fetch_assoc()) {
-                                              ?>
-                                                  <tr>
-                                                      <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
-                                                      <td style="color:#1E90FF;"><?php echo $dados["cod_servico"]; ?></td>
-                                                      <td><?php echo $dados["cod_cliente"]; ?></td>
-                                                      <td><?php echo $dados["cod_animal"]; ?></td>
-                                                      <!--Converter a data para formato pt-BR-->
-                                                      <td><?php echo date("d/m/Y", strtotime($dados["dt_agendamento"])); ?></td>
-                                                      <td><?php echo $dados["tipo_atendimento"]; ?></td>
-                                                      <td><?php echo $dados["horario"];?></td>
-                                                      <td><?php echo $dados["valor"]; ?></td>
-                                                  
-                                            
-                                                      <td>
-                                                          <a href="agendamento.php?cod_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
-                                                          &nbsp;&nbsp;
-  
-  
-  
-                                                          <a href="crud_agendamento.php?excluir=1&id_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
-                                                      </td>
-  
-                                                  </tr>
-                                              <?php } ?>
-                                          </table>
-                                  </form>
+
+                                        <div class="card-body mr-2">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Código serviço</th>
+                                                    <th>Nome do cliente</th>
+                                                    <th>Nome do Animal</th>
+                                                    <th>Agendado para </th>
+                                                    <th>Tipo de atendimento</th>
+                                                    <th>Horário</th>
+                                                    <th>Valor</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                                <?php
+                                                $consultaTabela = "";
+                                                if (isset($_GET["pesquisa"])) {
+                                                    $pesquisa = $_GET["pesquisa"];
+                                                    $consultaTabela = "SELECT * FROM atendimento WHERE  LIKE '%$pesquisa%";
+                                                } else {
+                                                    $consultaTabela = "SELECT * FROM atendimento";
+                                                }
+                                                $queryClietes = $conexao->query($consultaTabela);
+                                                while ($dados = $queryClietes->fetch_assoc()) {
+                                                ?>
+                                                    <tr>
+                                                        <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
+                                                        <td style="color:#1E90FF;"><?php echo $dados["cod_servico"]; ?></td>
+                                                        <td><?php echo $dados["cod_cliente"]; ?></td>
+                                                        <td><?php echo $dados["cod_animal"]; ?></td>
+                                                        <!--Converter a data para formato pt-BR-->
+                                                        <td><?php echo date("d/m/Y", strtotime($dados["dt_agendamento"])); ?></td>
+                                                        <td><?php echo $dados["tipo_atendimento"]; ?></td>
+                                                        <td><?php echo $dados["horario"]; ?></td>
+                                                        <td><?php echo $dados["valor"]; ?></td>
+
+
+                                                        <td>
+                                                            <a href="agendamento.php?cod_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-primary"><i style="font-size:x-small;" class="fas fa-pencil-alt"></i></a>
+                                                            &nbsp;&nbsp;
+
+
+
+                                                            <a href="crud_agendamento.php?excluir=1&id_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i style="" class="fas fa-times"></i></a>
+                                                        </td>
+
+                                                    </tr>
+                                                <?php } ?>
+                                            </table>
+                                    </form>
 
                                 </div>
 
