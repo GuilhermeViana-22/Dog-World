@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Out-2020 às 23:27
+-- Tempo de geração: 04-Out-2020 às 04:30
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -35,23 +35,9 @@ CREATE TABLE `animal` (
   `tipo` char(100) DEFAULT NULL,
   `sexo` varchar(1) DEFAULT NULL,
   `obsercacao` varchar(1000) NOT NULL,
-  `cpf` varchar(15) NOT NULL
+  `cpf` varchar(15) NOT NULL,
+  `id_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `animal`
---
-
-INSERT INTO `animal` (`id_animal`, `nome`, `raça`, `rga`, `tipo`, `sexo`, `obsercacao`, `cpf`) VALUES
-(1, 'max', 'pug', '1223363', 'cachorro', 'M', '', ''),
-(2, 'rex', 'pastor alemão', '', 'cachorro', 'M', '', ''),
-(3, 'juli', 'persa', '122883', 'gato', 'F', 'So shanpoo persa', ''),
-(4, 'nina', 'ragdoll', '', 'gato', 'F', '', ''),
-(5, 'marley', 'golden retriever', '7896325', 'cachorro', 'M', 'nao dar pestiscos', ''),
-(6, 'totó', 'siames', '1274363', 'gato', 'M', '', ''),
-(7, 'dragao', 'pincher', '', 'cachorro', 'M', '', ''),
-(8, 'lisa', 'pastor de shetland', '4783363', 'cachorro', 'F', 'Nao usar shappoo com sal', ''),
-(9, 'cherry', 'maine coon', '', 'gato', 'M', 'tem alergia a talco', '');
 
 -- --------------------------------------------------------
 
@@ -99,15 +85,11 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `sobrenome`, `cpf`, `dt_nascimento`, `sexo`, `telefone`, `email`, `cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `ativo`) VALUES
-(1, 'maria eduarda ', 'silva', '78965412322', '1995-05-02', 'F', '1122222222', 'maria_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
-(2, 'maria eduarda ', 'silva', '78995412322', '1995-05-02', 'F', '1122222222', 'maria_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
-(3, 'jose antonio', 'olivera', '72965412322', '1980-05-02', 'M', '1122222222', 'jose_j@gmail.com', '78963254', 'rua birita', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
-(4, ' Eduarda ', 'santana ', '78965412322', '1995-05-02', 'F', '1122222222', 'duda_j@gmail.com', '78963254', 'rua guarulhos', '65 ap 256', 'sao paulo', 'sao paulo', 's'),
-(5, 'Leonardo matheus ', 'nunes', '18965412322', '1995-05-02', 'M', '1122222222', 'thuesleo_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', 'sao paulo', 'sao paulo', 's'),
-(6, 'mariza evelin ', 'santos', '38965412422', '1995-05-02', 'M', '1122222222', 'marizinha_gata@gmail.com', '78963254', 'rua igarape', '74', 'sao paulo', 'sao paulo', 's'),
-(7, 'lucas  ', 'araujo silva', '58967412322', '1995-05-02', 'F', '1122222222', 'lucas_zlle@hotmail.com', '78963254', 'rua alagoas', '45 ap 5', 'sao paulo', 'sao paulo', 'M'),
-(8, 'julia ', 'santos', '79965412322', '1995-05-02', 'F', '1122222662', 'jldsantos@gmail.com', '78963254', 'rua da missao', '235 ap 56', 'sao paulo', 'sao paulo', 's'),
-(9, 'adriano carlos ', 'lima', '38965417322', '1998-04-02', 'F', '1123622222', 'cano_dri12@gmail.com', '78963254', 'av ribeirao', '105', ' mogi das cruzes', 'sao paulo', 's');
+(0, 'Marcelo', 'Gomes', '48519511832', '2020-10-21', 'M', '1195456687', 'fulanodetal@gmail.com', '05568000', 'Rua Antônio Francisco Soares', '', '1100320', 'SP', 'S'),
+(2, 'maria eduarda ', 'Souza', '78995412322', '1995-05-02', 'F', '1122222222', 'maria_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', '3550308', 'SP', 'S'),
+(5, 'Leonardo matheus ', 'nunes', '18965412322', '1995-05-02', 'M', '1122222222', 'thuesleo_j@gmail.com', '78963254', 'rua marilia', '45 ap 5', '3550308', 'SP', 's'),
+(6, 'mariza evelin ', 'santos', '38965412422', '1995-05-02', 'M', '1122222222', 'marizinha_gata@gmail.com', '78963254', 'rua igarape', '74', '3550308', 'SP', 's'),
+(7, 'lucas  ', 'araujo silva', '58967412322', '1995-05-02', 'F', '1122222222', 'lucas_zlle@hotmail.com', '78963254', 'rua alagoas', '45 ap 5', '3550308', 'SP', 'M');
 
 -- --------------------------------------------------------
 
@@ -161,7 +143,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`Cod_funcionario`, `nome`, `cpf`, `rg`, `sexo`, `telefone`, `dt_nascimento`, `email`, `Cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `cargo`, `salario`, `horas`, `dt_admicao`, `ativo`, `senha`) VALUES
-(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton13cdz@gmail.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 's', '123456'),
+(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton13cdz@gmail.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 's', '1111'),
 (2, 'Karolina santana', '789456123', '125463', 'F', '4455666633', '2000-05-09', 'karolina@dogworld.com', '8888666', 'rua dos bobos', '0 hha', 'sao paulo', 'sp', 'Gerente', 5.5, '10:00 as 18:00', '2020-05-12', 's', '123456'),
 (5, 'thiago nashiro ', '456321478', '852364', 'M', '4477889966', '2019-05-19', 'thiago@dogworld.com', '63258974', 'r santana', '41', 'sao paulo', 'sp', 'atendente', 1200, '9:00 as 17:00', '2020-10-04', 's', '123456'),
 (6, 'Guilherme Viana', '987654321', '8523', 'M', '55663896', '2019-06-09', 'guilherme@dogworld.com', '789654123', 'sao joa', '96', 'sao paulo', 'sp', 'Financeiro', 2, '10:00 as 18:00', '2020-05-11', 's', '123456'),
@@ -209,7 +191,8 @@ CREATE TABLE `vendas` (
 -- Índices para tabela `animal`
 --
 ALTER TABLE `animal`
-  ADD PRIMARY KEY (`id_animal`);
+  ADD PRIMARY KEY (`id_animal`),
+  ADD KEY `FK_id_cliente` (`id_cliente`);
 
 --
 -- Índices para tabela `atendimento`
@@ -258,19 +241,13 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `atendimento`
 --
 ALTER TABLE `atendimento`
   MODIFY `cod_servico` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `fornecedor`
@@ -304,7 +281,7 @@ ALTER TABLE `vendas`
 -- Limitadores para a tabela `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `FK_cliente` FOREIGN KEY (`id_animal`) REFERENCES `cliente` (`id_cliente`);
+  ADD CONSTRAINT `FK_id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `produto`
