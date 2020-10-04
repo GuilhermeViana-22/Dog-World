@@ -19,6 +19,7 @@
     #ArrayLIst com os inputs do select
     # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
     $sexo = array(
+        
         "" => "----Selecione----",
         "M" => "Masculino",
         "F" => "Feminino"
@@ -198,14 +199,13 @@
                                         <label class="small mb-1" for="txtCpf">CPF</label>
                                         <input class="form-control py-2" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input cpf
-                                                                                                            echo $dados["cpf"];
-                                                                                                        } ?>" placeholder="Digite o CPF" name="cpf" required />
+                                      echo $dados["cpf"];
+                                                      } ?>" placeholder="Digite o CPF" name="cpf" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3 mb-0">
                                     <label class="small mb-1" for="cmbSexo">Sexo</label>
-
                                     <select id="cmbSexo" class="form-control py-2" name="sexo" required>
                                         <?php
                                         # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema

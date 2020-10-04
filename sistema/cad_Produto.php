@@ -96,11 +96,11 @@
                             <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="textNome">Nome</label>
-                                        <input class="form-control py-2" value="
-                                        <?php if (isset($_GET["cod_produto"])) {
+
+                                        <input  class="form-control" value="<?php if (isset($_GET["cod_produto"])) {
                                             #essa função do php pega o valor do input nome
                                         echo $dados["titulo"];
-                                    } ?>" id="textNome" type="text" name="titulo"  />
+                                    } ?>"  type="text" name="titulo"/>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
