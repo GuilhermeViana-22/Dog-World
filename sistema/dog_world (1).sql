@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2020 às 04:30
--- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.9
+-- Tempo de geração: 04-Out-2020 às 20:12
+-- Versão do servidor: 10.4.13-MariaDB
+-- versão do PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -106,9 +106,20 @@ CREATE TABLE `fornecedor` (
   `num_comp` varchar(100) NOT NULL,
   `cidade` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL,
-  `telefone` varchar(20) DEFAULT NULL,
-  `cod_produto` int(11) DEFAULT NULL
+  `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`cod_fornecedor`, `cnpj`, `fornecedor`, `logradouro`, `cep`, `num_comp`, `cidade`, `estado`, `telefone`) VALUES
+(1, '11.111.111-0001.01', 'Golden', 'av.dos bocos', '1111-11', '1', 'Santo andre', 'SP', '1111-1111'),
+(5, '22.222.222.0001-22', 'pipicat', 'av da lua', '222222', '2', 'santo amaro', 'sp', '2222-222'),
+(6, '33.333.333-0001-33', ' Whiskas ', 'av.da maria', '333333', '3', 'Tiradentes', 'SP', 's'),
+(7, '44.444.444-0001-44', 'Gold Cat Litter', 'av dos sonhos', '333333', '33', 'Rita', 'SP', 's'),
+(8, '55.555.555-0001-55', 'Like Cat, Organnact', 'av toranja', '55555', '5', 'santa lusia', 'sp', '5555-5555'),
+(9, '66.666.666-0001-66', 'Hello Kitty Clássica, PetFive\r\n', 'av. das katia', '66666', '6', 'Lotadaria', 'SP', '66666');
 
 -- --------------------------------------------------------
 
@@ -166,6 +177,18 @@ CREATE TABLE `produto` (
   `ativo` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`cod_produto`, `titulo`, `quantidade`, `cod_lote`, `valor_unitario`, `cod_fornecedor`, `ativo`) VALUES
+(1, 'Golden ração para gatos castrados frango 30k', 3, 1, 30, 1, 'S'),
+(6, 'Golden ração para gatos castrados carne 30k', 2, 2, 2, 1, 's'),
+(14, 'areia pipicat', 2, 2, 2, 5, 's'),
+(15, 'pipi', 3, 3, 30.5, 5, 'S'),
+(16, 'terrinha', 5, 5, 5, 7, 's'),
+(17, 'terrinh aromatica', 5, 4, 25, 7, 's');
+
 -- --------------------------------------------------------
 
 --
@@ -210,8 +233,7 @@ ALTER TABLE `cliente`
 -- Índices para tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  ADD PRIMARY KEY (`cod_fornecedor`),
-  ADD UNIQUE KEY `cod_produto` (`cod_produto`);
+  ADD PRIMARY KEY (`cod_fornecedor`);
 
 --
 -- Índices para tabela `funcionario`
@@ -225,7 +247,7 @@ ALTER TABLE `funcionario`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`),
-  ADD UNIQUE KEY `cod_fornecedor_produto` (`cod_fornecedor`) USING BTREE;
+  ADD KEY `FK_produto_fornecedor` (`cod_fornecedor`);
 
 --
 -- Índices para tabela `vendas`
@@ -253,7 +275,7 @@ ALTER TABLE `atendimento`
 -- AUTO_INCREMENT de tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
@@ -265,7 +287,7 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `vendas`
@@ -287,7 +309,7 @@ ALTER TABLE `animal`
 -- Limitadores para a tabela `produto`
 --
 ALTER TABLE `produto`
-  ADD CONSTRAINT `FK_produto_fornecedor` FOREIGN KEY (`cod_produto`) REFERENCES `fornecedor` (`cod_produto`);
+  ADD CONSTRAINT `FK_produto_fornecedor` FOREIGN KEY (`cod_fornecedor`) REFERENCES `fornecedor` (`cod_fornecedor`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
