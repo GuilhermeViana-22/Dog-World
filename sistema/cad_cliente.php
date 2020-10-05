@@ -166,8 +166,8 @@
                                         <input class="form-control py-2" value="
                                         <?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input nome
-                                                                                    echo $dados["nome"];
-                                                                                } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
+                                             echo $dados["nome"];
+                                       } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -399,9 +399,6 @@
                                                     <td>
                                                         <a href="cad_cliente.php?id_cliente=<?php echo $dados["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                         &nbsp;&nbsp;
-
-
-
                                                         <a href="crud_cliente.php?excluir=1&id_cliente=<?php echo $dados["id_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
                                                     </td>
 

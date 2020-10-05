@@ -76,8 +76,9 @@
 
                 <form action="crud_produto.php" method="post" name="produto">
 
-                <?php $dados;  if (isset($_GET["cod_produto"])) { $queryCliente = $conexao->query("SELECT * FROM produto WHERE cod_produto = " . $_GET["cod_produto"]);   $dados = $queryCliente->fetch_assoc();  ?>   <input type="hidden" name="cod_produto" value="<?php echo $_GET["cod_produto"]; ?>" />
+                <?php $dados;  if (isset($_GET["cod_produto"])) {$queryProduto = $conexao->query("SELECT * FROM produto WHERE cod_produto = " . $_GET["cod_produto"]);   $dados = $queryProduto->fetch_assoc();  ?>   <input type="hidden" name="cod_produto" value="<?php echo $_GET["cod_produto"]; ?>" />
                      <?php } ?>
+                    
 
                     <div class="card-header">
                         <h3 class="text-center font-weight-light my-4">Produto</h3>
@@ -88,19 +89,19 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputnumber">Cod_Produto</label>
-                                    <input <?php if (isset($_GET["cod_produto"])) {  
-                                        echo $dados["cod_produto"];
-                                         } ?> class="form-control py-2" id="inputFirstName" name="cod_produto" type="text" placeholder="Digite o Codigo" readonly/>
+                                    <input  value="<?php if (isset($_GET["cod_produto"])) {
+                                            #essa função do php pega o valor do input nome
+                                             echo $dados["cod_produto"];
+                                       } ?>" class="form-control py-2" id="inputFirstName" name="cod_produto" type="text" placeholder="Digite o Codigo" readonly/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="textNome">Nome</label>
 
-                                        <input  class="form-control" value="<?php if (isset($_GET["cod_produto"])) {
-                                            #essa função do php pega o valor do input nome
-                                        echo $dados["titulo"];
-                                    } ?>"  type="text" name="titulo"/>
+                                        <input class="form-control py-2" value="<?php if (isset($_GET["cod_produto"])){echo $dados["titulo"];}?>" id="textNome" type="text" name="titulo"  />
+
+
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -108,26 +109,26 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">lote</label>
-                                    <input <?php if (isset($_GET["cod_produto"])) {  echo $dados["cod_lote"]; } ?> class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" />
+                                    <input value=" <?php if (isset($_GET["cod_produto"])) {  echo $dados["cod_lote"]; } ?>" class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Quantidade</label>
-                                    <input  <?php if (isset($_GET["cod_produto"])) {  echo $dados["quantidade"]; } ?> class="form-control py-2" id="inputLastName" name="quantidade" type="text" placeholder="Digite a quanridade" />
+                                    <input  value=" <?php if (isset($_GET["cod_produto"])) {  echo $dados["quantidade"]; } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text" placeholder="Digite a quanridade" />
                                 </div>
                             </div>
                             
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Valor</label>
-                                    <input <?php if (isset($_GET["cod_produto"])) {  echo $dados["valor_unitario"]; } ?> class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite a quanridade" />
+                                    <input value=" <?php if (isset($_GET["cod_produto"])) {  echo $dados["valor_unitario"]; } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite a quanridade" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Fornecedor</label>
-                                    <input <?php if (isset($_GET["cod_produto"])) {  echo $dados["cod_fornecedor"]; } ?> class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" />
+                                    <input value=" <?php if (isset($_GET["cod_produto"])) {  echo $dados["cod_fornecedor"]; } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" />
                                 </div>
                             </div>
                             <div class="form-check">
@@ -141,8 +142,7 @@
 
                             <div id="botoes" class="col-md-6 col-xs-12">
                                 <button type="submit"  class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
-                                <button type="submit" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
+                                
                             </div>
 
 
@@ -196,12 +196,12 @@
                                                 $consultaTabela = "";
                                                 if (isset($_GET["pesquisa"])) {
                                                     $pesquisa = $_GET["pesquisa"];
-                                                    $consultaTabela = "SELECT * FROM produto WHERE  LIKE '%$pesquisa%";
+                                                    $consultaTabela = "SELECT * FROM produto WHERE titulo LIKE '%$pesquisa%'";
                                                 } else {
                                                     $consultaTabela = "SELECT * FROM produto";
                                                 }
-                                                $queryClietes = $conexao->query($consultaTabela);
-                                                while ($dados = $queryClietes->fetch_assoc()) {
+                                                $queryProduto = $conexao->query($consultaTabela);
+                                                while ($dados = $queryProduto->fetch_assoc()) {
                                                 ?>
                                                     <tr>
                                                         <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
