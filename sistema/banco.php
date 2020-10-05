@@ -1,27 +1,11 @@
 <?php
-    $conexao = new mysqli('localhost', 'root','','dog_world');
+    $conexao = new mysqli('localhost','root','','dog_world');
     
     session_start();
 
     //Recupera a senha
     
-    if (isset($_POST["atualizar"])) {
-                                               
-        $email = $_POST['email'];
-        $cpf = $_POST['cpf'];
-        $sql = "update funcionario set senha = '$_POST[nsenha]' where cpf = '$_POST[cpf]' and email = '$_POST[email]'";
-        $resul = $conexao->query($sql);
-        $linhasAfetadas = $conexao->affected_rows;
-        if ($linhasAfetadas > 0) {
-            echo ' <script type="text/javascript"> alert("Atualizado!")</script>';
-            mysqli_close($conexao);
-            header("Location: recupera_senha.php?sucesso=1");
-        } else {
-            echo ' <script type="text/javascript"> alert("Erro ao atualizar!")</script>';
-            mysqli_close($conexao);
-            header("Location: recupera_senha.php?erro=1");   
-        }
-    } 
+  
     if(isset($_POST['cadastrar_produto'])){
 
         
