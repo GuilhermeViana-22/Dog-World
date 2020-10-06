@@ -108,12 +108,50 @@
                 <!--
                -->
                 <div class="container-fluid">
+                <div class="card">
+                        <?php if (isset($_GET["sucesso"])) { ?>
+
+                            <div class="alert alert-success">
+                                <?php
+                                # esse numero 1 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                # se o if ficar atrelado ao primeiro laço ele estará no laço de inserir referenciado no 
+                                # crud_cliente
+                                # logo ele retorna a mensagem de cliente inserido com sucsso
+                                if ($_GET["sucesso"] == 1) {
+                                    echo "Animal inserido com sucesso!";
+                                    # esse numero 2 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                    # se o if ficar atrelado ao segundo laço ele estará no laço de atualizar que esta referenciado no 
+                                    # crud_cliente
+                                    # logo ele retorna a mensagem de cliente inserido com sucsso
+                                } else if ($_GET["sucesso"] == 2) {
+                                    echo "Animal atualizado com sucesso!";
+                                } else {
+                                    echo "Animal excluído com sucesso!";
+                                }
+                                ?>
+                            </div>
+
+                        <?php } ?>
+
+                        <?php if (isset($_GET["erro"])) { ?>
+                            <div class="alert alert-danger">
+                                <?php
+                                if ($_GET["erro"] == 1) {
+                                    echo "Erro ao inserir Animal!";
+                                } else if ($_GET["erro"] == 2) {
+                                    echo "Erro ao atualizar Animal!";
+                                } else {
+                                    echo "Erro ao excluir Animal!";
+                                }
+                                ?>
+                            </div>
+                        <?php } ?>
                     <div class="card ">
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-1">Animal</h3>
                         </div>
                         <div class="card-body">
-                            <form data-toggle="validator" role="form">
+                            <form action="crud_animal.php" method="POST" data-toggle="validator" role="form">
 
                                 <div class="form-check">
 
@@ -127,11 +165,20 @@
                                         Existente
                                     </label>
                                 </div>
+                                <?php
+                                $dados;
+                                if (isset($_GET["id_cliente"])) {
+
+                                    $queryCliente = $conexao->query("SELECT * FROM animal WHERE id_animal = " . $_GET["id_animal"]);
+                                    $dados = $queryCliente->fetch_assoc();
+                                ?>
+                                    <input type="hidden" name="id_cliente" value="<?php echo $_GET["id_animal"]; ?>" />
+                                <?php } ?>
                                 <div class="form-group row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-2" for="NomeAnimal">Nome</label>
-                                            <input class="form-control py-2" id="NomeAnimal" type="text" placeholder="Digite o nome" required />
+                                            <input class="form-control py-2" id="NomeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) { echo $dados["nome"];} ?>" placeholder="Digite o nome" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -139,21 +186,21 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-2" for="idadeAnimal">Idade</label>
-                                            <input class="form-control py-2" id="idadeAnimal" type="date" placeholder="Digite a idade" required />
+                                            <input class="form-control py-2" id="idadeAnimal" type="text"  value="<?php if (isset($_GET["id_animal"])) { echo $dados["idade"];} ?>" placeholder="Digite a idade" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="RgaAni">RGA</label>
-                                            <input class="form-control py-2" id="RgaAni" type="text" placeholder="Digite o RGA" />
+                                            <input class="form-control py-2" id="RgaAni" type="text" value="<?php if (isset($_GET["id_animal"])) { echo $dados["rga"];} ?>" placeholder="Digite o RGA" />
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="small mb-1" for="Raça">Raça</label>
-                                            <input class="form-control py-2" id="Raça" type="text" placeholder="Digite a Raça" required />
+                                            <input class="form-control py-2" id="Raça" type="text"  value="<?php if (isset($_GET["id_animal"])) { echo $dados["raca"];} ?>" placeholder="Digite a Raça" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -193,24 +240,24 @@
                                                             <th>idade</th>
                                                             <th>Raça</th>
                                                             <th>Observação</th>
-                                                            
-                                                        </tr>
-                                                        <?php
-                            $queryClietes = $conexao->query("SELECT * FROM animal");
-                            while ($dados = $queryClietes->fetch_assoc()) {
-                            ?>
-                                                        <tr>
-                                                            <td class="td">136857</td>
-                                                            <td><?php echo $dados["nome"]; ?></td>
-                                                            <td>chitsu</td>
-                                                            <td>3 anos</td>
-                                                            <td>Alergico a talco</td>
 
                                                         </tr>
-                            <?php } ?>
-                                                     
-                                                        
-                                                        
+                                                        <?php
+                                                        $queryClietes = $conexao->query("SELECT * FROM animal");
+                                                        while ($dados = $queryClietes->fetch_assoc()) {
+                                                        ?>
+                                                            <tr>
+                                                                <td class="td">136857</td>
+                                                                <td><?php echo $dados["nome"]; ?></td>
+                                                                <td>chitsu</td>
+                                                                <td>3 anos</td>
+                                                                <td>Alergico a talco</td>
+
+                                                            </tr>
+                                                        <?php } ?>
+
+
+
                                                     </table>
                                                 </div>
                                             </div>
@@ -241,7 +288,7 @@
         </div>
     </div>
 
-    
+
 
 
 

@@ -24,20 +24,23 @@ if(isset($_REQUEST["id_cliente"])) {
             # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;
+    
 }
-
+var_dump($consulta);
 $query = $conexao->query($consulta);
+
+
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação
 if(!$query) {
-    header("Location: cad_cliente.php?erro=" . $operacao);
+    header("Location: cad_cliente.php?erro=" . $operacao); 
+   
 } else {
     header("Location: cad_cliente.php?sucesso=" . $operacao);
+    
+
+    
 }
-
-
-
-
 
 
 

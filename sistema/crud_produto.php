@@ -27,6 +27,7 @@ if(isset($_REQUEST["cod_produto"])) {
 
 echo $consulta;
 
+
 $query = $conexao->query($consulta);
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação

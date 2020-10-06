@@ -19,7 +19,6 @@
     #ArrayLIst com os inputs do select
     # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
     $sexo = array(
-        
         "" => "----Selecione----",
         "M" => "Masculino",
         "F" => "Feminino"
@@ -107,6 +106,7 @@
             <main>
                 <!--
                -->
+
                 <div class="container-fluid">
                     <div class="card">
                         <?php if (isset($_GET["sucesso"])) { ?>
@@ -141,7 +141,7 @@
                                 } else if ($_GET["erro"] == 2) {
                                     echo "Erro ao atualizar cliente!";
                                 } else {
-                                    echo "Erro ao excluir cliente!";
+                                    echo "Erro ao excluir cliente   !";
                                 }
                                 ?>
                             </div>
@@ -163,11 +163,8 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="textNome">Nome</label>
-                                        <input class="form-control py-2" value="
-                                        <?php if (isset($_GET["id_cliente"])) {
-                                            #essa função do php pega o valor do input nome
-                                             echo $dados["nome"];
-                                       } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
+                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) { echo $dados["nome"];
+                                                                                } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -199,14 +196,15 @@
                                         <label class="small mb-1" for="txtCpf">CPF</label>
                                         <input class="form-control py-2" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input cpf
-                                      echo $dados["cpf"];
-                                                      } ?>" placeholder="Digite o CPF" name="cpf" required />
+                                                                                                            echo $dados["cpf"];
+                                                                                                        } ?>" placeholder="Digite o CPF" name="cpf" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3 mb-0">
                                     <label class="small mb-1" for="cmbSexo">Sexo</label>
-                                    <select id="cmbSexo" class="form-control py-2" name="sexo" required>
+
+                                    <select id="cmbSexo" class="form-control py-2" name="sexo">
                                         <?php
                                         # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                         if (isset($_GET["id_cliente"])) {
@@ -266,23 +264,11 @@
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputLastName">Cidade</label>
 
-                                        <select class="form-control py-1" name="cidade" id="cidade">
-                                            <?php
-                                            if (isset($_GET["id_cliente"])) {
-                                                foreach ($municipios as $key => $value) {
-                                                    if ($dados["cidade"] == $key) {
-                                                        echo "<option value=" . $key . " selected>" . $value . "</option>";
-                                                    } else {
-                                                        echo "<option value=" . $key . ">" . $value . "</option>";
-                                                    }
-                                                }
-                                            } else {
-                                                foreach ($municipios as $key => $value) {
-                                                    echo "<option value=" . $key . ">" . $value . "</option>";
-                                                }
-                                            }
-                                            ?>
-                                        </select>
+                                        <input type="text" class="form-control" id="cidade" value="<?php if (isset($_GET["id_cliente"])) {
+                                                                                                            echo $dados["cidade"];
+                                                                                                        } ?>" placeholder="Digite a cidade." name="cidade" required>
+
+
 
 
                                     </div>
@@ -290,25 +276,9 @@
                                 <div class="form-group col-md-4">
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputLastName">Estado</label>
-
-
-                                        <select class="form-control py-2" id="uf" name="estado">
-                                            <?php
-                                            if (isset($_GET["id_cliente"])) {
-                                                foreach ($estadosBrasileiros as $key => $value) {
-                                                    if ($dados["estado"] == $key) {
-                                                        echo "<option value=" . $key . " selected>" . $value . "</option>";
-                                                    } else {
-                                                        echo "<option value=" . $key . ">" . $value . "</option>";
-                                                    }
-                                                }
-                                            } else {
-                                                foreach ($estadosBrasileiros as $key => $value) {
-                                                    echo "<option value=" . $key . ">" . $value . "</option>";
-                                                }
-                                            }
-                                            ?>
-                                        </select>
+                                       <input type="text" class="form-control" id="uf" value="<?php if (isset($_GET["id_cliente"])) {
+                                                                                                            echo $dados["estado"];
+                                                                                                        } ?>" placeholder="Digite a cidade." name="estado" required>
 
                                     </div>
                                 </div>
@@ -395,10 +365,13 @@
                                                     <!--Converter a data para formato pt-BR-->
                                                     <td><?php echo date("d/m/Y", strtotime($dados["dt_nascimento"])); ?></td>
                                                     <td><?php echo $dados["email"]; ?></td>
-                                                    <td><?php echo $municipios[$dados["cidade"]]; ?></td>
+                                                    <td><?php echo$dados["cidade"]; ?></td>
                                                     <td>
                                                         <a href="cad_cliente.php?id_cliente=<?php echo $dados["id_cliente"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                         &nbsp;&nbsp;
+
+
+
                                                         <a href="crud_cliente.php?excluir=1&id_cliente=<?php echo $dados["id_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
                                                     </td>
 
