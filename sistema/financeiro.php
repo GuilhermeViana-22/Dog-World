@@ -39,7 +39,16 @@
                                 <div class="row">
                                     <div class="col-md-10"><i class="fas fa-chart-line" style="font-size: 35px;"></i> Total de vendas de hoje </i>
                                     </div>
-                                    <div class="col-md-2">R$ 253,00</div>
+                                    <?php
+                                   
+                                    include "banco.php";
+                                        $sql = "SELECT valor_total FROM vendas";
+                                     #$queryVendas = $conexao->query("SELECT valor_total FROM vendas");
+                                     $total = mysqli_query($conexao,'SELECT round(sum(valor_total),3) FROM vendas');
+                                      var_dump($queryVendas);
+                                      $queryVendas;
+                                    ?>
+                                    <div class="col-md-2">R$: 230,50</div>
 
                                 </div>
                             </div>
@@ -52,6 +61,7 @@
                                     <i class="fas fa-table mr-1"></i> Ùltimas Vendas
                                 </div>
                                 <div class="card-body">
+                                    
                                     <table class="table table-bordered">
                                         <tr>
                                             <th>Código</th>
@@ -59,41 +69,21 @@
                                             <th>Produtos</th>
                                             <th>Total</th>
                                         </tr>
+                                        <?php
+                                        $sql = "SELECT * FROM vendas";
+                                     $queryVendas = $conexao->query( $sql);
+
+                                     while ($dados = $queryVendas->fetch_assoc()) {
+                                    ?>
                                         <tr>
-                                            <td class="td">136857</td>
-                                            <td>Gustavo Brito</td>
-                                            <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                            <td>R$ 89, 99</td>
+                                            <td class="td"><?php echo $dados["cod_venda"]; ?></td>
+                                            <td class="td"><?php echo $dados["cod_funcionario"]; ?></td>
+                                            <td class="td"><?php echo $dados["cod_servico"]; ?></td>
+                                            <td class="td"><?php echo $dados["valor_total"]; ?></td>
+                                            
 
                                         </tr>
-                                        <tr>
-                                            <td class="td">134587</td>
-                                            <td>Pedro oliveira</td>
-                                            <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                            <td>R$ 89, 99</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="td">136598</td>
-                                            <td>Lucas Marques</td>
-                                            <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                            <td>R$ 89, 99</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="td">136485</td>
-                                            <td>Marcos Garcia</td>
-                                            <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                            <td>R$ 89, 99</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="td">136456</td>
-                                            <td>Eliane</td>
-                                            <td>5x Ração ; 2x Brinquedo; 2x Banho </td>
-                                            <td>R$ 89, 99</td>
-
-                                        </tr>
+                                     <?php }?>
                                     </table>
                                 </div>
                             </div>

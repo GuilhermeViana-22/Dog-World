@@ -14,7 +14,7 @@ if(isset($_REQUEST["Cod_funcionario"])) {
         # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 3;
     } else {
-        $consulta = "UPDATE funcionario SET nome = '".$_REQUEST["nome"]."', cpf = '".$_REQUEST["cpf"]."', dt_nascimento = '".$_REQUEST["dt_nascimento"]."', cpf = '".$_REQUEST["cpf"]."', email = '".$_REQUEST["email"]."', sexo = '".$_REQUEST["sexo"]."', telefone = '".$_REQUEST["telefone"]."', logradouro = '".$_REQUEST["logradouro"]."', num_comp = '".$_REQUEST["num_comp"]."', cidade = '".$_REQUEST["cidade"]."', estado = '".$_REQUEST["estado"]."', ativo = '".$_REQUEST["ativo"]."', cep ='".$_REQUEST["cep"]."' WHERE Cod_funcionario = ".$_REQUEST["Cod_funcionario"]."";
+        $consulta = "UPDATE funcionario SET nome = '".$_REQUEST["nome"]."', rg = '".$_REQUEST["rg"]."', cpf = '".$_REQUEST["cpf"]."', sexo = '".$_REQUEST["sexo"]."', telefone = '".$_REQUEST["telefone"]."', dt_nascimento = '".$_REQUEST["dt_nascimento"]."', email = '".$_REQUEST["email"]."', Cep = '".$_REQUEST["Cep"]."', logradouro = '".$_REQUEST["logradouro"]."', num_comp = '".$_REQUEST["num_comp"]."', cidade = '".$_REQUEST["cidade"]."', estado = '".$_REQUEST["estado"]."', cargo ='".$_REQUEST["cargo"]."', salario ='".$_REQUEST["salario"]."', horas ='".$_REQUEST["horas"]."', dt_admicao ='".$_REQUEST["dt_admicao"]."', ativo ='".$_REQUEST["ativo"]."', senha ='".$_REQUEST["senha"]."' WHERE Cod_funcionario = '".$_REQUEST["Cod_funcionario"]."'";
                 # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
                 # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 2;
@@ -25,12 +25,12 @@ if(isset($_REQUEST["Cod_funcionario"])) {
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;
 }
-
+var_dump($consulta);
 $query = $conexao->query($consulta);
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação
 if(!$query) {
-    header("Location: cad_funcionariov2.php?erro=" . $operacao);
+   header("Location: cad_funcionariov2.php?erro=" . $operacao);
 } else {
-    header("Location: cad_funcionariov2.php?sucesso=" . $operacao);
+   header("Location: cad_funcionariov2.php?sucesso=" . $operacao);
 }

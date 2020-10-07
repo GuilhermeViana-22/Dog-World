@@ -12,6 +12,38 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <?php
+    #nestes includes temos todos os estados e municipios do brasil na nossa aplicação, como isso ficaria dispensioso e sujando nosso codigo
+    #está sendo utilizado um array em outro arquivo que carrega todas essas informações
+
+    #ArrayLIst com os inputs do select
+    # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
+    $sexo = array(
+        "" => "----Selecione----",
+        "M" => "Macho",
+        "F" => "Femea"
+    );
+    ?>
+
+    <?php
+
+    $tipo = array(
+        "" => "----Selecione----",
+        "Cachorro" => "Cachorro",
+        "Coelho" => "Coelho",
+        "Furão" => "Furão",
+        "Gato" => "Gato",
+        "Hamster" => "Hamster",
+        "Roedor" => "Roedor",
+        "Porquinho_da_india" => "Porquinho_da_india",
+        "Passáro" => "Passáro",
+        "Peixao" => "Peixao",
+        "Tartaruga" => "Tartaruga",
+
+
+    );
+
+    ?>
 
 </head>
 
@@ -108,7 +140,7 @@
                 <!--
                -->
                 <div class="container-fluid">
-                <div class="card">
+                    <div class="card">
                         <?php if (isset($_GET["sucesso"])) { ?>
 
                             <div class="alert alert-success">
@@ -146,143 +178,223 @@
                                 ?>
                             </div>
                         <?php } ?>
-                    <div class="card ">
-                        <div class="card-header">
-                            <h3 class="text-center font-weight-light my-1">Animal</h3>
-                        </div>
-                        <div class="card-body">
-                            <form action="crud_animal.php" method="POST" data-toggle="validator" role="form">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-1">Animal</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="crud_animal.php" method="POST" data-toggle="validator" role="form">
 
-                                <div class="form-check">
+                                    <?php
+                                    $dados;
+                                    if (isset($_GET["id_animal"])) {
 
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-
-                                    <label class="form-check-label" for="exampleRadios1"> Novo Animal</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        Existente
-                                    </label>
-                                </div>
-                                <?php
-                                $dados;
-                                if (isset($_GET["id_cliente"])) {
-
-                                    $queryCliente = $conexao->query("SELECT * FROM animal WHERE id_animal = " . $_GET["id_animal"]);
-                                    $dados = $queryCliente->fetch_assoc();
-                                ?>
-                                    <input type="hidden" name="id_cliente" value="<?php echo $_GET["id_animal"]; ?>" />
-                                <?php } ?>
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="small mb-2" for="NomeAnimal">Nome</label>
-                                            <input class="form-control py-2" id="NomeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) { echo $dados["nome"];} ?>" placeholder="Digite o nome" required />
-                                            <div class="help-block with-errors"></div>
+                                        $queryCliente = $conexao->query("SELECT * FROM animal WHERE id_animal = " . $_GET["id_animal"]);
+                                        $dados = $queryCliente->fetch_assoc();
+                                    ?>
+                                        <input type="hidden" name="id_animal" value="<?php echo $_GET["id_animal"]; ?>" />
+                                    <?php } ?>
+                                    <div class="form-group row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="NomeAnimal">Nome</label>
+                                                <input class="form-control py-2" id="NomeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                        echo $dados["nome"];
+                                                                                                                    } ?>" placeholder="Digite o nome" name="nome" required />
+                                                <div class="help-block with-errors"></div>
+                                            </div>
                                         </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="idadeAnimal">Idade</label>
+                                                <input class="form-control py-2" id="idadeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                            echo $dados["idade"];
+                                                                                                                        } ?>" placeholder="Digite a idade" name="idade" required />
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="RgaAni">RGA</label>
+                                                <input class="form-control py-2" id="RgaAni" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                    echo $dados["rga"];
+                                                                                                                } ?>" placeholder="Digite o RGA" name="rga" required />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="Raça">Raça</label>
+                                                <input class="form-control py-2" id="Raça" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                    echo $dados["raca"];
+                                                                                                                } ?>" placeholder="Digite a Raça" name="raca" required />
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="SexoAni " class="small mb-1">Sexo</label>
+                                            <select id="cmbSexo" class="form-control py-2" name="sexo">
+                                                <?php
+                                                # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
+                                                if (isset($_GET["id_animal"])) {
+                                                    foreach ($sexo as $key => $value) {
+                                                        if ($dados["sexo"] == $key) {
+                                                            echo "<option value=" . $key . " selected>" . $value . "</option>";
+                                                        } else {
+                                                            echo "<option value=" . $key . ">" . $value . "</option>";
+                                                        }
+                                                    }
+                                                } else {
+                                                    foreach ($sexo as $key => $value) {
+                                                        echo "<option value=" . $key . ">" . $value . "</option>";
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipoAni " class="small mb-1">Tipo</label>
+                                            <select id="tipoAni" class="form-control py-2 " name="tipo">
+                                                <?php
+                                                # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
+                                                if (isset($_GET["id_animal"])) {
+                                                    foreach ($tipo as $key => $value) {
+                                                        if ($dados["tipo"] == $key) {
+                                                            echo "<option value=" . $key . " selected>" . $value . "</option>";
+                                                        } else {
+                                                            echo "<option value=" . $key . ">" . $value . "</option>";
+                                                        }
+                                                    }
+                                                } else {
+                                                    foreach ($tipo as $key => $value) {
+                                                        echo "<option value=" . $key . ">" . $value . "</option>";
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="Raca">ID do Clinete</label>
+                                                <input class="form-control py-2" id="Raca" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                    echo $dados["id_cliente"];
+                                                                                                                } ?>" placeholder="Digite o ID do Cliente" name="id_cliente" required />
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="observacaoani">Observação</label>
+                                            <textarea class="form-control" id="observacaoani" rows="3" value="<?php if (isset($_GET["id_animal"])) {
+                                                                                                                    echo $dados["observacao"];
+                                                                                                                } ?>" placeholder="Digite a observação do animal" name="observacao"></textarea>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" value="S" id="AtivoAni" name="ativo" <?php if (isset($_GET["id_animal"])) {
+                                                                                                                                        if ($dados["ativo"] == "S") {
+                                                                                                                                            echo "checked";
+                                                                                                                                        }
+                                                                                                                                    } ?>>
+                                            <label class="form-check-label" for="AtivoAni">Ativo</label>
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+                                    <div id="botoes" class="col-md-6 col-xs-12">
+                                        <button type="Submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="small mb-2" for="idadeAnimal">Idade</label>
-                                            <input class="form-control py-2" id="idadeAnimal" type="text"  value="<?php if (isset($_GET["id_animal"])) { echo $dados["idade"];} ?>" placeholder="Digite a idade" required />
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="small mb-1" for="RgaAni">RGA</label>
-                                            <input class="form-control py-2" id="RgaAni" type="text" value="<?php if (isset($_GET["id_animal"])) { echo $dados["rga"];} ?>" placeholder="Digite o RGA" />
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="small mb-1" for="Raça">Raça</label>
-                                            <input class="form-control py-2" id="Raça" type="text"  value="<?php if (isset($_GET["id_animal"])) { echo $dados["raca"];} ?>" placeholder="Digite a Raça" required />
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="SexoAni " class="small mb-1">Sexo</label>
-                                        <select id="SexoAni" class="form-control py-2 ">
-                                            <option selected>---Escolher---</option>
-                                            <option>Macho</option>
-                                            <option>Femea</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="tipoAni " class="small mb-1">Tipo</label>
-                                        <select id="tipoAni" class="form-control py-2 ">
-                                            <option selected>---Escolher---</option>
-                                            <option>Cachorro</option>
-                                            <option>Gato</option>
-                                            <option>Ave</option>
-                                            <option>Roedor</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="AtivoAni">
-                                        <label class="form-check-label" for="AtivoAni">Ativo</label>
-                                    </div>
-                                    <div class="row w-100">
-                                        <div class="col-xl-12 col-md-12 ">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <i class="fas fa-table mr-6"></i> Animais
+                                </form>
+                                <form method="GET" style="margin-top:15px;" action="cad_animal.php">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <br />
+                                                <div style="padding-left:32px;" class="col-md-3">
+                                                    Pesquisa :
                                                 </div>
-                                                <div class="card-body mr-1">
-                                                    <table class="table table-bordered">
+                                                <div class="col-md-9">
+                                                    <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
+                                                                                    echo $_GET["pesquisa"];
+                                                                                } ?>" name="pesquisa" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="submit" class="btn btn-primary" value="pesquisar">
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="row w-100">
+                                    <div class="col-xl-12 col-md-12 ">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <i class="fas fa-table mr-6"></i> Animais
+                                            </div>
+                                            
+                                                
+                                                    <table class="table table-striped">
                                                         <tr>
-                                                            <th>RGA</th>
+                                                            <th>ID_Animal</th>
                                                             <th>Nome</th>
-                                                            <th>idade</th>
                                                             <th>Raça</th>
+                                                            <th>RGA</th>
+                                                            <th>idade</th>
+                                                            <th>Sexo</th>
                                                             <th>Observação</th>
-
+                                                            <th>Ativo</th>
+                                                            <th>ID_Cliente</th>
+                                                            <th>Funções</th>
                                                         </tr>
                                                         <?php
-                                                        $queryClietes = $conexao->query("SELECT * FROM animal");
-                                                        while ($dados = $queryClietes->fetch_assoc()) {
-                                                        ?>
-                                                            <tr>
-                                                                <td class="td">136857</td>
-                                                                <td><?php echo $dados["nome"]; ?></td>
-                                                                <td>chitsu</td>
-                                                                <td>3 anos</td>
-                                                                <td>Alergico a talco</td>
+                                                        $consultaTabela = "";
+                                                        if (isset($_GET["pesquisa"])) {
+                                                            $pesquisa = $_GET["pesquisa"];
+                                                            $consultaTabela = "SELECT * FROM animal WHERE nome LIKE '%$pesquisa%' OR raca LIKE '%$pesquisa%' OR tipo LIKE '%$pesquisa%' OR sexo LIKE '%$pesquisa%'";
+                                                        } else {
+                                                            $consultaTabela = "SELECT * FROM animal";
+                                                        }
+                                                        $queryAnimal = $conexao->query($consultaTabela);
 
+                                                        while ($dados = $queryAnimal->fetch_assoc()) {
+                                                        ?>
+
+                                                            <tr width="20px">
+                                                                <td width="20px"><?php echo $dados["id_animal"]; ?> </td>
+                                                                <td width="20px"><?php echo $dados["nome"]; ?></td>
+                                                                <td width="20px"><?php echo $dados["raca"]; ?></td>
+                                                                <td width="20px"> <?php echo $dados["rga"]; ?></td>
+                                                                <td width="20px"><?php echo $dados["idade"]; ?></td>                                                                
+                                                                <td width="20px"><?php echo $dados["sexo"]; ?></td>
+                                                                <td width="20px"><?php echo $dados["observacao"]; ?></td>
+                                                                <td width="20px"> <?php echo $dados["ativo"]; ?></td>
+                                                                <td width="20px"><?php echo $dados["id_cliente"]; ?></td>
+                                                                <td>
+                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                                    &nbsp;&nbsp;
+
+                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                                                </td>
                                                             </tr>
                                                         <?php } ?>
 
-
-
                                                     </table>
-                                                </div>
+                                                
                                             </div>
-
-
                                         </div>
 
-
                                     </div>
-
-
                                 </div>
-                                <div id="botoes" class="col-md-6 col-xs-12">
-                                    <button type="Submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
-                                    <button type="Submit" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
-                                    <button type="Submit" class="btn btn-primary"><i class="fas fa-paw"></i> Atualizar</button>
-                                </div>
-
-
-                            </form>
+                            </div>
 
                         </div>
-
                     </div>
-                </div>
             </main>
             <?php include 'footer.php'; ?>
         </div>

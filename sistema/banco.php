@@ -1,10 +1,5 @@
 <?php
-    $conexao = new mysqli('localhost','root','','dog_world');
-    
+    $conexao = new mysqli('localhost','root','','dog_world');    
     session_start();
 
-    //Recupera a senha
-    
-  
-    
 ?>
