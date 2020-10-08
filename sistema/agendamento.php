@@ -145,8 +145,8 @@
                                                 <div class="col-md-6">
                                                     <div class="row">
                                                         <br />
-                                                        <div style="padding-left:45px;" class="col-md-3">
-                                                            Pesquisa :
+                                                        <div style="padding-left:25px;" class="col-md-3">
+                                                            Pesquisar :
                                                         </div>
                                                         <div class="col-md-9">
                                                             <input type="text" value="<?php if (isset($_GET["pesquisa"])) {

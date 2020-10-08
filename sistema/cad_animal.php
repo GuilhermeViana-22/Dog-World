@@ -304,10 +304,12 @@
 
 
                                     </div>
-                                    <div id="botoes" class="col-md-6 col-xs-12">
-                                        <button type="Submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                    <div id="botoes" class="col-md-9 col-xs-12">
+                            <div style="padding-left:350px;" class="col-md-15">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                                    </div>  
 
-                                    </div>
+                            </div>
 
 
                                 </form>
@@ -316,8 +318,8 @@
                                         <div class="col-md-6">
                                             <div class="row">
                                                 <br />
-                                                <div style="padding-left:32px;" class="col-md-3">
-                                                    Pesquisa :
+                                                <div style="padding-left:25px;" class="col-md-3">
+                                                    Pesquisar:
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
