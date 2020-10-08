@@ -276,7 +276,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="Raca">ID do Clinete</label>
+                                                <label class="small mb-1" for="Raca">ID do Cliente</label>
                                                 <input class="form-control py-2" id="Raca" type="text" value="<?php if (isset($_GET["id_animal"])) {
                                                                                                                     echo $dados["id_cliente"];
                                                                                                                 } ?>" placeholder="Digite o ID do Cliente" name="id_cliente" required />

@@ -99,7 +99,11 @@
 
         <div id="layoutSidenav_content">
             <main>                
-                <h5>Relatórios</h5><br>
+            <div class="container-fluid">
+               <div class="card">
+                <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Relatório</h3>
+                            </div>
                 <ol class="breadcrumb mb-4">
                     <h6 id="h6"></h6>
                 </ol>
@@ -315,7 +319,8 @@
                     </table>
 
                 </section>
-
+               </div>
+            </div>
             </main>
             <?php include 'footer.php'; ?>
         </div>

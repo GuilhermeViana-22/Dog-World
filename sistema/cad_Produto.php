@@ -89,21 +89,18 @@
                     <?php } ?>
 
 
-                    <div class="card-header">
-                        <h3 class="text-center font-weight-light my-4">Produto</h3>
-                    </div>
+                    <div class="container-fluid">
+               <div class="card">
+                <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4"> Cadastro de Produtos</h3>
+                            </div>
 
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-md-3">
+                            
+                            <div class="col-md-7">
                                 <div class="form-group">
-                                   
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="small mb-2" for="textNome">Nome</label>
+                                    <label class="small mb-1" for="textNome">Nome</label>
 
                                     <input class="form-control py-2" value="<?php if (isset($_GET["cod_produto"])) {
                                                                                 echo $dados["titulo"];
@@ -116,7 +113,7 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">lote</label>
+                                    <label class="small mb-1" for="inputLastName">Lote</label>
                                     <input value=" <?php if (isset($_GET["cod_produto"])) {
                                                         echo $dados["cod_lote"];
                                                     } ?>" class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" />
@@ -156,8 +153,11 @@
                                 <label class="form-check-label" for="AtivoCli">Ativo</label>
                             </div>
 
-                            <div id="botoes" class="col-md-6 col-xs-12">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                            <div id="botoes" class="col-md-9 col-xs-12">
+                            <div style="padding-left:350px;" class="col-md-15">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                    </div>
+                                
 
                             </div>
                         </div>
@@ -169,8 +169,8 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <br />
-                                    <div style="padding-left:32px;" class="col-md-3">
-                                        Pesquisa :
+                                    <div style="padding-left:25px;" class="col-md-3">
+                                    Pesquisar:
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" value="<?php if (isset($_GET["pesquisar"])) {
@@ -178,21 +178,24 @@
                                                                     } ?>" name="pesquisar" class="form-control">
                                     </div>
                                 </div>
+                                
+
                             </div>
                             <div class="col-md-6">
                                 <input type="submit" class="btn btn-primary" value="pesquisar">
                             </div>
                         </div>
+                        
                     </form>
                     <div class="card-body mr-1">
 
                         <table class="table table-bordered">
                             <tr>
-                                <th>Cod_produto</th>
-                                <th>titulo</th>
+                                <th>Cod produto</th>
+                                <th>Nome</th>
                                 <th>Quantidade</th>
-                                <th>Codigo lote</th>
-                                <th>Valor unitario</th>
+                                <th>Lote</th>
+                                <th>Valor Unitário</th>
                                 <th>Fornecedor</th>
                                 <th>Ativo</th>
                                 <th>Ações</th>
@@ -232,6 +235,8 @@
                         </table>
                     </div>
                 </div>
+                </div>
+                                </div>
 
 
 

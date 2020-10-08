@@ -35,8 +35,12 @@
 
         <div id="layoutSidenav_content">
             <main>
+
                 <div class="container-fluid">
-                    <h2>Agendar</h2>
+                <div class="card">
+                <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Agendamento</h3>
+                            </div>
                     <div class="row" style="background-color: #ebf2ff;">
                         <div class="col-xl-12 col-md-12">
                             <br>
@@ -216,7 +220,7 @@
 
                     </div>
 
-
+                </div>
                 </div>
             </main>
             <?php include 'footer.php'; ?>

@@ -25,9 +25,9 @@ if(isset($_REQUEST["cod_fornecedor"])) {
     $operacao = 1;
 }
 
-echo $consulta;
-
+var_dump($consulta);
 $query = $conexao->query($consulta);
+
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação
 if(!$query) {

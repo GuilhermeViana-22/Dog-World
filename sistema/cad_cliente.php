@@ -234,8 +234,8 @@
                                 </div>
                                 <div class="col-md-10">
                                     <div class="col-md-15">
-                                        <label for="inputEmail" for="txtEmail" class="small md-3 ">Email</label>
-                                        <input type="email" class="form-control py-0" id="txtEmail" placeholder="Email" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label for="inputEmail" for="txtEmail" class="small md-3 ">E-mail</label>
+                                        <input type="email" class="form-control py-0" id="txtEmail" placeholder="E-mail" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                                                     echo $dados["email"];
                                                                                                                                 } ?>" name="email" required>
                                         <div class="help-block with-errors"></div>

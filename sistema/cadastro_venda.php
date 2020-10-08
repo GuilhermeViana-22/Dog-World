@@ -34,21 +34,25 @@
         <div id="layoutSidenav_content">
             <main>
                
-                <form>
+            <div class="container-fluid">
+              <div class="card">
+                <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Cadastrar venda</h3>
+                            </div>
+
                     <div class="form-group">
-                        <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Cadastrar Venda</h3>
-                        </div>
-                      <div class="col-md-6 col-xs-12">
+                    <div class="form-group row">
+                      <div class="col-md-6 col-xs-10">
                         <label class="small mb-2" for="inputFirstName">Nome</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o nome" />
+                    
                     </div>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
+                    
+                    <div class="col-md-3 col-xs-8">
                         <label class="small mb-2" for="inputFirstName" >CPF</label>
                         <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Digite o CPF" style="padding-right: 10px ;"/>
                         
-                        
+                    </div>   
                     </div>
 
                     <div class="container-fluid">
@@ -86,7 +90,7 @@
                     <table class="table table-dark">
                         <thead>
                           <tr>
-                            <th scope="col">Codigo</th>
+                            <th scope="col">Código</th>
                             <th scope="col">Produto</th>
                             <th scope="col">Quantidade</th>
                             <th scope="col">Preço</th>
@@ -94,21 +98,21 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
+                            
                             <td>001</td>
                             <td>Ração golden sabor carne</td>
                             <td>2</td>
                             <td>R$60,00 </td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
+                            
                             <td>001</td>
                             <td>Ração golden sabor carne para gatos</td>
                             <td>2</td>
                             <td>R$60,00 </td>
                           </tr>
                           <tr>
-                            <th scope="row">3</th>
+                            
                             <td>001</td>
                             <td>Ração golden sabor Frango</td>
                             <td>2</td>
@@ -129,7 +133,8 @@
                       <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar venda</button>
                   </div>
 
-                  </form>
+              </div>
+            </div>
 
 
 

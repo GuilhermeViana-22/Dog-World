@@ -38,6 +38,7 @@
                -->
                <?php if (isset($_GET["sucesso"])) { ?>
                <div class="alert alert-success">
+               
     <?php
     # esse numero 1 refere-se a mensagem de sucesso exibida  no inicio da tela
     # se o if ficar atrelado ao primeiro laço ele estará no laço de inserir referenciado no 
@@ -73,66 +74,98 @@
 </div>
 <?php } ?>
                 <form action="crud_fornece.php" method="post" name="fornecedor">
-                    <div class="card-header">
-                        <h3 class="text-center font-weight-light my-4">Fornecedor</h3>
-                    </div>
+
+                <?php $dados;
+                    if (isset($_GET["cod_fornecedor"])) {
+                        $queryProduto = $conexao->query("SELECT * FROM fornecedor WHERE cod_fornecedor = " . $_GET["cod_fornecedor"]);
+                        $dados = $queryProduto->fetch_assoc();  ?> <input type="hidden" name="cod_fornecedor" value="<?php echo $_GET["cod_produto"]; ?>" />
+                    
+                    <input value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                                        #essa função do php pega o valor do input nome
+                                                        echo $dados["cod_fornecedor"];
+                                                    } ?>" class="form-control py-2" id="inputFirstName" name="cod_fornecedor" type="text"readonly />
+                    
+                    <?php } ?>
+                    <div class="container-fluid">
+               <div class="card">
+                <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Cadastrar Fornecedor</h3>
+                            </div>
 
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputnumber">Cod Fornecedor:</label>
-                                    <input class="form-control py-2" name="cod_fornecedor" id="inputFirstName" type="text" readonly />
+                                    <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["cod_fornecedor"];
+                                                    } ?>" name="cod_fornecedor" id="inputFirstName" type="text" readonly />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputfirstName">Raz&#227;o Social</label>
-                                    <input class="form-control py-2" id="inputLastName" name="fornecedor" type="text" placeholder="Digite a raz&#227;o Social" />
+                                    <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["fornecedor"];
+                                                    } ?>" id="inputLastName" name="fornecedor" type="text" placeholder="Digite a raz&#227;o Social" />
                                 </div>
                             </div>
                             
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">CNPJ</label>
-                                    <input class="form-control py-2" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" />
+                                    <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["cnpj"];
+                                                    } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Endere&ccedil;o</label>
-                                    <input class="form-control py-2" id="inputLastName" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" />
+                                    <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["logradouro"];
+                                                    } ?>" id="inputLastName" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="small mb-2" for="inputnumber">Complemento:</label>
-                                    <input class="form-control py-2" name="num_comp" id="inputFirstName" type="text"  />
+                                    <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["num_comp"];
+                                                    } ?>" name="num_comp" id="inputFirstName" type="text"  />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">CEP</label>
-                                    <input class="form-control py-2" id="inputLastName" name="cep" type="text" placeholder="Digite o CEP" />
+                                    <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["cep"];
+                                                    } ?>" name="cep" type="text" placeholder="Digite o CEP" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Cidade</label>
-                                    <input class="form-control py-2" id="inputLastName" name="cidade" type="text" placeholder="Digite a cidade" />
+                                    <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["cidade"];
+                                                    } ?>" name="cidade" type="text" placeholder="Digite a cidade" />
                                 </div>
 
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Estado</label>
-                                    <input class="form-control py-2" id="inputLastName" name="estado" type="text" placeholder="Digite o Estado" />
+                                    <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["estado"];
+                                                    } ?>" name="estado" type="text" placeholder="Digite o Estado" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputLastName">Telefone</label>
-                                    <input class="form-control py-2" id="inputLastName" name="telefone" type="text" placeholder="Digite o Telefone" />
+                                    <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                                        echo $dados["telefone"];
+                                                    } ?>" name="telefone" type="text" placeholder="Digite o Telefone" />
                                 </div>
                             </div>
                             <div class="form-check">
@@ -146,20 +179,21 @@
 
                             <div id="botoes" class="col-md-6 col-xs-12">
                                 <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i>    Inserir</button>
-                                <button type="button" class="btn btn-warning"><i class="fas fa-paw"></i> Alterar</button>
-                                <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
+                                
                             </div>
                             
                     </div>
+                    
 
                     <form method="GET" style="margin-top:40px; font-size: 11pt;" action=".php">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="row">
                                                         <br />
-                                                        <div style="padding-left:45px;" class="col-md-3">
-                                                            Pesquisa :
+                                                        <div style="padding-left:25px;" class="col-md-3">
+                                                        Pesquisar
                                                         </div>
+                                                        
                                                         <div class="col-md-9">
                                                             <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
                                                                                             echo $_GET["pesquisa"];
@@ -171,6 +205,8 @@
                                                     <input type="submit" class="btn btn-primary" value="pesquisar">
                                                 </div>
                                         </form>
+
+                                        
                 
                     <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_Produto.php">
 
@@ -229,7 +265,9 @@
         <?php } ?>
     </table>
 </form>
-
+        </div>
+        </div>
+        
             </main>
             <?php include 'footer.php'; ?>
         </div>
