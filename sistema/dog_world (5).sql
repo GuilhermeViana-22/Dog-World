@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Out-2020 às 13:55
+-- Tempo de geração: 10-Out-2020 às 23:38
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -123,20 +123,21 @@ CREATE TABLE `fornecedor` (
   `num_comp` varchar(100) NOT NULL,
   `cidade` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL,
-  `telefone` varchar(20) DEFAULT NULL
+  `telefone` varchar(20) DEFAULT NULL,
+  `ativo` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `fornecedor`
 --
 
-INSERT INTO `fornecedor` (`cod_fornecedor`, `cnpj`, `fornecedor`, `logradouro`, `cep`, `num_comp`, `cidade`, `estado`, `telefone`) VALUES
-(1, '11.111.111-0001.01', 'Golden', 'av.dos bocos', '1111-11', '1', 'Santo andre', 'SP', '1111-1111'),
-(5, '22.222.222.0001-22', 'pipicat', 'av da lua', '222222', '2', 'santo amaro', 'sp', '2222-222'),
-(6, '33.333.333-0001-33', ' Whiskas ', 'av.da maria', '333333', '3', 'Tiradentes', 'SP', 's'),
-(7, '44.444.444-0001-44', 'Gold Cat Litter', 'av dos sonhos', '333333', '33', 'Rita', 'SP', 's'),
-(8, '55.555.555-0001-55', 'Like Cat, Organnact', 'av toranja', '55555', '5', 'santa lusia', 'sp', '5555-5555'),
-(9, '66.666.666-0001-66', 'Hello Kitty Clássica, PetFive\r\n', 'av. das katia', '66666', '6', 'Lotadaria', 'SP', '66666');
+INSERT INTO `fornecedor` (`cod_fornecedor`, `cnpj`, `fornecedor`, `logradouro`, `cep`, `num_comp`, `cidade`, `estado`, `telefone`, `ativo`) VALUES
+(5, '  22.222.222.0001-22', ' cobasi brasil', '  av da lua', '  222222', '  2', '  santo amaro', '  sp', '  2222-222', ''),
+(6, ' 33.333.333-0001-33', '  Whiskas ', ' av.da maria', ' 333333', ' 3', ' Tiradentes', ' SP', ' 115563258', ''),
+(7, ' 44.444.444-0001-44', ' Gold Cat Litter', ' av dos sonhos', ' 333333', ' 33', ' Rita', ' SP', ' 11111111', ''),
+(8, '55.555.555-0001-55', 'Like Cat, Organnact', 'av toranja', '55555', '5', 'santa lusia', 'sp', '5555-5555', ''),
+(9, '66.666.666-0001-66', 'Hello Kitty Clássica, PetFive\r\n', 'av. das katia', '66666', '6', 'Lotadaria', 'SP', '66666', ''),
+(11, '123.145.126-0001.45', ' petz', 'R Igarapé A Azul', '08485-310', ' 4', 'São Paulo', 'SP', ' 111111111', '');
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`Cod_funcionario`, `nome`, `cpf`, `rg`, `sexo`, `telefone`, `dt_nascimento`, `email`, `Cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `cargo`, `salario`, `horas`, `dt_admicao`, `ativo`, `senha`) VALUES
-(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton@dogworld.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 's', '1111'),
+(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton@dogworld.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 's', '123456'),
 (2, 'Karolina santana', '789456123', '125463', 'F', '4455666633', '2000-05-09', 'karolina@dogworld.com', '8888666', 'rua dos bobos', '0 hha', 'sao paulo', 'sp', 'Gerente', 5.5, '10:00 as 18:00', '2020-05-12', 's', '123456'),
 (5, 'thiago nashiro ', '456321478', '852364', 'M', '4477889966', '2019-05-19', 'thiago@dogworld.com', '63258974', 'r santana', '41', 'sao paulo', 'sp', 'atendente', 1200, '9:00 as 17:00', '2020-10-04', 's', '123456'),
 (6, 'Guilherme Viana', '987654321', '8523', 'M', '55663896', '2019-06-09', 'guilherme@dogworld.com', '789654123', 'sao joa', '96', 'sao paulo', 'sp', 'Financeiro', 2, '10:00 as 18:00', '2020-05-11', 's', '123456'),
@@ -201,13 +202,10 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`cod_produto`, `titulo`, `quantidade`, `cod_lote`, `valor_unitario`, `cod_fornecedor`, `ativo`) VALUES
-(1, 'Golden ração para gatos castrados frango 30k', 3, 1, 30, 1, 'S'),
-(6, 'Golden ração para gatos castrados carne 30k', 2, 2, 2, 1, 's'),
 (14, 'areia pipicat', 2, 2, 2, 5, 's'),
 (15, 'pipi', 3, 3, 30.5, 5, 'S'),
 (16, 'terrinha', 5, 5, 5, 7, 's'),
-(17, 'terrinh aromatica', 5, 4, 25, 7, 's'),
-(18, 'sha', 5, 4, 6, 1, 'S');
+(17, 'terrinh aromatica', 5, 4, 25, 7, 's');
 
 -- --------------------------------------------------------
 
@@ -221,6 +219,7 @@ CREATE TABLE `vendas` (
   `cod_funcionario` int(20) NOT NULL,
   `cod_produto` int(20) NOT NULL,
   `cod_cliente` int(20) DEFAULT NULL,
+  `cpf_cliente` varchar(17) NOT NULL,
   `data_venda` date NOT NULL DEFAULT current_timestamp(),
   `horario` time NOT NULL DEFAULT current_timestamp(),
   `cod_servico` int(20) NOT NULL
@@ -230,9 +229,9 @@ CREATE TABLE `vendas` (
 -- Extraindo dados da tabela `vendas`
 --
 
-INSERT INTO `vendas` (`cod_venda`, `valor_total`, `cod_funcionario`, `cod_produto`, `cod_cliente`, `data_venda`, `horario`, `cod_servico`) VALUES
-(1, 30.3, 8, 14, 4, '2020-10-08', '08:14:45', 1),
-(2, 50.5, 1, 14, 1, '2020-10-06', '09:07:17', 1);
+INSERT INTO `vendas` (`cod_venda`, `valor_total`, `cod_funcionario`, `cod_produto`, `cod_cliente`, `cpf_cliente`, `data_venda`, `horario`, `cod_servico`) VALUES
+(1, 30.3, 8, 14, 4, '', '2020-10-08', '08:14:45', 1),
+(2, 50.5, 1, 14, 1, '', '2020-10-06', '09:07:17', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -314,7 +313,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`

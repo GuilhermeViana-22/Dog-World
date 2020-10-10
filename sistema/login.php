@@ -16,9 +16,9 @@
         <form action="logar.php" method="POST">
             <h1>Login</h1>
             <p id="pl">Usuario</p>
-            <input type="text" id="loginu" name="email_funcionario" placeholder="Digite a matricula"><br><br>
+            <input type="text" id="loginu" name="email" placeholder="Digite o E-mail"><br><br>
             <p id="pl">Senha</p>
-            <input type="Password" id="logins" name="senha_funcionario" placeholder="Digite sua senha"><br><br>
+            <input type="Password" id="logins" name="senha" placeholder="Digite sua senha"><br><br>
             <input type="submit" id="entrar" value="Entrar">
 
         </form>
@@ -35,32 +35,10 @@
         </div>
         <?php } ?>
           <br/>
-        <a href="recupera_senha.php">Esqueci a senha </a>
+        <a href="atualizar_senha.php">Esqueci a senha </a>
 
     </div>
-    <script>
-        var user = "admin";
-        var senha = "admin";
-
-
-        function valida() {
-            var usu = document.getElementById('loginu').value;
-            var sen = document.getElementById("logins").value;
-
-
-            if (usu != "admin") {
-                alert("Put the username");
-
-            } else if (sen != "admin") {
-                alert("Put the Password");
-            } else {
-                window.open("http://localhost:8080/aps/trunk/sistema/charger_progress.html");
-                //window.closed.href = "C:/xampp/tomcat/webapps/ROOT/aps/trunk/sistema/login.html";
-                //window.location.assign("http://localhost:8080/aps/trunk/sistema/");
-                // window.close("C:/xampp/tomcat/webapps/ROOT/aps/trunk/sistema/login.html")
-            }
-        }
-    </script>
+    
 </body>
 
 </html>

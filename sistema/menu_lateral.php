@@ -8,10 +8,9 @@
                         não será localizado nenhum arquivo
                         -->
 
-                        <?php if($_SESSION["cargo"] == "Atendente" || "Gerente") { ?>      
+                        <?php if($_SESSION["cargo"] == "Atendente" || $_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "atendente" || $_SESSION["cargo"] == "gerente") { ?>      
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#controleusu" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-
                     Atendimento
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
@@ -25,7 +24,7 @@
                 </div>
                         <?php } ?>
 
-                <?php if($_SESSION["cargo"] == "Gerente" || "Financeiro") { ?>
+                <?php if($_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "Financeiro" || $_SESSION["cargo"] == "gerente" || $_SESSION["cargo"] == "financeiro") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subfinaceiro" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-coins"></i></div>
                     Financeiro
@@ -43,7 +42,7 @@
                 <div class="collapse" id="subvendas" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
              
                 </div>
-                <?php if($_SESSION["cargo"] == "Gerente" || "Estoquista") { ?>
+                <?php if($_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "Estoquista" || $_SESSION["cargo"] == "gerente" || $_SESSION["cargo"] == "estoquista") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subestoque" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i> </div>
                     Estoque

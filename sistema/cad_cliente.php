@@ -347,7 +347,7 @@
                                                 <th>Data de nascimento</th>
                                                 <th>Email</th>
                                                 <th>cidade</th>
-                                                <th>#</th>
+                                                <th>A/</th>
                                             </tr>
                                             <?php
                                             $consultaTabela = "";

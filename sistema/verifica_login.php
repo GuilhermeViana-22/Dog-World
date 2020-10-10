@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_SESSION["email_funcionario"])) {
+if(!isset($_SESSION["email"])) {
 
  header("Location: login.php?erro=2");
 

@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="atualiza_senha.php" method="post" data-toggle="validator" role="form">
+                                        <form action="crud_senha.php" method="post" data-toggle="validator" role="form">
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -54,7 +54,7 @@
                                                 <br>
                                                         <div class="alert alert-success">
                                                             <?php
-                                                            echo "Altualizada com Sucesso";
+                                                            echo "Altualizada com Sucesso!";
                                                             ?>
                                                         </div>
                                                     <?php } else if (isset($_GET["erro"]) && $_GET["erro"] == 2) { ?>
@@ -73,13 +73,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="small mb-1" for="novasenha">Nova senha</label>
-                                                                    <input class="form-control py-4" id="novasenha" type="password" placeholder="Digite a nova senha" required />
+                                                                    <input class="form-control py-4" id="novasenha" type="password" name="nsenha" placeholder="Digite a nova senha" required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="small mb-1" for="inputConfirmPassword">Confirmar Senha</label>
-                                                                    <input class="form-control py-4" id="inputConfirmPassword" type="password" name="nsenha" placeholder="Repita a nova senha" required />
+                                                                    <input class="form-control py-4" id="inputConfirmPassword" type="password" name="Corfirmasenha" placeholder="Repita a nova senha" required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -92,14 +92,22 @@
                                                 </form>
                                             <?php } else if (isset($_GET["erroloc"]) && $_GET["erroloc"] == 1) { ?>
 
-                                                <div class="alert alert-danger">
+                                                <div class="alert alert-danger col-md-6">
                                                     <?php
 
                                                     echo "Não localizado!";
 
                                                     ?>
                                                 </div>
-                                            <?php } ?>
+                                            <?php } else if (isset($_GET["erro"]) && $_GET["erro"] == 3) { ?>
+                                                <div class="alert alert-danger col-md-6">
+                                                    <?php
+
+                                                    echo "Verifique se as senha são identicas !";
+
+                                                    ?>
+                                                </div>
+                                            <?php }?>
                                             <br />
 
 
