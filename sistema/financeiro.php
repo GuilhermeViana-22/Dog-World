@@ -15,15 +15,11 @@
 </head>
 
 <body class="sb-nav-fixed">
-    <!--Tag de incorporação ao menu no codigo html
-
--->>
+    <!--Tag de incorporação ao menu no codigo html-->
+	
     <?php include 'nav.php'; ?>
 
-    <!---- mudar a referência quebra o projeto do arquivo, faça uma cópia se precisar editar
-    
-    
-    -->
+    <!---- mudar a referência quebra o projeto do arquivo, faça uma cópia se precisar editar-->
 
     <div id="layoutSidenav">
 
@@ -39,16 +35,15 @@
                                 <div class="row">
                                     <div class="col-md-10"><i class="fas fa-chart-line" style="font-size: 35px;"></i> Total de vendas de hoje </i>
                                     </div>
+									
                                     <?php
-                                   
-                                    include "banco.php";
-                                        $sql = "SELECT valor_total FROM vendas";
-                                     #$queryVendas = $conexao->query("SELECT valor_total FROM vendas");
-                                     $total = mysqli_query($conexao,'SELECT round(sum(valor_total),3) FROM vendas');
-                                      var_dump($queryVendas);
-                                      $queryVendas;
+
+                                    #$queryVendas = $conexao->query("SELECT valor_total FROM vendas");
+                                    $total = mysqli_query($conexao,'SELECT round(sum(valor_total),3) as Total FROM vendas');
+									$total_vendas = $total->fetch_assoc();
                                     ?>
-                                    <div class="col-md-2">R$: 230,50</div>
+									
+                                    <div class="col-md-2">R$: <?php echo $total_vendas["Total"]; ?></div>
 
                                 </div>
                             </div>
@@ -71,7 +66,7 @@
                                         </tr>
                                         <?php
                                         $sql = "SELECT * FROM vendas";
-                                     $queryVendas = $conexao->query( $sql);
+                                     $queryVendas = $conexao->query($sql);
 
                                      while ($dados = $queryVendas->fetch_assoc()) {
                                     ?>
@@ -83,7 +78,7 @@
                                             
 
                                         </tr>
-                                     <?php }?>
+                                     <?php } ?>
                                     </table>
                                 </div>
                             </div>
