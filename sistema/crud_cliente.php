@@ -20,7 +20,7 @@ if(isset($_REQUEST["id_cliente"])) {
         $operacao = 2;
     }
 } else {
-    $consulta = "INSERT INTO cliente (nome,sobrenome,dt_nascimento,cpf,email,sexo,telefone,logradouro,num_comp,cidade,estado,ativo, cep) VALUES ('".$_REQUEST["nome"]."','".$_REQUEST["sobrenome"]."','".$_REQUEST["dt_nascimento"]."','".$_REQUEST["cpf"]."','".$_REQUEST["email"]."','".$_REQUEST["sexo"]."','".$_REQUEST["telefone"]."','".$_REQUEST["logradouro"]."','".$_REQUEST["num_comp"]."','".$_REQUEST["cidade"]."','".$_REQUEST["estado"]."','".$ativo."', '".$_REQUEST["cep"]."')";
+    $consulta = "INSERT INTO cliente (nome,sobrenome,dt_nascimento,cpf,email,sexo,telefone,logradouro,num_comp,cidade,estado,ativo,cep) VALUES ('".$_REQUEST["nome"]."','".$_REQUEST["sobrenome"]."','".$_REQUEST["dt_nascimento"]."','".$_REQUEST["cpf"]."','".$_REQUEST["email"]."','".$_REQUEST["sexo"]."','".$_REQUEST["telefone"]."','".$_REQUEST["logradouro"]."','".$_REQUEST["num_comp"]."','".$_REQUEST["cidade"]."','".$_REQUEST["estado"]."','".$ativo."', '".$_REQUEST["cep"]."')";
             # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;

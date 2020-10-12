@@ -20,12 +20,12 @@ if(isset($_REQUEST["Cod_funcionario"])) {
         $operacao = 2;
     }
 } else {
-    $consulta = "INSERT INTO funcionario (nome,cpf,rg,sexo,telefone,dt_nascimento,email,Cep,logradouro,num_comp,cidade,estado,cargo,salario,horas,dt_admicao,ativo,senha) VALUES ('".$_REQUEST["nome"]."','".$_REQUEST["cpf"]."','".$_REQUEST["rg"]."','".$_REQUEST["sexo"]."','".$_REQUEST["telefone"]."','".$_REQUEST["dt_nascimento"]."','".$_REQUEST["email"]."','".$_REQUEST["Cep"]."','".$_REQUEST["logradouro"]."','".$_REQUEST["num_comp"]."','".$_REQUEST["cidade"]."','".$ativo."', '".$_REQUEST["estado"]."', '".$_REQUEST["cargo"]."', '".$_REQUEST["salario"]."', '".$_REQUEST["horas"]."', '".$_REQUEST["ativo"]."', '".$_REQUEST["senha"]."')";
+    $consulta = "INSERT INTO funcionario (nome,cpf,rg,sexo,telefone,dt_nascimento,email,Cep,logradouro,num_comp,cidade,estado,cargo,salario,horas,dt_admicao,ativo,senha) VALUES ('".$_REQUEST["nome"]."','".$_REQUEST["cpf"]."','".$_REQUEST["rg"]."','".$_REQUEST["sexo"]."','".$_REQUEST["telefone"]."','".$_REQUEST["dt_nascimento"]."','".$_REQUEST["email"]."','".$_REQUEST["Cep"]."','".$_REQUEST["logradouro"]."','".$_REQUEST["num_comp"]."','".$_REQUEST["cidade"]."','".$_REQUEST["estado"]."','".$_REQUEST["cargo"]."','".$_REQUEST["salario"]."','".$_REQUEST["horas"]."','".$_REQUEST["dt_admicao"]."','".$ativo."', '".$_REQUEST["senha"]."')";
             # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;
 }
-var_dump($consulta);
+#var_dump($consulta);
 $query = $conexao->query($consulta);
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação

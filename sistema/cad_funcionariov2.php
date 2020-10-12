@@ -180,11 +180,12 @@
                                 <div class="card-body mr-2">
                                         <table class="table table-bordered">
                                             <tr>
-                                                <th>Cargo</th>
+                                                
                                                 <th>Nome</th>
                                                 <th>Criado em </th>
                                                 <th>Email</th>
-                                           
+                                                <th>Cargo</th>
+                                      
                                                 <th>Salário</th>
                                                 <th>Ações</th>
                                             </tr>
@@ -201,11 +202,10 @@
                                             while ($dados = $queryClietes->fetch_assoc()) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $dados["cargo"]; ?></td>
                                                     <td><?php echo $dados["nome"]; ?></td>
-                                                    <!--Converter a data para formato pt-BR-->
                                                     <td><?php echo date("d/m/Y", strtotime($dados["dt_admicao"])); ?></td>
                                                     <td><?php echo $dados["email"]; ?></td>
+                                                    <td><?php echo $dados["cargo"];?></td>
                                                     <td><?php echo $dados["salario"];?></td>
                                                     <td>
                                                         <a href="cad_funcionariov2.php?Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-primary"><i style="font-size: 10pt;" class="fas fa-pencil-alt"></i></a>
@@ -306,12 +306,12 @@
                                                  } ?>"placeholder="Digite o cargo do funcionário" name="cargo">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputName">Salário</label>
-                                                <input type="text" class="form-control" id="exampleInputName"
+                                                <label >Salário</label>
+                                                <input name="salario" type="text" class="form-control" placeholder="Ex.: 1.798.00"
                                                 value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                  #essa função do php pega o valor do input nome
                                                  echo $dados["salario"];
-                                                 } ?>" placeholder="Digite o salário do funcionário" name="salario">
+                                                 } ?>" placeholder="" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Horário de expediente</label>
