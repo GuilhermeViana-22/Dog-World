@@ -11,6 +11,7 @@ include 'banco.php';
         while($dados = $query->fetch_assoc()) {
             $_SESSION["nome"] = $dados["nome"];
             $_SESSION["cargo"] = $dados["cargo"];
+            $_SESSION["Cod_funcionario"] = $dados["Cod_funcionario"];
         }
     
         header("Location: index.php");
