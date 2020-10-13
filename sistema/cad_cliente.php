@@ -14,8 +14,7 @@
     <?php
     #nestes includes temos todos os estados e municipios do brasil na nossa aplicação, como isso ficaria dispensioso e sujando nosso codigo
     #está sendo utilizado um array em outro arquivo que carrega todas essas informações
-    include "estados_brasileiros.php";
-    include "cidades_brasileiras.php";
+   
     #ArrayLIst com os inputs do select
     # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
     $sexo = array(

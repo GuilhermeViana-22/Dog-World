@@ -37,15 +37,58 @@
             <main>
 
                 <div class="container-fluid">
-                <div class="card">
-                <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Agendamento</h3>
-                            </div>
-                    <div class="row" style="background-color: #ebf2ff;">
-                        <div class="col-xl-12 col-md-12">
-                            <br>
-                            <div class="form-group row">
-                                <!--    <form action="/action_page.php">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">Agendamento</h3>
+                        </div>
+                        <div class="row" style="background-color: #ebf2ff;">
+                            <div class="col-xl-12 col-md-12">
+                                <br>
+                                <?php if (isset($_GET["sucesso"])) { ?>
+                                    <div class="alert alert-success">
+
+                                        <?php
+                                        # esse numero 1 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                        # se o if ficar atrelado ao primeiro laço ele estará no laço de inserir referenciado no 
+                                        # crud_cliente
+                                        # logo ele retorna a mensagem de cliente inserido com sucsso
+                                        if ($_GET["sucesso"] == 1) {
+                                            echo "Agendado";
+                                            # esse numero 2 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                            # se o if ficar atrelado ao segundo laço ele estará no laço de atualizar que esta referenciado no 
+                                            # crud_cliente
+                                            # logo ele retorna a mensagem de cliente inserido com sucsso
+                                        } else if ($_GET["sucesso"] == 2) {
+                                            echo "Agendamento atualizado com sucesso!";
+                                        } else {
+                                            echo "Agendamento excluído com sucesso!";
+                                        }
+                                        ?>
+                                    </div>
+
+                                <?php } ?>
+
+                                <?php if (isset($_GET["erro"])) { ?>
+                                    <div class="alert alert-danger">
+                                        <?php
+                                        if ($_GET["erro"] == 1) {
+                                            echo "Erro ao inserir Agendamento!";
+                                        } else if ($_GET["erro"] == 2) {
+                                            echo "Erro ao atualizar Agendamento!";
+                                        } else {
+                                            echo "Erro ao excluir Agendamento!";
+                                        }
+                                        ?>
+                                    </div>
+                                <?php } ?>
+
+                                <form action="crud_agendamento.php" method="post" name="FormAgendar" class="fomr-group row">
+
+
+
+
+                                    <div class="form-group row">
+                                        <!--    <form action="/action_page.php">
                                     <fieldset>
                                         <legend>Personalia:</legend>
                                         <label for="fname">First name:</label>
@@ -59,76 +102,103 @@
                                         <input type="submit" value="Submit">
                                     </fieldset>
                                 </form>-->
-                        
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="small mb-2" for="inputFirstName">Código Animal</label>
-                                        <input class="form-control py-2" id="inputFirstName" type="text" placeholder="  " />
-                                    </div>
+                                <?php
+                            $dados;
+                            if (isset($_GET["cod_servico"])) {
 
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="small mb-2" for="inputFirstName">Código cliente</label>
-                                        <input class="form-control py-2" id="inputFirstName" type="text" placeholder="" />
-                                    </div>
+                                $queryCliente = $conexao->query("SELECT * FROM atendimento WHERE cod_servico = " . $_GET["cod_servico"]);
+                                $dados = $queryCliente->fetch_assoc();
+                            ?>
+                                <input type="hidden" name="cod_servico" value="<?php echo $_GET["cod_servico"]; ?>" />
+                            <?php } ?>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="small mb-2" for="inputLastName">Nome</label>
-                                        <input class="form-control py-2" id="inputLastName" type="text" placeholder="" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputBirth">Data de Agendamento</label>
-                                        <input type="date" class="form-control" id="exampleInputBirth" name="dt_agendamento">
-                                    </div>
-                                </div>
-                             
-                                <form class="col-md-6">
 
-                                    <div class="form-check">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="inputFirstName">Código Animal</label>
+                                                <input class="form-control py-2"  value="<?php if (isset($_GET["cod_servico"])) {
+                                                                                                                echo $dados["id_animal"];
+                                                                                                            } ?>" id="inputLastName" name="id_animal" type="text" id="inputFirstName" type="text" placeholder=" Codigo do animal" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="inputFirstName">Código cliente</label>
+                                                <input class="form-control py-2" name="cod_cliente" value=" <?php if (isset($_GET["cod_servico"])) {
+                                                                                                                echo $dados["cod_cliente"];
+                                                                                                            } ?>" id="inputLastName" id="inputFirstName" type="text" placeholder="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="inputLastName">Nome</label>
+                                                <input class="form-control py-2" name="nome" value=" <?php if (isset($_GET["cod_servico"])) {
+                                                                                                            echo $dados["nome"];
+                                                                                                        } ?>" id="inputLastName" type="text" placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputBirth">Data de Agendamento</label>
+                                                <input type="date" class="form-control" value=" <?php if (isset($_GET["cod_servico"])) {
+                                                                                                    echo $dados["dt_agendamento"];
+                                                                                                } ?>" name="dt_agendamento" id="inputLastName" >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputBirth">Valor</label>
+                                                <input class="form-control"  value=" <?php if (isset($_GET["cod_servico"])) {
+                                                                                                        echo $dados["valor"];
+                                                                                                    } ?>" id="exampleInputBirth" name="valor">
+                                            </div>
+                                            
+                                        </div>
+
+                                        
+
                                         <br>
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Novo
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            Existente
-                                        </label>
-                                    </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                        
+                                                    <label  for="inputLastName">Servi&ccedil;os</label>
+                                                    <select class="form-control" name="tipo_atendimento">
+                                                        <option>Selecione</option>
+                                                        <option>Banho</option>
+                                                        <option>Tosa</option>
+                                                        <option> Banho e Tosa</option>
+                                                    </select>
+                                            </div>
+                                        </div>     
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                    <label  for="inputLastName">Horario</label>
+                                                    <select class="form-control" name="horario">
+                                                        <label for="inputLastName">Horario</label>
+                                                        <option>Selecione</option>
+                                                        <option>12:00</option>
+                                                        <option>13:30</option>
+                                                        <option>15:00</option>
+                                                    </select>
+                                            </div>
+                                        </div>           
+                                                          
+
+                                        <br>
+                                        <br>
+
+                                        <div class="row-center" style="padding: 30px;">
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i>Agendar</button>
+
+
+                                        </div>
                                 </form>
-
-                                <br>
-                                <label style="padding: 20px;" for="inputLastName">Servi&ccedil;os</label>
-                                <select class="form-control">
-                                    <option>Selecione</option>
-                                    <option>Banho</option>
-                                    <option>Tosa</option>
-                                    <option> Banho e Tosa</option>
-                                </select>
-                                <label style="padding: 20px;" for="inputLastName">Horario</label>
-                                <select class="form-control">
-                                    <label for="inputLastName">Horario</label>
-                                    <option>Selecione</option>
-                                    <option>12:00</option>
-                                    <option>13:30</option>
-                                    <option>15:00</option>
-                                </select>
-
-
-                                <br>
-
-                                <div class="row-center" style="padding: 30px;">
-                                    <button type="button" class="btn btn-success"><i class="fas fa-paw"></i>Agendar</button>
-                                    <button type="button" class="btn btn-danger"><i class="fas fa-paw"></i> Cancelar</button>
-
-                                </div>
 
                                 <br><br>
 
@@ -160,15 +230,19 @@
                                                 </div>
                                         </form>
                                     </div>
-                                    <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_funcionariov2.php">
+                                   
 
                                         <div class="card-body mr-2">
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <th>Código serviço</th>
-                                                    <th>Nome do cliente</th>
+                                                    <th>id_animal</th>
                                                     <th>Nome do Animal</th>
+                                                    <th>cod cliente</th>
+                                                    <th>cod funcionario </th>
+
                                                     <th>Agendado para </th>
+
                                                     <th>Tipo de atendimento</th>
                                                     <th>Horário</th>
                                                     <th>Valor</th>
@@ -188,8 +262,11 @@
                                                     <tr>
                                                         <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
                                                         <td style="color:#1E90FF;"><?php echo $dados["cod_servico"]; ?></td>
+                                                        <td><?php echo $dados["id_animal"]; ?></td>
+                                                        <td><?php echo $dados["nome"]; ?></td>
                                                         <td><?php echo $dados["cod_cliente"]; ?></td>
-                                                        <td><?php echo $dados["cod_animal"]; ?></td>
+                                                        <td><?php echo $dados["cod_funcionario"]; ?></td>
+
                                                         <!--Converter a data para formato pt-BR-->
                                                         <td><?php echo date("d/m/Y", strtotime($dados["dt_agendamento"])); ?></td>
                                                         <td><?php echo $dados["tipo_atendimento"]; ?></td>
@@ -198,18 +275,19 @@
 
 
                                                         <td>
-                                                            <a href="agendamento.php?cod_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-primary"><i style="font-size:x-small;" class="fas fa-pencil-alt"></i></a>
+                                                            <a href="agendamento.php?cod_servico=<?php echo $dados["cod_servico"]; ?>" class="btn btn-primary"><i style="font-size:x-small;" class="fas fa-pencil-alt"></i></a>
                                                             &nbsp;&nbsp;
 
 
 
-                                                            <a href="crud_agendamento.php?excluir=1&id_cliente=<?php echo $dados["cod_cliente"]; ?>" class="btn btn-danger btn-excluir-cliente"><i style="" class="fas fa-times"></i></a>
+                                                            <a href="crud_agendamento.php?excluir=1&cod_servico=<?php echo $dados["cod_servico"]; ?>" class="btn btn-danger btn-excluir-cliente"><i style="" class="fas fa-times"></i></a>
                                                         </td>
 
                                                     </tr>
                                                 <?php } ?>
                                             </table>
-                                    </form>
+                                        </div>   
+                                   
 
                                 </div>
 
@@ -221,10 +299,10 @@
                     </div>
 
                 </div>
-                </div>
-            </main>
-            <?php include 'footer.php'; ?>
         </div>
+        </main>
+        <?php include 'footer.php'; ?>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

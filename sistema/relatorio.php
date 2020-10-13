@@ -9,73 +9,10 @@
     <meta name="author" content="" />
     <title>System Dog World || Funcionários </title>
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        crossorigin="anonymous"></script>
-    <script>
-        // trocar textos após clicar no botão
-        function funcao() {
-            document.getElementById("h6").innerHTML = "Vendas";
-           document.getElementById("tables-vendas").style.display = "block";
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
-        function funcao1() {
-            document.getElementById("h6").innerHTML = "Financeiro";
-            document.getElementById("tables-finan").style.display = "block";
-        }
-
-        function funcao2() {
-            document.getElementById("h6").innerHTML = "Colaboradores";
-            document.getElementById("tables-cola").style.display = "block";
-        }
-
-        function funcao3() {
-            document.getElementById("h6").innerHTML = "Fornecedores";
-            document.getElementById("tables-forn").style.display = "block";
-        }
-        // mostrar tabela
-
-
-
-        // --- Script para paineis ativáveis ---
-        document.addEventListener("DOMContentLoaded", function() {
-            //pegar todos os botões que ativa os paineis
-            var botoes = document.querySelectorAll(".btn-painel");
-
-            //loop para poder pegar os atributos dos botões e atrelar evento de click
-            for(i=0;i<botoes.length;i++) {
-                var classeBotao = botoes[i].getAttribute("data-painel");
-                console.log(".painel." + classeBotao)
-
-                //atrelando evento de click baseado no atributo data-painel
-                document.querySelector(".btn-painel[data-painel='" + classeBotao + "']").addEventListener("click", function() {
-                    ativarPaineis(this.getAttribute("data-painel"));
-                });
-            }
-
-        });
-
-
-        function ativarPaineis(painelClicado) {
-            //pegando todos os paineis que serão ativados ou desativados
-            var paineis = document.querySelectorAll(".painel");
-
-            //loop para desativar todos os paineis primeiramente
-            for(i=0;i< paineis.length;i++) {
-                paineis[i].style.display = "none";
-            }
-
-            //ativa o painel de acordo com a variável passada na função
-            document.querySelector(".painel." + painelClicado).style.display="block";
-        }
-        //  X --- Script para paineis ativáveis --- X 
-
-
-
-
-    </script>
 
 </head>
 
@@ -87,8 +24,6 @@
     <?php include 'nav.php'; ?>
 
     <!---- mudar a referência quebra o projeto do arquivo, faça uma cópia se precisar editar
-    
-    
     -->>
 
     <div id="layoutSidenav">
@@ -98,236 +33,241 @@
         <?php include 'menu_lateral.php'; ?>
 
         <div id="layoutSidenav_content">
-            <main>                
-            <div class="container-fluid">
-               <div class="card">
+            <main>
                 <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Relatório</h3>
-                            </div>
-                <ol class="breadcrumb mb-4">
-                    <h6 id="h6"></h6>
-                </ol>
-               
-                <button class="btn-painel btn btn-dark" data-painel="painel-1" onclick="funcao()">Vendas</button>
-                <button class="btn-painel btn btn-dark" data-painel="painel-2" onclick="funcao1()">Financeiro</button>
-                <button class="btn-painel btn btn-dark" data-painel="painel-3"onclick="funcao2()">Colaboradores</button>
-                <button class="btn-painel btn btn-dark" data-painel="painel-4"onclick="funcao3()">Fornecedores</button>
-                
-                <li class="breadcrumb-item active"></li>
-                </ol>
-                <br><br>
-                <div class="paineis-ativaveis">
-            
-                
+                    <h3 class="text-center font-weight-light my-4">Relatórios</h3>
                 </div>
-                <section id="tables-vendas" class="hidden">
-                    <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Vendas</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </section>
-                <section id="tables-finan" class="hidden">
-                    <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Financeiro</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </section>
-                <section id="tables-cola" class="hidden">
-                    <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Colaboradores</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </section>
-                <section id="tables-forn" class="hidden">
-                    <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Fornecedores</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </section>
-                
-                <section id="colaboradores" class="hidden">
-                    <table class="table table-striped table-dark" style="background: rgb(9,5,71);
-                background: linear-gradient(90deg, rgba(9,5,71,1) 0%, rgba(53,60,68,1) 0%, rgba(2,15,31,1) 96%);;">
-                        <thead>
-                            <tr>
-                                <th scope="col">Matricula</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Cargo</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Idade</th>
-                                <th scope="col">Salario</th>
-                                <th scope="col">Data de admissão</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Otavio</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>Otavio.silva@yahoo.com</td>
-                                <td>51</td>
-                                <td>7.000</td>
-                                <td>24/04/1998</td>
-                            </tr>
 
-                        </tbody>
+                <body>
+                    <br>
+                    <p>Clique em determinado elemento para gerar o relatório especifico do departamento</p>
+
+
+                    <button class="btn-painel btn btn-dark" data-painel="painel-1" onclick="myFunction()">Vendas</button>
+                    <button class="btn-painel btn btn-dark" data-painel="painel-2" onclick="myFunction2()">Clientes</button>
+                    <button class="btn-painel btn btn-dark" data-painel="painel-3" onclick="myFunction3()">Colaboradores</button>
+                    <button class="btn-painel btn btn-dark" data-painel="painel-4" onclick="myFunction4()">Fornecedores</button>
+
+                    <div style="display:none;  padding:20px" id="vendas">
+                        <table class="table table-striped">
+                            <table class="table table-striped">
+                                      <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Código da venda</th>
+                                        <th scope="col">Código do Funcionário</th>
+                                        <th scope="col">Data da venda</th>
+                                        <th scope="col">Valor total</th>
+                                        <th scope="col">Código serviço</th>
+                                        <th scope="col">Horário</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                 $consultaTabela = "";
+                                 if (isset($_GET["pesquisa"])) {
+                                     $pesquisa = $_GET["pesquisa"];
+                                     $consultaTabela = "SELECT * FROM vendas WHERE cod_venda LIKE '%$pesquisa%' OR sobrenome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
+                                 } else {
+                                     $consultaTabela = "SELECT * FROM vendas";
+                                 }
+                                 $queryClietes = $conexao->query($consultaTabela);
+                                 while ($dados = $queryClietes->fetch_assoc()) {
+                                 ?>
+                    <tr>
+      
+                                                <td><?php echo $dados["cod_venda"]; ?></td>
+                                                <td><?php echo $dados["cod_funcionario"]; ?></td>
+                                                <td><?php echo date("d/m/Y", strtotime($dados["data_venda"])); ?></td>
+                                                <td><?php echo $dados["valor_total"]; ?></td>
+                                                <td><?php echo $dados["cod_servico"]; ?></td>       
+                                                <td><?php echo $dados["horario"]; ?></td>
+                                             
+                                              
+                                    <?php
+                                        }?>
+
+                                </tbody>
+                            </table>
+
+                        </table>
+
+                    </div>
+                    <div style="display:none;  padding:20px;" id="financeiro">
+
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th class="word-break: break-word;">Registro de matricula</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Data de nascimento</th>
+                                    <th>Email</th>
+                                    <th>telefone</th>
+                                    <th>cidade</th>
+                                    <th>ativo</th>
+
+
+                                </tr>
+                            </thead>
+
+                            <?php
+                            $consultaTabela = "";
+                            if (isset($_GET["pesquisa"])) {
+                                $pesquisa = $_GET["pesquisa"];
+                                $consultaTabela = "SELECT * FROM cliente WHERE nome LIKE '%$pesquisa%' OR sobrenome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
+                            } else {
+                                $consultaTabela = "SELECT * FROM cliente";
+                            }
+                            $queryClietes = $conexao->query($consultaTabela);
+
+                            while ($dados = $queryClietes->fetch_assoc()) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $dados["id_cliente"]; ?></td>
+                                    <td><?php echo $dados["nome"]; ?></td>
+                                    <td><?php echo $dados["cpf"]; ?></td>
+                                    <!--Converter a data para formato pt-BR-->
+                                    <td><?php echo date("d/m/Y", strtotime($dados["dt_nascimento"])); ?></td>
+                                    <td><?php echo $dados["email"]; ?></td>
+                                    <td><?php echo $dados["telefone"]; ?></td>
+                                    <td><?php echo $dados["cidade"]; ?></td>
+                                    <td><?php echo $dados["ativo"]; ?></td>
+
+                                </tr>
+                            <?php } ?>
+
+
+
+                        </table>
                     </table>
+                    </div>
+                    <div style="display:none;  padding:20px;" id="colaboradores">
+                        <table class="table table-striped">
+                            <tr>
+                                <thead class="thead-dark">
+                                    <th>Nome</th>
+                                    <th>Criado em </th>
+                                    <th>Email</th>
+                                    <th>Cargo</th>
+                                    <th>Salário</th>
+                                    <th>CPF</th>
+                                    <th>Telefone</th>
+                                    <th>Cep</th>
+                                </thead>
 
-                </section>
-               </div>
-            </div>
+                            </tr>
+                            <?php
+                            $consultaTabela = "";
+                            if (isset($_GET["pesquisa"])) {
+                                $pesquisa = $_GET["pesquisa"];
+                                $consultaTabela = "SELECT * FROM funcionario WHERE nome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
+                            } else {
+                                $consultaTabela = "SELECT * FROM funcionario";
+                            }
+                            $queryClietes = $conexao->query($consultaTabela);
+
+                            while ($dados = $queryClietes->fetch_assoc()) {
+                            ?>
+                                <tr>
+                                    <td class="word-break: break-word;"><?php echo $dados["nome"]; ?></td>
+                                    <td><?php echo date("d/m/Y", strtotime($dados["dt_admicao"])); ?></td>
+                                    <td><?php echo $dados["email"]; ?></td>
+                                    <td><?php echo $dados["cargo"]; ?></td>
+                                    <td><?php echo $dados["salario"]; ?></td>
+                                    <td><?php echo $dados["cpf"]; ?></td>
+                                    <td><?php echo $dados["telefone"]; ?></td>
+                                    <td><?php echo $dados["Cep"]; ?></td>
+
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+                    <div style="display:none; padding:20px;" id="fornecedores">
+                        <table class="table table-striped">
+                            <tr>
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Código fornecedor</th>
+                                        <th class="thead-light">CNPJ</th>
+                                        <th>Fornecedor</th>
+                                        <th class="thead-light">Logradouro </th>
+                                        <th>Numero</th>
+                                        <th class="thead-light">Telefone</th>
+                                    </tr>
+                                </thead>
+                            </tr>
+                            <?php
+                            $consultaTabela = "";
+                            if (isset($_GET["pesquisa"])) {
+                                $pesquisa = $_GET["pesquisa"];
+                                $consultaTabela = "SELECT * FROM fornecedor WHERE cnpj LIKE '%$pesquisa%' or fornecedor LIKE '%$pesquisa%' ";
+                            } else {
+                                $consultaTabela = "SELECT * FROM fornecedor";
+                            }
+                            $queryfornecedor = $conexao->query($consultaTabela);
+
+                            while ($dados = $queryfornecedor->fetch_assoc()) {
+                            ?>
+                                <tr>
+                                    <!--Para alimentar a tabela com o banco de dados basta substituir o nome dos atribudos selecionardos de movo que faça correspondencia com o bnco-->
+                                    <td><?php echo $dados["cod_fornecedor"]; ?></td>
+                                    <td><?php echo $dados["cnpj"]; ?></td>
+                                    <td><?php echo $dados["fornecedor"]; ?></td>
+                                    <td><?php echo $dados["logradouro"]; ?></td>
+                                    <td><?php echo $dados["num_comp"]; ?></td>
+                                    <td><?php echo $dados["telefone"]; ?></td>
+
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    </div>
+                    <script>
+                        function myFunction() {
+                            var x = document.getElementById("vendas");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+
+                        function myFunction2() {
+                            var z = document.getElementById("financeiro");
+                            if (z.style.display === "none") {
+                                z.style.display = "block";
+                            } else {
+                                z.style.display = "none";
+                            }
+                        }
+
+                        function myFunction3() {
+                            var a = document.getElementById("colaboradores");
+                            if (a.style.display === "none") {
+                                a.style.display = "block";
+                            } else {
+                                a.style.display = "none";
+                            }
+                        }
+
+                        function myFunction4() {
+                            var b = document.getElementById("fornecedores");
+                            if (b.style.display === "none") {
+                                b.style.display = "block";
+                            } else {
+                                b.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                </body>
+                <br><br>
+                <p><b>Nota:</b> Para esconder o relatório basta clicar no botão novamente.</p>
             </main>
             <?php include 'footer.php'; ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>

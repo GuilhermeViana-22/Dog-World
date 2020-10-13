@@ -185,7 +185,6 @@
                                                 <th>Criado em </th>
                                                 <th>Email</th>
                                                 <th>Cargo</th>
-                                      
                                                 <th>Salário</th>
                                                 <th>Ações</th>
                                             </tr>
@@ -202,7 +201,7 @@
                                             while ($dados = $queryClietes->fetch_assoc()) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $dados["nome"]; ?></td>
+                                                    <td class="word-break: break-word;"><?php echo $dados["nome"]; ?></td>
                                                     <td><?php echo date("d/m/Y", strtotime($dados["dt_admicao"])); ?></td>
                                                     <td><?php echo $dados["email"]; ?></td>
                                                     <td><?php echo $dados["cargo"];?></td>
@@ -307,11 +306,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label >Salário</label>
-                                                <input name="salario" type="text" class="form-control" placeholder="Ex.: 1.798.00"
+                                                <input name="salario" type="number" class="form-control" placeholder="Ex.: 1.798.00"
                                                 value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                  #essa função do php pega o valor do input nome
                                                  echo $dados["salario"];
-                                                 } ?>" placeholder="" >
+                                                 } ?>" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Horário de expediente</label>
