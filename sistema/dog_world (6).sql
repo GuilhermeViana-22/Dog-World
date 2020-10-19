@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Out-2020 às 23:38
+-- Tempo de geração: 19-Out-2020 às 20:37
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -45,10 +45,20 @@ CREATE TABLE `animal` (
 --
 
 INSERT INTO `animal` (`id_animal`, `nome`, `raca`, `rga`, `idade`, `tipo`, `sexo`, `observacao`, `ativo`, `id_cliente`) VALUES
-(2, 'max', 'pitblull', '233655', '12', 'Cachorro', 'M', '', 'S', 1),
-(3, 'ma', 'rato', '556325', '45', 'Roedor', 'F', 'ola', 'S', 1),
-(4, 'ma', 'rato', '556325', '45', 'Roedor', 'F', 'nao é para matar', 'S', 1),
-(6, 'cherry', 'persa', '123456789', '10', 'Gato', 'M', '', '', 1);
+(1, 'leon', 'viralata', '12345', '2', 'Gato', 'M', '', 'S', 1),
+(2, 'nega', 'viralata', '234', '9', 'Gato', 'F', '', 'S', 2),
+(3, 'mia', 'viralata', '4532', '4', 'Gato', 'F', '', 'S', 2),
+(4, 'mirna', 'viralata', '1532', '9', 'Gato', 'F', '', 'S', 3),
+(5, 'chico', 'Piriquito da pena azul', '0123', '4', 'Passáro', 'M', '', 'S', 1),
+(6, 'Emilia', 'Periquito da pena verda', '0153', '5', 'Passáro', 'F', '', 'S', 1),
+(7, 'Katty', 'Poodle', '10493', '6', 'Cachorro', 'F', '', 'S', 1),
+(8, 'Cherry', 'viralata', '14783', '10', 'Gato', 'M', '', 'S', 4),
+(9, 'Max', 'Golden Retriever', '10432', '12', 'Cachorro', 'M', '', '', 5),
+(10, 'Belinha', 'Golden Retriever', '18430', '7', 'Cachorro', 'F', '', 'S', 5),
+(11, 'Max', 'viralata', '17439', '9', 'Cachorro', 'M', '', 'S', 6),
+(12, 'Bela', 'Buldogue', '185430', '3', 'Cachorro', 'F', '', 'S', 7),
+(13, 'Daniel', 'viralata', '18430', '11', 'Gato', 'M', '', 'S', 8),
+(14, 'Dollynho', 'Sabor do Brasil', '01020304', '5 anos', 'Coelho', 'M', 'Todo mundo quer', 'S', 1);
 
 -- --------------------------------------------------------
 
@@ -60,7 +70,8 @@ CREATE TABLE `atendimento` (
   `cod_servico` int(11) NOT NULL,
   `cod_funcionario` int(11) NOT NULL,
   `cod_cliente` int(11) NOT NULL,
-  `cod_animal` int(11) NOT NULL,
+  `id_animal` int(11) NOT NULL,
+  `nome` varchar(300) NOT NULL,
   `dt_agendamento` date NOT NULL,
   `valor` float NOT NULL,
   `tipo_atendimento` varchar(300) NOT NULL,
@@ -72,8 +83,12 @@ CREATE TABLE `atendimento` (
 -- Extraindo dados da tabela `atendimento`
 --
 
-INSERT INTO `atendimento` (`cod_servico`, `cod_funcionario`, `cod_cliente`, `cod_animal`, `dt_agendamento`, `valor`, `tipo_atendimento`, `horario`, `status`) VALUES
-(1, 8, 1, 6, '2020-10-02', 50.5, 'banho e tosa', '07:17:56', 'Agendado');
+INSERT INTO `atendimento` (`cod_servico`, `cod_funcionario`, `cod_cliente`, `id_animal`, `nome`, `dt_agendamento`, `valor`, `tipo_atendimento`, `horario`, `status`) VALUES
+(1, 1, 1, 6, ' max', '2020-10-29', 50, 'Banho', '12:00:00', ''),
+(2, 1, 1, 5, ' max', '0000-00-00', 50, 'Banho', '12:00:00', ''),
+(3, 1, 1, 6, ' max', '0000-00-00', 0, 'Banho', '12:00:00', ''),
+(4, 1, 1, 6, ' max', '2020-10-31', 50, 'Banho', '12:00:00', ''),
+(5, 1, 1, 6, ' dfd', '2020-10-06', 50, 'Banho e Tosa', '13:30:00', '');
 
 -- --------------------------------------------------------
 
@@ -103,10 +118,14 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `sobrenome`, `cpf`, `dt_nascimento`, `sexo`, `telefone`, `email`, `cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `ativo`) VALUES
-(1, 'ma', 'kdk', '77777', '1998-05-01', 'M', '666666666', 'elelfj@j.com', '08485310', 'Rua Igarapé Água Azul', '6', 'São Paulo', 'SP', 'S'),
-(2, 'el', 'kdk', '523644', '1998-05-01', 'M', '666666666', 'elelfj@j.com', '08485310', 'Rua Igarapé Água Azul', '6', 'São Paulo', 'SP', 'S'),
-(3, 'la', 'kdk', '666', '1998-05-01', 'M', '666666666', 'elelfj@j.com', '08485310', 'Rua Igarapé Água Azul', '6', 'São Paulo', 'SP', 'S'),
-(4, 'elton', 'kelvin', '123456789', '1998-05-01', 'M', '(11) 98074 9797', 'elton13cdz@gmail.com', '08485310', 'Rua Igarapé Água Azul', '45', 'São Paulo', 'SP', 'S');
+(1, 'Maria', 'luiza', '1234456789', '1983-08-21', 'F', '11-1111-1111', 'maria_luiza@gmail.com', '69310-035', 'Rua La Paz', '110', 'Boa Vista', 'RR', 'S'),
+(2, 'Thiago', 'Nashiro', '123450', '1999-08-21', 'M', '117732740', 'thiago@gmail.com', '12245-488', 'Praça Capitão Paulo José Menezes', '', 'São José dos Campos', 'SP', 'S'),
+(3, 'lais', 'nashiro', '35743', '1897-09-14', 'F', '1198434503', 'lais@gmail.com', '08391-160', 'Rua Catesetun', '415', 'São Paulo', 'SP', 'S'),
+(4, 'Elton', 'Kelvin', '48310', '1998-04-14', 'M', '1184930483', 'elton@gmail', '13402-229', 'Rua Guerino Poletto', '240 F', 'Piracicaba', 'SP', 'N'),
+(5, 'Yan', 'de souza', '48319', '1999-03-21', 'M', '119483943', 'yan@gmail.com', '03574-020', 'Rua Cedrorana', '23', 'São Paulo', 'SP', 'S'),
+(6, 'Fernanda', 'cinchin', '74839', '1997-03-13', 'F', '11 948391243', 'fernanda@gmail.com', '19057-410', 'Rua Victório Andreasi Neto', '21', 'Presidente Prudente', 'SP', 'N'),
+(7, 'Vitor', 'Augusto', '38023', '1986-07-18', 'M', '11 984348754', 'vitor@gmail.com', '14815-970', 'Avenida São João 849', '450 A', 'Ibaté', 'SP', 'S'),
+(8, 'Kamily', 'Cristina', '1849230', '2000-10-12', 'F', '11 9673504729', 'Kamily@gmail.com', '13088-536', 'Rua Gregório Cristino de Paula', '432', 'Campinas', 'SP', 'S');
 
 -- --------------------------------------------------------
 
@@ -132,12 +151,11 @@ CREATE TABLE `fornecedor` (
 --
 
 INSERT INTO `fornecedor` (`cod_fornecedor`, `cnpj`, `fornecedor`, `logradouro`, `cep`, `num_comp`, `cidade`, `estado`, `telefone`, `ativo`) VALUES
-(5, '  22.222.222.0001-22', ' cobasi brasil', '  av da lua', '  222222', '  2', '  santo amaro', '  sp', '  2222-222', ''),
-(6, ' 33.333.333-0001-33', '  Whiskas ', ' av.da maria', ' 333333', ' 3', ' Tiradentes', ' SP', ' 115563258', ''),
-(7, ' 44.444.444-0001-44', ' Gold Cat Litter', ' av dos sonhos', ' 333333', ' 33', ' Rita', ' SP', ' 11111111', ''),
-(8, '55.555.555-0001-55', 'Like Cat, Organnact', 'av toranja', '55555', '5', 'santa lusia', 'sp', '5555-5555', ''),
-(9, '66.666.666-0001-66', 'Hello Kitty Clássica, PetFive\r\n', 'av. das katia', '66666', '6', 'Lotadaria', 'SP', '66666', ''),
-(11, '123.145.126-0001.45', ' petz', 'R Igarapé A Azul', '08485-310', ' 4', 'São Paulo', 'SP', ' 111111111', '');
+(1, '  11.111.111.0001-01', '   Golden', '  Rua Barbosa Lessa', '  94150-180', '  43', '  Gravataí', '  RS', '   00000-000', ''),
+(2, '22.222.222.0001-22', ' Premier', 'Rua São José', ' 57040-510', ' ', 'Maceió', 'AL', ' 22222-2222', ''),
+(3, ' 33.333.333.0001-33', ' whiskas', 'Avenida Minas Gerais', '88340-143 ', ' ', 'Camboriú', 'SC', ' 33333-3333', ''),
+(4, ' 44.444.444.0001-4', 'Nutrópica ', 'Rua Nova Trento', ' 44032-394', ' ', 'Feira de Santana', 'BA', ' 44-4444-4444', ''),
+(5, ' 12487367000136', '  Dolly comércio de gostosuras LTDA', ' Praça da Sé', ' 01001000', '  5', ' São Paulo', ' SP', ' 1130004000', '');
 
 -- --------------------------------------------------------
 
@@ -172,14 +190,14 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`Cod_funcionario`, `nome`, `cpf`, `rg`, `sexo`, `telefone`, `dt_nascimento`, `email`, `Cep`, `logradouro`, `num_comp`, `cidade`, `estado`, `cargo`, `salario`, `horas`, `dt_admicao`, `ativo`, `senha`) VALUES
-(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton@dogworld.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 's', '123456'),
-(2, 'Karolina santana', '789456123', '125463', 'F', '4455666633', '2000-05-09', 'karolina@dogworld.com', '8888666', 'rua dos bobos', '0 hha', 'sao paulo', 'sp', 'Gerente', 5.5, '10:00 as 18:00', '2020-05-12', 's', '123456'),
-(5, 'thiago nashiro ', '456321478', '852364', 'M', '4477889966', '2019-05-19', 'thiago@dogworld.com', '63258974', 'r santana', '41', 'sao paulo', 'sp', 'atendente', 1200, '9:00 as 17:00', '2020-10-04', 's', '123456'),
-(6, 'Guilherme Viana', '987654321', '8523', 'M', '55663896', '2019-06-09', 'guilherme@dogworld.com', '789654123', 'sao joa', '96', 'sao paulo', 'sp', 'Financeiro', 2, '10:00 as 18:00', '2020-05-11', 's', '123456'),
+(1, 'Elton Kelvin ferreira justino da silva', '123456789', '123456', 'M', '1122222222', '2018-12-16', 'elton@dogworld.com', '08485310', 'maria peluda', '12 ap5', 'sao paulo', 'sp', 'Gerente', 5.5, '08:00 ate as 17:00', '2020-05-12', 'S', '123456789'),
+(2, 'Karolina santana', '789456123', '125463', 'F', '4455666633', '2000-05-09', 'karolina@dogworld.com', '8888666', 'rua dos bobos', '0 hha', 'sao paulo', 'sp', 'Gerente', 5.5, '10:00 as 18:00', '2020-05-12', 'S', '123456'),
+(5, 'thiago nashiro ', '456321478', '852364', 'M', '4477889966', '2019-05-19', 'thiago@dogworld.com', '63258974', 'r santana', '41', 'sao paulo', 'sp', 'Gerente', 1200, '9:00 as 17:00', '2020-10-04', 'S', '123456'),
+(6, 'Guilherme Viana', '987654321', '8523', 'M', '55663896', '2019-06-09', 'guilherme@dogworld.com', '789654123', 'sao joa', '96', 'sao paulo', 'sp', 'Gerente', 2, '10:00 as 18:00', '2020-05-11', 'S', '123456'),
 (7, 'Mariana belvederesi', '5689632145', '8753692', 'F', '1122222222', '2019-11-26', 'mariana@dogworld.com', '4561237898', 'av maria antonia', '234', 'sao paulo', 'sp', 'Finaceiro', 2, '10:00 as 18:00', '2020-02-11', 's', '123456'),
 (8, 'antonio', '3569287412', '65893214', 'M', '4455663322', '2019-04-23', 'antonio@dogworld.com', '74185245', 'rua das petalas', '58 cs2', 'sao paulo', 'sp', 'Estoquista', 1000, '8:00 as 18:00', '2020-09-24', 's', '123456'),
-(9, 'sandra regina ferreira justino da silva zenaide ramos ferreira', '45766442890', '45632589', 'F', '6666666666666', '1995-08-29', 'maria@gmail.com', '08485-310', 'R Igarapé A Azul', '5', 'São Paulo', 'SP', 'Financeiro', 6, '6 por dia ', '2020-10-06', 'S', '123456'),
-(10, 'jose', '45612378945', '789632541', 'M', '1122589632', '1990-08-25', 'antonio_maria@gmail.com', '08485310', 'Rua Igarapé Água Azul', '5 ap 8', 'São Paulo', 'S', 'Estoquista', 2.5, '2.500', '0000-00-00', 'S', '123456');
+(10, 'jose', '45612378945', '789632541', 'M', '1122589632', '1990-08-25', 'antonio_maria@gmail.com', '08485310', 'Rua Igarapé Água Azul', '5 ap 8', 'São Paulo', 'S', 'Estoquista', 2.5, '2.500', '0000-00-00', 'S', '123456'),
+(11, 'Marcus kaique dos santos ', ' 4563258741', '78965412', 'M', '1122556633', '1999-03-12', 'marcus@dogworld.com', '08485310', 'Rua Igarapé Água Azul', '', 'São Paulo', 'SP', 'estoquista', 6600, 'das 8:00 as 18:00', '2020-10-13', 'S', '123456');
 
 -- --------------------------------------------------------
 
@@ -202,10 +220,50 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`cod_produto`, `titulo`, `quantidade`, `cod_lote`, `valor_unitario`, `cod_fornecedor`, `ativo`) VALUES
-(14, 'areia pipicat', 2, 2, 2, 5, 's'),
-(15, 'pipi', 3, 3, 30.5, 5, 'S'),
-(16, 'terrinha', 5, 5, 5, 7, 's'),
-(17, 'terrinh aromatica', 5, 4, 25, 7, 's');
+(1, 'golden gatos castrados sabor frango', 7, 1, 30.4, 1, 'S'),
+(3, 'Premier urinary 30kg', 10, 12, 90, 2, 'S'),
+(4, 'Ração Premier Gatos Adultos Castrado Ambientes Internos 7,5kg ', 10, 3, 149, 2, 'S'),
+(5, 'Golden cachorros castrados sabor frango 30kg', 15, 2, 30, 1, 'N'),
+(7, 'Golden cachorros castrados sabor carne 30kg', 10, 21, 30, 1, 'S'),
+(8, 'Ração Nutrópica para Periquito', 15, 11, 4.5, 4, 'S'),
+(9, 'Golden Para Filhotes', 1, 1234, 12, 1, 'N'),
+(10, 'Golden Para Gatos', 12, 12345, 18.7, 2, 'S'),
+(14, 'bolinha de borracha', 5, 15, 5, 5, 'S'),
+(15, 'bolinha de borracha', 5, 15, 5, 1, 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produtos_venda`
+--
+
+CREATE TABLE `produtos_venda` (
+  `cod_prod_venda` int(11) NOT NULL,
+  `cod_produto` int(11) NOT NULL,
+  `cod_venda` int(11) NOT NULL,
+  `cod_prod_quantidade` int(11) NOT NULL,
+  `v_total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos_venda`
+--
+
+INSERT INTO `produtos_venda` (`cod_prod_venda`, `cod_produto`, `cod_venda`, `cod_prod_quantidade`, `v_total`) VALUES
+(25, 1, 24, 14, 70),
+(29, 15, 28, 14, 28),
+(32, 16, 31, 14, 70),
+(33, 15, 32, 14, 70),
+(36, 15, 35, 14, 70),
+(37, 15, 36, 14, 70),
+(38, 15, 37, 14, 70),
+(39, 15, 39, 14, 91),
+(40, 15, 40, 14, 91),
+(41, 15, 41, 14, 70),
+(42, 15, 42, 14, 70),
+(43, 15, 42, 14, 212.8),
+(44, 15, 42, 14, 212.8),
+(45, 15, 43, 14, 70);
 
 -- --------------------------------------------------------
 
@@ -215,23 +273,17 @@ INSERT INTO `produto` (`cod_produto`, `titulo`, `quantidade`, `cod_lote`, `valor
 
 CREATE TABLE `vendas` (
   `cod_venda` int(11) NOT NULL,
-  `valor_total` float NOT NULL,
   `cod_funcionario` int(20) NOT NULL,
-  `cod_produto` int(20) NOT NULL,
   `cod_cliente` int(20) DEFAULT NULL,
-  `cpf_cliente` varchar(17) NOT NULL,
+  `cod_servico` int(20) DEFAULT NULL,
+  `cpf_cliente` varchar(17) DEFAULT NULL,
+  `nome_cliente` varchar(100) DEFAULT NULL,
+  `valor_total` float DEFAULT 0,
+  `forma_pagamento` varchar(100) DEFAULT NULL,
   `data_venda` date NOT NULL DEFAULT current_timestamp(),
   `horario` time NOT NULL DEFAULT current_timestamp(),
-  `cod_servico` int(20) NOT NULL
+  `status_venda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `vendas`
---
-
-INSERT INTO `vendas` (`cod_venda`, `valor_total`, `cod_funcionario`, `cod_produto`, `cod_cliente`, `cpf_cliente`, `data_venda`, `horario`, `cod_servico`) VALUES
-(1, 30.3, 8, 14, 4, '', '2020-10-08', '08:14:45', 1),
-(2, 50.5, 1, 14, 1, '', '2020-10-06', '09:07:17', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -248,8 +300,8 @@ ALTER TABLE `animal`
 --
 ALTER TABLE `atendimento`
   ADD PRIMARY KEY (`cod_servico`),
-  ADD KEY `FK_animal` (`cod_animal`),
-  ADD KEY `FK_funcionario` (`cod_funcionario`);
+  ADD KEY `FK_funcionario` (`cod_funcionario`),
+  ADD KEY `FK_animal` (`id_animal`);
 
 --
 -- Índices para tabela `cliente`
@@ -278,14 +330,17 @@ ALTER TABLE `produto`
   ADD KEY `FK_produto_fornecedor` (`cod_fornecedor`);
 
 --
+-- Índices para tabela `produtos_venda`
+--
+ALTER TABLE `produtos_venda`
+  ADD PRIMARY KEY (`cod_prod_venda`);
+
+--
 -- Índices para tabela `vendas`
 --
 ALTER TABLE `vendas`
   ADD PRIMARY KEY (`cod_venda`),
-  ADD KEY `FK_cliente` (`cod_cliente`),
-  ADD KEY `FK_produto` (`cod_produto`),
-  ADD KEY `FK_funcionnario` (`cod_funcionario`),
-  ADD KEY `FK_servico` (`cod_servico`);
+  ADD KEY `FK_funcionnario` (`cod_funcionario`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -295,43 +350,49 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `atendimento`
 --
 ALTER TABLE `atendimento`
-  MODIFY `cod_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cod_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `Cod_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Cod_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `produtos_venda`
+--
+ALTER TABLE `produtos_venda`
+  MODIFY `cod_prod_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `cod_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Restrições para despejos de tabelas
@@ -341,7 +402,7 @@ ALTER TABLE `vendas`
 -- Limitadores para a tabela `atendimento`
 --
 ALTER TABLE `atendimento`
-  ADD CONSTRAINT `FK_animal` FOREIGN KEY (`cod_animal`) REFERENCES `animal` (`id_animal`),
+  ADD CONSTRAINT `FK_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
   ADD CONSTRAINT `FK_funcionario` FOREIGN KEY (`cod_funcionario`) REFERENCES `funcionario` (`Cod_funcionario`);
 
 --
@@ -354,10 +415,7 @@ ALTER TABLE `produto`
 -- Limitadores para a tabela `vendas`
 --
 ALTER TABLE `vendas`
-  ADD CONSTRAINT `FK_cliente` FOREIGN KEY (`cod_cliente`) REFERENCES `cliente` (`id_cliente`),
-  ADD CONSTRAINT `FK_funcionnario` FOREIGN KEY (`cod_funcionario`) REFERENCES `funcionario` (`Cod_funcionario`),
-  ADD CONSTRAINT `FK_produto` FOREIGN KEY (`cod_produto`) REFERENCES `produto` (`cod_produto`),
-  ADD CONSTRAINT `FK_servico` FOREIGN KEY (`cod_servico`) REFERENCES `atendimento` (`cod_servico`);
+  ADD CONSTRAINT `FK_funcionnario` FOREIGN KEY (`cod_funcionario`) REFERENCES `funcionario` (`Cod_funcionario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

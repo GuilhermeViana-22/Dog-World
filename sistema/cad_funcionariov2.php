@@ -29,97 +29,92 @@
 
 </head>
 
-<script>
-    function limpa_formulário_cep() {
-        //Limpa valores do formulário de cep.
-        document.getElementById('rua').value = ("");
 
-        document.getElementById('cidade').value = ("");
-        document.getElementById('uf').value = ("");
 
-    }
+<body class="func" class="sb-nav-fixed">
+    <script>
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value = (conteudo.logradouro);
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
 
-            document.getElementById('cidade').value = (conteudo.localidade);
-            document.getElementById('uf').value = (conteudo.uf);
-
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
         }
-    }
 
-    function pesquisacep(valor) {
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
 
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if (validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value = "...";
-
-                document.getElementById('cidade').value = "...";
-                document.getElementById('uf').value = "...";
-
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
 
             } //end if.
             else {
-                //cep é inválido.
+                //CEP não Encontrado.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
+                alert("CEP não encontrado.");
             }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
         }
-    };
-</script>
 
-<body class="func" class="sb-nav-fixed">
+        function pesquisacep(valor) {
 
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    </script>
     <?php include 'nav.php'; ?>
 
     <div id="layoutSidenav">
 
         <!--Tag de incorporação ao menu no codigo html-->
-
-
-
         <?php include 'menu_lateral.php'; ?>
 
         <!--Tag de incorporação ao menu no codigo html-->
 
-
-
         <div id="layoutSidenav_content">
             <main>
-                <ol class="breadcrumb">
-                    <li><a href="/"></i>Gereciamento de Funcionários </a></li>
-                </ol>
+                <div class="breadcrumb">
+                   <h2>Gereciamento de Funcionários </h2> 
+                </div>
                 <section>
                     <div class="col-md-12">
                         <div class="small-box bg-green">
@@ -155,14 +150,14 @@
                                     <div class="card-header">
                                         <i class="fas fa-table mr-6"></i> <strong>Lista de Funcionários</strong>
                                     </div>
-                                   
+
                                     <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_funcionariov2.php">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="row">
                                                     <br />
                                                     <div style="padding-left:20px;" class="col-md-3">
-                                                       <p style="margin-top: 12px;"><span>Pesquisa </span></p>
+                                                        <p style="margin-top: 12px;"><span>Pesquisa </span></p>
                                                     </div>
                                                     <div class="col-md-9">
                                                         <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
@@ -177,268 +172,252 @@
                                         </div>
                                     </form>
                                     <form method="GET" style="margin-top:15px; font-size: 10pt;" action="cad_funcionariov2.php">
-                                <div class="card-body mr-2">
-                                        <table class="table table-bordered">
-                                            <tr>
-                                                
-                                                <th>Nome</th>
-                                                <th>Criado em </th>
-                                                <th>Email</th>
-                                                <th>Cargo</th>
-                                                <th>Salário</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            <?php
-                                            $consultaTabela = "";
-                                            if (isset($_GET["pesquisa"])) {
-                                                $pesquisa = $_GET["pesquisa"];
-                                                $consultaTabela = "SELECT * FROM funcionario WHERE nome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
-                                            } else {
-                                                $consultaTabela = "SELECT * FROM funcionario";
-                                            }
-                                            $queryClietes = $conexao->query($consultaTabela);
-
-                                            while ($dados = $queryClietes->fetch_assoc()) {
-                                            ?>
+                                        <div class="card-body mr-2">
+                                            <table class="table table-bordered">
                                                 <tr>
-                                                    <td class="word-break: break-word;"><?php echo $dados["nome"]; ?></td>
-                                                    <td><?php echo date("d/m/Y", strtotime($dados["dt_admicao"])); ?></td>
-                                                    <td><?php echo $dados["email"]; ?></td>
-                                                    <td><?php echo $dados["cargo"];?></td>
-                                                    <td><?php echo $dados["salario"];?></td>
-                                                    <td>
-                                                        <a href="cad_funcionariov2.php?Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-primary"><i style="font-size: 10pt;" class="fas fa-pencil-alt"></i></a>
-                                                        &nbsp;&nbsp;
-                                                        <a href="crud_funcionario.php?excluir=1&Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
-                                                    </td>
+
+                                                    <th>Nome</th>
+                                                    <th>Criado em </th>
+                                                    <th>Email</th>
+                                                    <th>Cargo</th>
+                                                    <th>Salário</th>
+                                                    <th>Ações</th>
                                                 </tr>
-                                            <?php } ?>
-                                        </table>
-                                </form>
-                                    </div>
+                                                <?php
+                                                $consultaTabela = "";
+                                                if (isset($_GET["pesquisa"])) {
+                                                    $pesquisa = $_GET["pesquisa"];
+                                                    $consultaTabela = "SELECT * FROM funcionario WHERE nome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
+                                                } else {
+                                                    $consultaTabela = "SELECT * FROM funcionario";
+                                                }
+                                                $queryClietes = $conexao->query($consultaTabela);
+
+                                                while ($dados = $queryClietes->fetch_assoc()) {
+                                                ?>
+                                                    <tr>
+                                                        <td class="word-break: break-word;"><?php echo $dados["nome"]; ?></td>
+                                                        <td><?php echo date("d/m/Y", strtotime($dados["dt_admicao"])); ?></td>
+                                                        <td><?php echo $dados["email"]; ?></td>
+                                                        <td><?php echo $dados["cargo"]; ?></td>
+                                                        <td><?php echo $dados["salario"]; ?></td>
+                                                        <td>
+                                                            <a href="cad_funcionariov2.php?Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-primary"><i style="font-size: 10pt;" class="fas fa-pencil-alt"></i></a>
+                                                            &nbsp;&nbsp;
+                                                            <a href="crud_funcionario.php?excluir=1&Cod_funcionario=<?php echo $dados["Cod_funcionario"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </table>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="box box-success">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Novo Funcionário</h3><br><br>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <!-- form start -->
-                           
-                                     <div class="card">
-                        <?php if (isset($_GET["sucesso"])) { ?>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Novo Funcionário</h3><br><br>
+                                </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
 
-                            <div class="alert alert-success">
-                                <?php
-                                # esse numero 1 refere-se a mensagem de sucesso exibida  no inicio da tela
-                                # se o if ficar atrelado ao primeiro laço ele estará no laço de inserir referenciado no 
-                                # crud_cliente
-                                # logo ele retorna a mensagem de cliente inserido com sucsso
-                                if ($_GET["sucesso"] == 1) {
-                                    echo "Cliente inserido com sucesso !";
-                                    # esse numero 2 refere-se a mensagem de sucesso exibida  no inicio da tela
-                                    # se o if ficar atrelado ao segundo laço ele estará no laço de atualizar que esta referenciado no 
-                                    # crud_cliente
-                                    # logo ele retorna a mensagem de cliente inserido com sucsso
-                                } else if ($_GET["sucesso"] == 2) {
-                                    echo "Cliente atualizado com sucesso!";
-                                } else {
-                                    echo "Cliente excluído com sucesso!";
-                                }
-                                ?>
-                            </div>
+                                <div class="card">
+                                    <?php if (isset($_GET["sucesso"])) { ?>
 
-                        <?php } ?>
+                                        <div class="alert alert-success">
+                                            <?php
+                                            # esse numero 1 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                            # se o if ficar atrelado ao primeiro laço ele estará no laço de inserir referenciado no 
+                                            # crud_cliente
+                                            # logo ele retorna a mensagem de cliente inserido com sucsso
+                                            if ($_GET["sucesso"] == 1) {
+                                                echo "Cliente inserido com sucesso !";
+                                                # esse numero 2 refere-se a mensagem de sucesso exibida  no inicio da tela
+                                                # se o if ficar atrelado ao segundo laço ele estará no laço de atualizar que esta referenciado no 
+                                                # crud_cliente
+                                                # logo ele retorna a mensagem de cliente inserido com sucsso
+                                            } else if ($_GET["sucesso"] == 2) {
+                                                echo "Cliente atualizado com sucesso!";
+                                            } else {
+                                                echo "Cliente excluído com sucesso!";
+                                            }
+                                            ?>
+                                        </div>
 
-                        <?php if (isset($_GET["erro"])) { ?>
-                            <div class="alert alert-danger">
-                                <?php
-                                if ($_GET["erro"] == 1) {
-                                    echo "Erro ao inserir cliente!";
-                                } else if ($_GET["erro"] == 2) {
-                                    echo "Erro ao atualizar cliente!";
-                                } else {
-                                    echo "Erro ao excluir cliente   !";
-                                }
-                                ?>
-                            </div>
-                        <?php } ?>
+                                    <?php } ?>
+
+                                    <?php if (isset($_GET["erro"])) { ?>
+                                        <div class="alert alert-danger">
+                                            <?php
+                                            if ($_GET["erro"] == 1) {
+                                                echo "Erro ao inserir cliente!";
+                                            } else if ($_GET["erro"] == 2) {
+                                                echo "Erro ao atualizar cliente!";
+                                            } else {
+                                                echo "Erro ao excluir cliente   !";
+                                            }
+                                            ?>
+                                        </div>
+                                    <?php } ?>
                                     <form method="POST" style="margin-top:15px; font-size: 10pt;" action="crud_funcionario.php" role="form" id="form-user-create">
-                                    <?php
-                            $dados;
-                            if (isset($_GET["Cod_funcionario"])) {
+                                        <?php
+                                        $dados;
+                                        if (isset($_GET["Cod_funcionario"])) {
 
-                                $queryCliente = $conexao->query("SELECT * FROM funcionario WHERE Cod_funcionario = " . $_GET["Cod_funcionario"]);
-                                $dados = $queryCliente->fetch_assoc();
-                            ?>
-                                <input type="hidden" name="Cod_funcionario" value="<?php echo $_GET["Cod_funcionario"]; ?>" />
-                            <?php } ?>
+                                            $queryCliente = $conexao->query("SELECT * FROM funcionario WHERE Cod_funcionario = " . $_GET["Cod_funcionario"]);
+                                            $dados = $queryCliente->fetch_assoc();
+                                        ?>
+                                            <input type="hidden" name="Cod_funcionario" value="<?php echo $_GET["Cod_funcionario"]; ?>" />
+                                        <?php } ?>
                                         <div class="box-body">
                                             <div class="form-group">
                                                 <label for="exampleInputName">Nome</label>
-                                                <input type="text" class="form-control" id="exampleInputName" 
-                                                 value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["nome"];
-                                                 } ?>" placeholder="Digite o nome do funcionário" name="nome">
+                                                <input type="text" class="form-control" id="exampleInputName" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["nome"];
+                                                                                                                        } ?>" placeholder="Digite o nome do funcionário" name="nome">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">CPF</label>
-                                                <input  type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" name="cpf"value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input cpf
-                                                 echo $dados["cpf"];
-                                                 } ?>" >
+                                                <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" name="cpf" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                                            #essa função do php pega o valor do input cpf
+                                                                                                                                                            echo $dados["cpf"];
+                                                                                                                                                        } ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">RG</label>
                                                 <input type="text" class="form-control" id="exampleInputName" placeholder="Digite o registro geral do funcionário" name="rg" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["rg"];
-                                                 } ?>" >
+                                                                                                                                                                                        #essa função do php pega o valor do input nome
+                                                                                                                                                                                        echo $dados["rg"];
+                                                                                                                                                                                    } ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Cargo</label>
                                                 <input type="text" class="form-control" id="exampleInputName" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["cargo"];
-                                                 } ?>"placeholder="Digite o cargo do funcionário" name="cargo">
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["cargo"];
+                                                                                                                        } ?>" placeholder="Digite o cargo do funcionário" name="cargo">
                                             </div>
                                             <div class="form-group">
-                                                <label >Salário</label>
-                                                <input name="salario" type="number" class="form-control" placeholder="Ex.: 1.798.00"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["salario"];
-                                                 } ?>" >
+                                                <label>Salário</label>
+                                                <input name="salario" type="text" class="form-control" placeholder="Ex.: 1.798.00" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                                #essa função do php pega o valor do input nome
+                                                                                                                                                echo $dados["salario"];
+                                                                                                                                            } ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Horário de expediente</label>
-                                                <input type="text" class="form-control time-mask" placeholder="Ex.: 00:00:00"value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["horas"];
-                                                 } ?>" placeholder="Digite o expediente" name="horas">
+                                                <input type="text" class="form-control time-mask" placeholder="Ex.: 00:00:00" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                                            echo $dados["horas"];
+                                                                                                                                        } ?>" placeholder="Digite o expediente" name="horas">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Data de admissão</label>
-                                                <input type="date" class="form-control" id="exampleInputBirth"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["dt_admicao"];
-                                                 } ?>" name="dt_admicao">
+                                                <input type="date" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["dt_admicao"];
+                                                                                                                        } ?>" name="dt_admicao">
                                             </div>
                                             <div class="form-group">
-                                    <label class="small mb-1" for="cmbSexo">Gênero</label>
+                                                <label class="small mb-1" for="cmbSexo">Gênero</label>
 
-                                    <select id="cmbSexo" class="form-control py-2" name="sexo">
-                                        <?php
-                                        # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
-                                        if (isset($_GET["Cod_funcionario"])) {
-                                            foreach ($sexo as $key => $value) {
-                                                if ($dados["sexo"] == $key) {
-                                                    echo "<option value=" . $key . " selected>" . $value . "</option>";
-                                                } else {
-                                                    echo "<option value=" . $key . ">" . $value . "</option>";
-                                                }
-                                            }
-                                        } else {
-                                            foreach ($sexo as $key => $value) {
-                                                echo "<option value=" . $key . ">" . $value . "</option>";
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                                                <select id="cmbSexo" class="form-control py-2" name="sexo">
+                                                    <?php
+                                                    # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
+                                                    if (isset($_GET["Cod_funcionario"])) {
+                                                        foreach ($sexo as $key => $value) {
+                                                            if ($dados["sexo"] == $key) {
+                                                                echo "<option value=" . $key . " selected>" . $value . "</option>";
+                                                            } else {
+                                                                echo "<option value=" . $key . ">" . $value . "</option>";
+                                                            }
+                                                        }
+                                                    } else {
+                                                        foreach ($sexo as $key => $value) {
+                                                            echo "<option value=" . $key . ">" . $value . "</option>";
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Nascimento</label>
-                                                <input type="date" class="form-control" id="exampleInputBirth"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["dt_nascimento"];
-                                                 } ?>" name="dt_nascimento">
+                                                <input type="date" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["dt_nascimento"];
+                                                                                                                        } ?>" name="dt_nascimento">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Cep</label>
-                                                <input name="Cep" class="form-control cep-mask" placeholder="Ex.: 00000-000"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["Cep"];
-                                                 } ?>"placeholder="Rua Borboletas Psicodélicas" 
-                                                 onblur="pesquisacep(this.value);"
-                                                 >
+                                                <input name="Cep" class="form-control cep-mask" placeholder="Ex.: 00000-000" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                        #essa função do php pega o valor do input nome
+                                                                                                                                        echo $dados["Cep"];
+                                                                                                                                    } ?>" placeholder="Rua Borboletas Psicodélicas" onblur="pesquisacep(this.value);">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Endereço</label>
-                                                <input name="logradouro" type="text" class="form-control" id="rua"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["logradouro"];
-                                                 } ?>" placeholder="Rua Era uma vez Nº" >
+                                                <input name="logradouro" type="text" class="form-control" id="rua" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                #essa função do php pega o valor do input nome
+                                                                                                                                echo $dados["logradouro"];
+                                                                                                                            } ?>" placeholder="Rua Era uma vez Nº">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputCountry">Cidade</label>
-                                                <input name="cidade" type="text" class="form-control" id="cidade"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["cidade"];
-                                                 } ?>" placeholder="Digite o nome da Cidade" >
+                                                <input name="cidade" type="text" class="form-control" id="cidade" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                #essa função do php pega o valor do input nome
+                                                                                                                                echo $dados["cidade"];
+                                                                                                                            } ?>" placeholder="Digite o nome da Cidade">
                                             </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label for="exampleInputCountry">Estado</label>
-                                                    <input type="text"  name="estado" class="form-control" id="uf"
-                                                value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["estado"];
-                                                 } ?>" placeholder="Digite o nome da estado">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Complemento</label>
-                                                    <input name="num_comp" type="text" class="form-control" 
-                                                    value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["num_comp"];
-                                                 } ?>"
-                                                     placeholder="Apartamento, bloco">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">E-mail</label>
-                                                    <input type="email" class="form-control" id="1xampleInputEmail"
-                                                    value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["email"];
-                                                 } ?>"  placeholder="Digite o e-mail" name="email">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Telefone</label>
-                                                    <input  type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000"
-                                                    value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["telefone"];
-                                                 } ?>" placeholder="Digite o telefone do funcionário" name="telefone">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Senha</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword"
-                                                    value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                 #essa função do php pega o valor do input nome
-                                                 echo $dados["senha"];
-                                                 } ?>"  placeholder="Crie uma senha" name="senha">
-                                                </div>
-                                                <div class="form-check">
-                                    <input checked type="checkbox" class="form-check-input" 
-                                    value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["Cod_funcionario"])) {
-                                         if ($dados["ativo"] == "S") {
-                                                 echo "checked";
-                                            }
-                                         } ?>>
-                                    <label class="form-check-label" for="AtivoCli">Ativo</label>
-                                </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="exampleInputCountry">Estado</label>
+                                                <input type="text" name="estado" class="form-control" id="uf" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["estado"];
+                                                                                                                        } ?>" placeholder="Digite o nome da estado">
                                             </div>
-                                            <!-- /.box-body -->
-                                            <div class="box-footer">
-                                                <button type="submit"  class="btn btn-success">Salvar</button>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Complemento</label>
+                                                <input name="num_comp" type="text" class="form-control" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                    #essa função do php pega o valor do input nome
+                                                                                                                    echo $dados["num_comp"];
+                                                                                                                } ?>" placeholder="Apartamento, bloco">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">E-mail</label>
+                                                <input type="email" class="form-control" id="1xampleInputEmail" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                            echo $dados["email"];
+                                                                                                                        } ?>" placeholder="Digite o e-mail" name="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Telefone</label>
+                                                <input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                                            echo $dados["telefone"];
+                                                                                                                                        } ?>" placeholder="Digite o telefone do funcionário" name="telefone">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Senha</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                    #essa função do php pega o valor do input nome
+                                                                                                                                    echo $dados["senha"];
+                                                                                                                                } ?>" placeholder="Crie uma senha" name="senha">
+                                            </div>
+                                            <div class="form-check">
+                                                <input checked type="checkbox" class="form-check-input" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                                    if ($dados["ativo"] == "S") {
+                                                                                                                                                        echo "checked";
+                                                                                                                                                    }
+                                                                                                                                                } ?>>
+                                                <label class="form-check-label" for="AtivoCli">Ativo</label>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <button type="submit" class="btn btn-success">Salvar</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

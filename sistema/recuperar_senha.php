@@ -20,34 +20,7 @@
 <body>
     <?php include 'banco.php'; ?>
 
-<style>
-    .css-selector {
-    background: linear-gradient(34deg, #006bff, #2369ca, #003987, #122743, #01070f);
-    background-size: 1000% 1000%;
-
-    -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:87% 0%}
-    50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:87% 0%}
-    50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
-}
-@keyframes AnimationName {
-    0%{background-position:87% 0%}
-    50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
-}
-</style>
-
-    <body class="css-selector">
+    <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -60,7 +33,7 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="crud_senha.php" method="post" data-toggle="validator" role="form">
+                                        <form action="atualiza_senha.php" method="post" data-toggle="validator" role="form">
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -81,7 +54,7 @@
                                                 <br>
                                                         <div class="alert alert-success">
                                                             <?php
-                                                            echo "Altualizada com Sucesso!";
+                                                            echo "Altualizada com Sucesso";
                                                             ?>
                                                         </div>
                                                     <?php } else if (isset($_GET["erro"]) && $_GET["erro"] == 2) { ?>
@@ -100,13 +73,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="small mb-1" for="novasenha">Nova senha</label>
-                                                                    <input class="form-control py-4" id="novasenha" type="password" name="nsenha" placeholder="Digite a nova senha" required />
+                                                                    <input class="form-control py-4" id="novasenha" type="password" placeholder="Digite a nova senha" required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="small mb-1" for="inputConfirmPassword">Confirmar Senha</label>
-                                                                    <input class="form-control py-4" id="inputConfirmPassword" type="password" name="Corfirmasenha" placeholder="Repita a nova senha" required />
+                                                                    <input class="form-control py-4" id="inputConfirmPassword" type="password" name="nsenha" placeholder="Repita a nova senha" required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -119,22 +92,14 @@
                                                 </form>
                                             <?php } else if (isset($_GET["erroloc"]) && $_GET["erroloc"] == 1) { ?>
 
-                                                <div class="alert alert-danger col-md-6">
+                                                <div class="alert alert-danger">
                                                     <?php
 
                                                     echo "Não localizado!";
 
                                                     ?>
                                                 </div>
-                                            <?php } else if (isset($_GET["erro"]) && $_GET["erro"] == 3) { ?>
-                                                <div class="alert alert-danger col-md-6">
-                                                    <?php
-
-                                                    echo "Verifique se as senha são identicas !";
-
-                                                    ?>
-                                                </div>
-                                            <?php }?>
+                                            <?php } ?>
                                             <br />
 
 

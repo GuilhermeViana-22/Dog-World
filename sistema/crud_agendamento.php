@@ -14,13 +14,13 @@ if(isset($_REQUEST["cod_servico"])) {
         # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 3;
     } else {
-        $consulta = "UPDATE atendimento SET dt_agendamento = '".$_REQUEST["dt_agendamento"]."', valor = '".$_REQUEST["valor"]."', tipo_atendimento = '".$_REQUEST["tipo_atendimento"]."', horario = '".$_REQUEST["horario"]."' WHERE id_cliente = ".$_REQUEST["id_cliente"]."";
+        $consulta = "UPDATE atendimento SET dt_agendamento = '".$_REQUEST["dt_agendamento"]."', valor = '".$_REQUEST["valor"]."', tipo_atendimento = '".$_REQUEST["tipo_atendimento"]."', horario = '".$_REQUEST["horario"]."' WHERE cod_servico = ".$_REQUEST["cod_servico"]."";
                 # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
                 # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 2;
     }
 } else {
-    $consulta = "INSERT INTO atendimento ( cod_funcionario, cod_cliente, id_animal, dt_agendamento, valor, tipo_atendimento, horario, status, nome) VALUES (".$_SESSION["Cod_funcionario"].",'".$_REQUEST["cod_cliente"]."','".$_REQUEST["id_animal"]."','".$_REQUEST[" dt_agendamento"]."','".$_REQUEST["valor"]."','".$_REQUEST["tipo_atendimento"]."','".$_REQUEST["horario"]."','','".$_REQUEST["nome"]."')";
+    $consulta = "INSERT INTO atendimento ( cod_funcionario, cod_cliente, id_animal, dt_agendamento, valor, tipo_atendimento, horario, status, nome) VALUES (".$_SESSION["Cod_funcionario"].",'".$_REQUEST["cod_cliente"]."','".$_REQUEST["id_animal"]."','".$_REQUEST["dt_agendamento"]."','".$_REQUEST["valor"]."','".$_REQUEST["tipo_atendimento"]."','".$_REQUEST["horario"]."','','".$_REQUEST["nome"]."')";
             # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;

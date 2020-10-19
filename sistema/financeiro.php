@@ -66,15 +66,15 @@
                                         </tr>
                                         <?php
                                         $sql = "SELECT * FROM vendas";
-                                     $queryVendas = $conexao->query($sql);
+                                       $queryVendas = $conexao->query($sql);
 
                                      while ($dados = $queryVendas->fetch_assoc()) {
                                     ?>
                                         <tr>
                                             <td class="td"><?php echo $dados["cod_venda"]; ?></td>
+                                            <td class="td"><?php echo $dados["nome_cliente"]; ?></td>
                                             <td class="td"><?php echo $dados["cod_funcionario"]; ?></td>
-                                            <td class="td"><?php echo $dados["cod_servico"]; ?></td>
-                                            <td class="td"><?php echo $dados["valor_total"]; ?></td>
+                                            <td class="td">R$:<?php echo $dados["valor_total"]; ?></td>
                                             
 
                                         </tr>

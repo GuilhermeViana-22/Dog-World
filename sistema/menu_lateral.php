@@ -32,7 +32,7 @@
                 </a>
                 <div class="collapse" id="subfinaceiro" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="financeiro.php">Demonstrativo</a>
+                        <a class="nav-link" href="financeiro.php">Demonstrativo de vendas</a>
                         <a class="nav-link" href="cad_funcionariov2.php">Cadastrar Funcion&aacute;rio</a>
                         <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
                     </nav>

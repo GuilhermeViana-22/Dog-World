@@ -74,94 +74,90 @@
 
 
 
-                <form action="crud_produto.php" method="post" name="produto">
+                <form action="crud_produto.php" method="post" name="produto" data-toggle="validator" role="form" >
 
                     <?php $dados;
                     if (isset($_GET["cod_produto"])) {
                         $queryProduto = $conexao->query("SELECT * FROM produto WHERE cod_produto = " . $_GET["cod_produto"]);
                         $dados = $queryProduto->fetch_assoc();  ?> <input type="hidden" name="cod_produto" value="<?php echo $_GET["cod_produto"]; ?>" />
-                    
-                    <input value="<?php if (isset($_GET["cod_produto"])) {
-                                                        #essa função do php pega o valor do input nome
-                                                        echo $dados["cod_produto"];
-                                                    } ?>" class="form-control py-2" id="inputFirstName" name="cod_produto" type="text"readonly />
-                    
+
+
+
                     <?php } ?>
 
 
                     <div class="container-fluid">
-               <div class="card">
-                <div class="card-header">
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="text-center font-weight-light my-4"> Cadastro de Produtos</h3>
                             </div>
 
-                    <div class="card-body">
-                        <div class="form-group row">
-                            
-                            <div class="col-md-7">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="textNome">Nome</label>
+                            <div class="card-body">
+                                <div class="form-group row">
 
-                                    <input class="form-control py-2" value="<?php if (isset($_GET["cod_produto"])) {
-                                                                                echo $dados["titulo"];
-                                                                            } ?>" id="textNome" type="text" name="titulo" />
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="textNome">Nome</label>
 
+                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_produto"])) {
+                                                                                        echo $dados["titulo"];
+                                                                                    } ?>" id="textNome" type="text" name="titulo" required/>
 
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Lote</label>
-                                    <input value=" <?php if (isset($_GET["cod_produto"])) {
-                                                        echo $dados["cod_lote"];
-                                                    } ?>" class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Quantidade</label>
-                                    <input value=" <?php if (isset($_GET["cod_produto"])) {
-                                                        echo $dados["quantidade"];
-                                                    } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text" placeholder="Digite a quantidade" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Valor</label>
-                                    <input value=" <?php if (isset($_GET["cod_produto"])) {
-                                                        echo $dados["valor_unitario"];
-                                                    } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite o valor" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputLastName">Fornecedor</label>
-                                    <input value=" <?php if (isset($_GET["cod_produto"])) {
-                                                        echo $dados["cod_fornecedor"];
-                                                    } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" />
-                                </div>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["cod_produto"])) {
-                                                                                                                            if ($dados["ativo"] == "S") {
-                                                                                                                                echo "checked";
-                                                                                                                            }
-                                                                                                                        } ?>>
-                                <label class="form-check-label" for="AtivoCli">Ativo</label>
-                            </div>
-
-                            <div id="botoes" class="col-md-9 col-xs-12">
-                            <div style="padding-left:350px;" class="col-md-15">
-                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
                                     </div>
-                                
 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Lote</label>
+                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                                                echo $dados["cod_lote"];
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Quantidade</label>
+                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                                                echo $dados["quantidade"];
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text" placeholder="Digite a quantidade"required />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Valor</label>
+                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                                                echo $dados["valor_unitario"];
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite o valor" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Fornecedor</label>
+                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                                                echo $dados["cod_fornecedor"];
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["cod_produto"])) {
+                                                                                                                                    if ($dados["ativo"] == "S") {
+                                                                                                                                        echo "checked";
+                                                                                                                                    }
+                                                                                                                                } ?>>
+                                        <label class="form-check-label" for="AtivoCli">Ativo</label>
+                                    </div>
+
+                                    <div id="botoes" class="col-md-9 col-xs-12">
+                                        <div style="padding-left:350px;" class="col-md-15">
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                 </form>
                 <div class="container-fluyd">
                     <form method="GET" style="margin-top:15px;" action="cad_Produto.php">
@@ -170,7 +166,7 @@
                                 <div class="row">
                                     <br />
                                     <div style="padding-left:25px;" class="col-md-3">
-                                    Pesquisar:
+                                        Pesquisar:
                                     </div>
                                     <div class="col-md-9">
                                         <input type="text" value="<?php if (isset($_GET["pesquisar"])) {
@@ -178,14 +174,14 @@
                                                                     } ?>" name="pesquisar" class="form-control">
                                     </div>
                                 </div>
-                                
+
 
                             </div>
                             <div class="col-md-6">
                                 <input type="submit" class="btn btn-primary" value="pesquisar">
                             </div>
                         </div>
-                        
+
                     </form>
                     <div class="card-body mr-1">
 
@@ -222,7 +218,7 @@
                                     <td><?php echo $dados["cod_fornecedor"]; ?></td>
                                     <td><?php echo $dados["ativo"]; ?></td>
                                     <td>
-                                        <a href="cad_produto.php?cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="cad_Produto.php?cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                         &nbsp;&nbsp;
                                         <a href="crud_produto.php?excluir=1&cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
                                     </td>
@@ -235,20 +231,20 @@
                         </table>
                     </div>
                 </div>
-                </div>
-                                </div>
-
-
-
-
-
-
-
-
-
-            </main>
-            <?php include 'footer.php'; ?>
         </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    </main>
+    <?php include 'footer.php'; ?>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

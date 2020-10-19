@@ -31,7 +31,7 @@ $query = $conexao->query($consulta);
 
 #verifica se houve algum erro  do crud e concatena com a variavel local operação
 if(!$query) {
-    header("Location: cad_fornecedor.php?erro=" . $operacao);
+  header("Location: cad_fornecedor.php?erro=" . $operacao);
 } else {
     header("Location: cad_fornecedor.php?sucesso=" . $operacao);
 }
