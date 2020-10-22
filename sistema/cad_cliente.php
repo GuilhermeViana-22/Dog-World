@@ -242,7 +242,7 @@
                                 </div>
                                 <div class=" col-md-3">
                                     <label for="cep" class="small col-md-3 mb-1">CEP</label>
-                                    <input name="cep" type="text" class="form-control" id="cep" value="<?php if (isset($_GET["id_cliente"])) {
+                                    <input name="cep" type="text" placeholder="digite o CEP" class="form-control" id="cep" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                             echo $dados["cep"];
                                                                                                         } ?>" onblur="pesquisacep(this.value);">
                                 </div>
@@ -292,7 +292,7 @@
                             </div>
 
                             <div id="botoes" class="col-md-9 col-xs-12">
-                            <div style="padding-left:350px;" class="col-md-15">
+                            <div style="margin-left:460px;" class="col-md-15">
                             <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
                                                     </div>  
 

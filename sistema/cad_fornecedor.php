@@ -233,8 +233,8 @@
                                         <label class="form-check-label" for="AtivoCli">Ativo</label>
                                     </div>
 
-                                    <div id="botoes" class="col-md-6 col-xs-12">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Inserir</button>
+                                    <div id="botoes" class="col-md-20 col-xs-20">
+                                        <button type="submit" style="margin-left: 350px;" class="btn btn-success"><i class="fas fa-paw"></i> Inserir</button>
 
                                     </div>
 

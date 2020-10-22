@@ -305,7 +305,7 @@
 
                                     </div>
                                     <div id="botoes" class="col-md-9 col-xs-12">
-                            <div style="padding-left:350px;" class="col-md-15">
+                            <div style="padding-left:370px;" class="col-md-15">
                             <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
                                                     </div>  
 

@@ -41,9 +41,7 @@
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Agendamento</h3>
                         </div>
-                        <article style="background: rgb(78,224,220);
-background: linear-gradient(36deg, rgba(78,224,220,0.7819502801120448) 0%, rgba(36,169,198,1) 70%, rgba(36,122,129,1) 100%);">
-                            <div class="row">
+                           <div class="row">
                                 <div class="col-xl-12 col-md-12">
                                     <br>
                                     <?php if (isset($_GET["sucesso"])) { ?>
@@ -118,7 +116,7 @@ background: linear-gradient(36deg, rgba(78,224,220,0.7819502801120448) 0%, rgba(
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label style="margin-left: 20px;" class="small mb-2" for="inputFirstName">Código Animal</label>
-                                                    <input style="margin-left: 20px; width: 180px" class="form-control py-2" value="<?php if (isset($_GET["cod_servico"])) {
+                                                    <input style="margin-left: 20px;" class="form-control py-2" value="<?php if (isset($_GET["cod_servico"])) {
                                                                                                                                         echo $dados["id_animal"];
                                                                                                                                     } ?>" id="inputLastName" name="id_animal" type="text" id="inputFirstName" type="text" placeholder="Cod animal" />
                                                 </div>
@@ -127,8 +125,8 @@ background: linear-gradient(36deg, rgba(78,224,220,0.7819502801120448) 0%, rgba(
 
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label style="margin-left: 20px;" class="small mb-2" for="inputFirstName">Código cliente</label>
-                                                    <input style="margin-left: 20px;" class="form-control py-2" name="cod_cliente" value=" <?php if (isset($_GET["cod_servico"])) {
+                                                    <label style="margin-left: 10px;" class="small mb-2" for="inputFirstName">Código cliente</label>
+                                                    <input style="margin-left: 10px;" class="form-control py-2" name="cod_cliente" value=" <?php if (isset($_GET["cod_servico"])) {
                                                                                                                                                 echo $dados["cod_cliente"];
                                                                                                                                             } ?>" id="inputLastName" id="inputFirstName" type="text" placeholder="" />
                                                 </div>
@@ -192,6 +190,7 @@ background: linear-gradient(36deg, rgba(78,224,220,0.7819502801120448) 0%, rgba(
                                             </div>
 
 
+                                            <br>
                                             <br>
                                             <br>
 

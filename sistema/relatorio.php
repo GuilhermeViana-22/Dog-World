@@ -40,10 +40,10 @@
 
                 <body>
                     <br>
-                    <p>Clique em determinado elemento para gerar o relatório especifico do departamento</p>
+                    <p style="margin-left: 200px;">Clique em determinado elemento para gerar o relatório especifico do departamento</p>
 
 
-                    <button class="btn-painel btn btn-dark" data-painel="painel-1" onclick="myFunction()">Vendas</button>
+                    <button style="margin-left: 250px;" class="btn-painel btn btn-dark" data-painel="painel-1" onclick="myFunction()">Vendas</button>
                     <button class="btn-painel btn btn-dark" data-painel="painel-2" onclick="myFunction2()">Clientes</button>
                     <button class="btn-painel btn btn-dark" data-painel="painel-3" onclick="myFunction3()">Colaboradores</button>
                     <button class="btn-painel btn btn-dark" data-painel="painel-4" onclick="myFunction4()">Fornecedores</button>
@@ -261,7 +261,7 @@
 
                 </body>
                 <br><br>
-                <p><b>Nota:</b> Para esconder o relatório basta clicar no botão novamente.</p>
+                <p><b style="margin-left: 250px;">Nota:</b> Para esconder o relatório basta clicar no botão novamente.</p>
             </main>
             <?php include 'footer.php'; ?>
         </div>
