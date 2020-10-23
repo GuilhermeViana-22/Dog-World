@@ -160,7 +160,7 @@
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 20px;" for="inputLastName">Quantidade</label>
-                                            <input class="form-control py-2"  style="margin-left: -12px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
+                                            <input class="form-control py-2"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
                                         </div>
 
                                         <div class="form-group">
