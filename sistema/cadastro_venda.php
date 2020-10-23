@@ -27,7 +27,7 @@
         "Dinheito" => "Dinheito",
     );
     ?>
-
+    
 
 </head>
 
@@ -44,7 +44,7 @@
             <main>
 
                 <div class="container-fluid">
-                    <form method="POST" action="crud_venda.php">
+                    <form method="POST" id="vendas" action="crud_venda.php">
 
                         <div class="card">
                             <div class="card-header">
@@ -151,30 +151,33 @@
 
                                 <div class="container-fluid">
                                     <div class="form-group row">
-                                        <!--
-                        <div class="form-group">
-                            <label class="small mb-2" for="inputFirstName">Produto</label>
-                            <input class="form-control py-2" id="inputFirstName" type="text" placeholder="Nome do produto" />
-                        </div>
-						-->
                                         <div class="form-group">
-                                            <label class="small mb-2 " style="margin-left: -12px;" for="inputLastName">Código</label>
-                                            <input class="form-control py-2" id="cod_produto" style="margin-left: -12px;"  name="cod_produto" type="text" placeholder="Digite o Código" />
+
+                                            <label class="small mb-2" style="margin-left: -12px;" for="inputLastName">Código</label>
+                                            <input class="form-control py-2"  style="margin-left: -12px;" name="cod_produto" type="text" placeholder="Digite o Código" />
+
                                         </div>
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 20px;" for="inputLastName">Quantidade</label>
-                                            <input class="form-control py-2" id="cod_prod_quantidade" style="margin-left: 20px;" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
+                                            <input class="form-control py-2"  style="margin-left: -12px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
                                         </div>
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 40px;" for="inputLastName">Valor</label>
-                                            <input class="form-control py-2" id="inputLastName" type="text" style="margin-left: 40px;"  name="valor_unitario" placeholder="Digite o Valor" />
+                                           
+                                            
+
+                                            <input class="form-control py-2" id="inputLastName" style="margin-left: 40px;"  type="text" name="valor_unitario" placeholder="Digite o Valor" value="<?php
+                                                                                                                                                                        echo $valor;
+                                                                                                                                                                    
+                                                                                                                                                                  ?>" />
                                         </div>
 
-                                        <br />
+
 
                                     </div>
+
                                     <?php
                                     if (isset($_GET["cod_venda"])) {
                                         $total = $conexao->query("SELECT Round(sum(v_total),3) as va_total FROM produtos_venda WHERE cod_venda = " . $_GET["cod_venda"]);
@@ -183,8 +186,8 @@
                                             <div class="form-group">
                                                 <label class="small mb-6" for="valor_totl">Total</label>
                                                 <input type="text" class="form-control py-2" id="valor_totl" value="<?php if (isset($_GET["cod_venda"])) {
-                                                                                                                                            echo $total_venda["va_total"];
-                                                                                                                                        } ?>" name="valor_total"/>
+                                                                                                                        echo $total_venda["va_total"];
+                                                                                                                    } ?>" name="valor_total" />
                                             </div>
 
 
@@ -192,29 +195,29 @@
                                     <?php }
                                     } ?>
                                     <div class="form-group col-md-3 mb-0">
-                                        <label class="small mb-2" style="margin-left: -36px;" for="cmbfp">Forma de pagamento</label>
+                                        <label class="small mb-1" style="margin-left: -36px;" for="cmbfp">Forma de pagamento</label>
                                         <select id="cmbfp" style="margin-left: -36px;" class="form-control py-2" name="forma_pagamento">
-                                        <?php
-                                        # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
-                                        if (isset($_GET["cod_venda"])) {
-                                            foreach ($Forma_pagamento as $key => $value) {
-                                                if ($dados["Forma_pagamento"] == $key) {
-                                                    echo "<option value=" . $key . " selected>" . $value . "</option>";
-                                                } else {
+                                            <?php
+                                            # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
+                                            if (isset($_GET["cod_venda"])) {
+                                                foreach ($Forma_pagamento as $key => $value) {
+                                                    if ($dados["Forma_pagamento"] == $key) {
+                                                        echo "<option value=" . $key . " selected>" . $value . "</option>";
+                                                    } else {
+                                                        echo "<option value=" . $key . ">" . $value . "</option>";
+                                                    }
+                                                }
+                                            } else {
+                                                foreach ($Forma_pagamento as $key => $value) {
                                                     echo "<option value=" . $key . ">" . $value . "</option>";
                                                 }
                                             }
-                                        } else {
-                                            foreach ($Forma_pagamento as $key => $value) {
-                                                echo "<option value=" . $key . ">" . $value . "</option>";
-                                            }
-                                        }
-                                        ?>
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group row col-md-20 ">
                                         <div id="botoes" class="col-md-20 col-xs-12">
-                                            <button type="submit" style="margin-left: 400px;" class="btn btn-success"><i class="fas fa-paw"></i> Inserir</button>
+                                            <button type="submit" style="margin-left: 400px;"  class="btn btn-success"><i class="fas fa-paw"></i> Inserir</button>
 
                                         </div>
                                     </div>

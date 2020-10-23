@@ -27,6 +27,19 @@
     );
     ?>
 
+    <?php
+    #ArrayLIst com os inputs do select
+    # é necessario um ArrayList para utilizar ter um conjunto de valores selecionaveis
+    $cargo = array(
+        "" => "----Selecione----",
+        "Gerente" => "Gerente",
+        "Administrativo" => "Administrativo",
+        "Atendimento" => "Atendimento",
+        "Estoquista" => "Estoquista"
+    );
+    ?>
+
+
 </head>
 
 
@@ -113,7 +126,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="breadcrumb">
-                   <h2>Gereciamento de Funcionários </h2> 
+                    <h2>Gereciamento de Funcionários </h2>
                 </div>
                 <section>
                     <div class="col-md-12">
@@ -259,7 +272,7 @@
                                             ?>
                                         </div>
                                     <?php } ?>
-                                    <form method="POST" style="margin-top:15px; font-size: 10pt;" action="crud_funcionario.php" role="form" id="form-user-create">
+                                    <form method="POST" style="margin-top:15px; font-size: 10pt;" action="crud_funcionario.php" data-toggle="validator" role="form" id="form-user-create">
                                         <?php
                                         $dados;
                                         if (isset($_GET["Cod_funcionario"])) {
@@ -275,42 +288,62 @@
                                                 <input type="text" class="form-control" id="exampleInputName" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["nome"];
-                                                                                                                        } ?>" placeholder="Digite o nome do funcionário" name="nome">
+                                                                                                                        } ?>" placeholder="Digite o nome do funcionário" name="nome" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">CPF</label>
-                                                <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" name="cpf" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                                                                                                                            #essa função do php pega o valor do input cpf
-                                                                                                                                                            echo $dados["cpf"];
-                                                                                                                                                        } ?>">
+                                                <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" id="cpf" name="cpf" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                                                    #essa função do php pega o valor do input cpf
+                                                                                                                                                                    echo $dados["cpf"];
+                                                                                                                                                                } ?>" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">RG</label>
                                                 <input type="text" class="form-control" id="exampleInputName" placeholder="Digite o registro geral do funcionário" name="rg" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                                                         #essa função do php pega o valor do input nome
                                                                                                                                                                                         echo $dados["rg"];
-                                                                                                                                                                                    } ?>">
+                                                                                                                                                                                    } ?>" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Cargo</label>
-                                                <input type="text" class="form-control" id="exampleInputName" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                                                                                            #essa função do php pega o valor do input nome
-                                                                                                                            echo $dados["cargo"];
-                                                                                                                        } ?>" placeholder="Digite o cargo do funcionário" name="cargo">
+
+                                                <select id="cmbSexo" class="form-control py-2" name="cargo">
+                                                    <?php
+                                                    # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
+                                                    if (isset($_GET["Cod_funcionario"])) {
+                                                        foreach ($cargo as $key => $value) {
+                                                            if ($dados["cargo"] == $key) {
+                                                                echo "<option value=" . $key . " selected>" . $value . "</option>";
+                                                            } else {
+                                                                echo "<option value=" . $key . ">" . $value . "</option>";
+                                                            }
+                                                        }
+                                                    } else {
+                                                        foreach ($cargo as $key => $value) {
+                                                            echo "<option value=" . $key . ">" . $value . "</option>";
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Salário</label>
                                                 <input name="salario" type="text" class="form-control" placeholder="Ex.: 1.798.00" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                 #essa função do php pega o valor do input nome
                                                                                                                                                 echo $dados["salario"];
-                                                                                                                                            } ?>">
+                                                                                                                                            } ?>" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Horário de expediente</label>
                                                 <input type="text" class="form-control time-mask" placeholder="Ex.: 00:00:00" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                                             echo $dados["horas"];
-                                                                                                                                        } ?>" placeholder="Digite o expediente" name="horas">
+                                                                                                                                        } ?>" placeholder="Digite o expediente" name="horas" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Data de admissão</label>
@@ -318,6 +351,7 @@
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["dt_admicao"];
                                                                                                                         } ?>" name="dt_admicao">
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="cmbSexo">Gênero</label>
@@ -346,7 +380,8 @@
                                                 <input type="date" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["dt_nascimento"];
-                                                                                                                        } ?>" name="dt_nascimento">
+                                                                                                                        } ?>" name="dt_nascimento" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Cep</label>
@@ -382,28 +417,32 @@
                                                 <input name="num_comp" type="text" class="form-control" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                     #essa função do php pega o valor do input nome
                                                                                                                     echo $dados["num_comp"];
-                                                                                                                } ?>" placeholder="Apartamento, bloco">
+                                                                                                                } ?>" placeholder="Apartamento, bloco" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">E-mail</label>
                                                 <input type="email" class="form-control" id="1xampleInputEmail" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["email"];
-                                                                                                                        } ?>" placeholder="Digite o e-mail" name="email">
+                                                                                                                        } ?>" placeholder="Digite o e-mail" name="email" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                                                                                                            #essa função do php pega o valor do input nome
-                                                                                                                                            echo $dados["telefone"];
-                                                                                                                                        } ?>" placeholder="Digite o telefone do funcionário" name="telefone">
+                                                <input type="text" class="form-control phone-mask" id="telefone" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                                                            #essa função do php pega o valor do input nome
+                                                                                                                                                            echo $dados["telefone"];
+                                                                                                                                                        } ?>" name="telefone" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Senha</label>
                                                 <input type="password" class="form-control" id="exampleInputPassword" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                     #essa função do php pega o valor do input nome
                                                                                                                                     echo $dados["senha"];
-                                                                                                                                } ?>" placeholder="Crie uma senha" name="senha">
+                                                                                                                                } ?>" placeholder="Crie uma senha" name="senha" required>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-check">
                                                 <input checked type="checkbox" class="form-check-input" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["Cod_funcionario"])) {
@@ -441,6 +480,23 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+
+    <script>
+        /*
+        $(document).ready(function() {
+        $('#telefone').mask("(99)9999-9999"); //Máscara para telefone
+      $('#cpf').mask("999.999.999-99"); //Máscara para CPF
+
+        });
+
+        jQuery(function($){
+$("#campoData").mask("99/99/9999");
+$("#telefone").mask("(99)9999-9999");
+$("#cpf").mask("999.999.999-99");
+});
+*/
+    </script>
+
 </body>
 
 </html>

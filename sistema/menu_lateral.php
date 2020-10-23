@@ -24,17 +24,18 @@
                 </div>
                         <?php } ?>
 
-                <?php if($_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "Financeiro" || $_SESSION["cargo"] == "gerente" || $_SESSION["cargo"] == "financeiro") { ?>
+                <?php if($_SESSION["cargo"] == "Gerente" || $_SESSION["cargo"] == "Administrativo" || $_SESSION["cargo"] == "gerente" || $_SESSION["cargo"] == "administrativo") { ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subfinaceiro" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-coins"></i></div>
-                    Financeiro
+                    Administrativo
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="subfinaceiro" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="financeiro.php">Demonstrativo de vendas</a>
                         <a class="nav-link" href="cad_funcionariov2.php">Cadastrar Funcion&aacute;rio</a>
-                        <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
+                        <a class="nav-link" href="relatorio.php">Relat&oacute;rios</a>
+                        
                     </nav>
                 </div>
                 <?php } ?>
@@ -50,7 +51,7 @@
                 </a>
                 <div class="collapse" id="subestoque" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="relatorio.php">Relat&oacute;rios</a>
+                    <a class="nav-link" href="cad_fornecedor.php">Cadastrar Fornecedor</a>
                         <a class="nav-link" href="cad_Produto.php">Cadastro de Produto</a>
 
                     </nav>

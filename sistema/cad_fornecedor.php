@@ -15,75 +15,75 @@
 </head>
 
 <body class="sb-nav-fixed">
-<script>
-    function limpa_formulário_cep() {
-        //Limpa valores do formulário de cep.
-        document.getElementById('rua').value = ("");
+    <script>
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
 
-        document.getElementById('cidade').value = ("");
-        document.getElementById('uf').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
 
-    }
-
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value = (conteudo.logradouro);
-
-            document.getElementById('cidade').value = (conteudo.localidade);
-            document.getElementById('uf').value = (conteudo.uf);
-
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
         }
-    }
 
-    function pesquisacep(valor) {
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
 
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if (validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value = "...";
-
-                document.getElementById('cidade').value = "...";
-                document.getElementById('uf').value = "...";
-
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
 
             } //end if.
             else {
-                //cep é inválido.
+                //CEP não Encontrado.
                 limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
+                alert("CEP não encontrado.");
             }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
         }
-    };
-</script>
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    </script>
     <?php include 'nav.php'; ?>
 
     <div id="layoutSidenav">
@@ -141,13 +141,13 @@
                         ?>
                     </div>
                 <?php } ?>
-                <form action="crud_fornece.php" method="post" name="Formfornecedor">
+                <form action="crud_fornece.php" data-toggle="validator" role="form" method="post" name="Formfornecedor">
                     <?php $dados;
                     if (isset($_GET["cod_fornecedor"])) {
                         $queryfornecedor = $conexao->query("SELECT * FROM fornecedor WHERE cod_fornecedor = " . $_GET["cod_fornecedor"]);
                         $dados = $queryfornecedor->fetch_assoc();  ?> <input type="hidden" name="cod_fornecedor" value="<?php echo $_GET["cod_fornecedor"]; ?>" />
                     <?php } ?>
-                    
+
                     <div class="container-fluid">
 
 
@@ -164,6 +164,7 @@
                                             <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["fornecedor"];
                                                                                         } ?>" id="inputLastName" name="fornecedor" type="text" placeholder="Digite a raz&#227;o Social" />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
 
@@ -172,7 +173,8 @@
                                             <label class="small mb-1" for="inputLastName">CNPJ</label>
                                             <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["cnpj"];
-                                                                                        } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" />
+                                                                                        } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -180,7 +182,8 @@
                                             <label class="small mb-1" for="inputLastName">Endere&ccedil;o</label>
                                             <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["logradouro"];
-                                                                                        } ?>" id="rua" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" />
+                                                                                        } ?>" id="rua" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -188,23 +191,24 @@
                                             <label class="small mb-2" for="inputnumber">Complemento:</label>
                                             <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["num_comp"];
-                                                                                        } ?>" name="num_comp" id="inputFirstName" type="text" />
+                                                                                        } ?>" name="num_comp" id="inputFirstName" type="text" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">CEP</label>
                                             <input class="form-control py-2" id="cep" value=" <?php if (isset($_GET["cod_fornecedor"])) {
-                                                                                                            echo $dados["cep"];
-                                                                                                        } ?>" name="cep" type="text" onblur="pesquisacep(this.value);" placeholder="Digite o CEP" />
+                                                                                                    echo $dados["cep"];
+                                                                                                } ?>" name="cep" type="text" onblur="pesquisacep(this.value);" placeholder="Digite o CEP" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Cidade</label>
                                             <input class="form-control py-2" id="cidade" value=" <?php if (isset($_GET["cod_fornecedor"])) {
-                                                                                                            echo $dados["cidade"];
-                                                                                                        } ?>" name="cidade" type="text" placeholder="Digite a cidade" />
+                                                                                                        echo $dados["cidade"];
+                                                                                                    } ?>" name="cidade" type="text" placeholder="Digite a cidade" />
                                         </div>
 
                                     </div>
@@ -212,8 +216,8 @@
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Estado</label>
                                             <input class="form-control py-2" id="uf" value=" <?php if (isset($_GET["cod_fornecedor"])) {
-                                                                                                            echo $dados["estado"];
-                                                                                                        } ?>" name="estado" type="text" placeholder="Digite o Estado" />
+                                                                                                    echo $dados["estado"];
+                                                                                                } ?>" name="estado" type="text" placeholder="Digite o Estado" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -221,7 +225,8 @@
                                             <label class="small mb-1" for="inputLastName">Telefone</label>
                                             <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                             echo $dados["telefone"];
-                                                                                                        } ?>" name="telefone" type="text" placeholder="Digite o Telefone" />
+                                                                                                        } ?>" name="telefone" type="text" placeholder="Digite o Telefone" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="form-check">
@@ -296,12 +301,12 @@
                             $consultaTabela = "SELECT * FROM fornecedor";
                         }
                         $queryfornecedor = $conexao->query($consultaTabela);
-                        
+
                         while ($dados = $queryfornecedor->fetch_assoc()) {
                         ?>
                             <tr>
-                                
-                                <td ><?php echo $dados["cod_fornecedor"]; ?></td>
+
+                                <td><?php echo $dados["cod_fornecedor"]; ?></td>
                                 <td><?php echo $dados["cnpj"]; ?></td>
                                 <td><?php echo $dados["fornecedor"]; ?></td>
                                 <td><?php echo $dados["logradouro"]; ?></td>
