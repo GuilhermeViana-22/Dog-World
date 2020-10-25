@@ -208,7 +208,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="small mb-2" for="idadeAnimal">Idade</label>
-                                                <input class="form-control py-2" id="idadeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                <input class="form-control idade" id="idadeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
                                                                                                                             echo $dados["idade"];
                                                                                                                         } ?>" placeholder="Digite a idade" name="idade" required />
                                                 <div class="help-block with-errors"></div>
@@ -217,7 +217,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="RgaAni">RGA</label>
-                                                <input class="form-control py-2" id="RgaAni" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                <input class="form-control rga" id="RgaAni" type="text" value="<?php if (isset($_GET["id_animal"])) {
                                                                                                                     echo $dados["rga"];
                                                                                                                 } ?>" placeholder="Digite o RGA" name="rga" required />
 
@@ -287,7 +287,7 @@
                                             <label for="observacaoani">Observação</label>
                                             <textarea name="observacao" class="form-control" id="observacaoani" rows="3" placeholder="Digite a observação do animal"><?php if (isset($_GET["id_animal"])) {
                                                                                                                     echo $dados["observacao"];
-                                                                                                                } ?></Textarea>
+                                                                                                                } ?></textarea>
                                         </div>
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" value="S" id="AtivoAni" name="ativo" <?php if (isset($_GET["id_animal"])) {
@@ -424,6 +424,14 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        $('.rga').mask('000-00', {reverse: true});
+        $('.idade').mask('00');
+  
+    })
+</script>
 </body>
 
 </html>
