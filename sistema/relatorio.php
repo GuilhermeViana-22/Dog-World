@@ -72,13 +72,19 @@
                                  }
                                  $queryClietes = $conexao->query($consultaTabela);
                                  while ($dados = $queryClietes->fetch_assoc()) {
+                                     $totalVenda = 0;
+                                     $consultaValorProduto = "SELECT * FROM produtos_venda WHERE cod_venda = " . $dados["cod_venda"];
+                                     $queryValorProduto = $conexao->query($consultaValorProduto);
+                                     while($dadosProdutosVenda = $queryValorProduto->fetch_assoc()) {
+                                         $totalVenda = $totalVenda + $dadosProdutosVenda["v_total"];
+                                     }
                                  ?>
                     <tr>
       
                                                 <td><?php echo $dados["cod_venda"]; ?></td>
                                                 <td><?php echo $dados["cod_funcionario"]; ?></td>
                                                 <td><?php echo date("d/m/Y", strtotime($dados["data_venda"])); ?></td>
-                                                <td><?php echo $dados["valor_total"]; ?></td>
+                                                <td><?php echo $totalVenda ?></td>
                                                 <td><?php echo $dados["cod_servico"]; ?></td>       
                                                 <td><?php echo $dados["horario"]; ?></td>
                                              

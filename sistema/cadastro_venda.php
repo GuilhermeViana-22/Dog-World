@@ -133,16 +133,16 @@
                             <div class="form-group">
                                 <div class="form-group row">
                                     <div class="col-md-6 col-xs-10">
-                                        <label class="small mb-2" style="margin-left: 15px;" for="inputFirstName">Nome</label>
-                                        <input class="form-control py-2 nome" style="margin-left: 15px;" id="nome_cliente" name="nome_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
+                                        <label class="small mb-2" for="inputFirstName" style="margin-left: 12px;" >Nome</label>
+                                        <input style="margin-left: 12px;" class="form-control nome" id="nome_cliente" name="nome_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
                                                                                                                             echo $dadosVenda["nome_cliente"];
                                                                                                                         } ?>" type="text" placeholder="Digite o nome" />
 
                                     </div>
 
                                     <div class="col-md-3 col-xs-8">
-                                        <label class="small mb-2" style="margin-left: 15px;" for="inputFirstName">CPF</label>
-                                        <input class="form-control py-2 cpf"  style="margin-left: 15px;"id="cpf_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
+                                        <label class="small mb-2" for="inputFirstName">CPF</label>
+                                        <input class="form-control cpf" id="cpf_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
                                                                                                         echo $dadosVenda["cpf_cliente"];
                                                                                                     } ?>" name="cpf_cliente" type="text" placeholder="Digite o CPF" style="padding-right: 10px ;" />
 
@@ -151,57 +151,37 @@
 
                                 <div class="container-fluid">
                                     <div class="form-group row">
-                                        <div class="form-group">
+                                        <div class="form-group col-md-4">
 
-                                            <label class="small mb-2"  for="inputLastName">Código</label>
-                                            <input class="form-control py-2"   name="cod_produto" type="text" placeholder="Digite o Código" />
+                                            <label class="small mb-2" style="margin-left: -12px;" for="inputLastName">Produto</label>
+                                            <select style="margin-left: -10px;" class="form-control" name="cod_produto">
+                                                    <option>Selecione</option>
+                                                    <?php
+
+
+                                                    $consultaProduto = "SELECT * FROM produto";
+                                                    $queryProduto = $conexao->query($consultaProduto);
+                                                    while ($dadosProduto = $queryProduto->fetch_assoc()) {
+
+                                                        echo '<option value="' . $dadosProduto["cod_produto"] . '">' . $dadosProduto["titulo"] . '</option>';
+                                                    } ?>
+                                                </select>
 
                                         </div>
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 20px;" for="inputLastName">Quantidade</label>
-                                            <input class="form-control py-2 quantidade"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
+                                            <input class="form-control money2"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="small mb-2" style="margin-left: 40px;" for="inputLastName">Valor</label>
-                                           
-                                            
-
-                                            <input class="form-control py-2" id="inputLastName" style="margin-left: 40px;"  type="text" name="valor_unitario" placeholder="Digite o Valor" value="<?php
-                                                                                                                                                                        echo $valor;
-                                                                                                                                                                    
-                                                                                                                                                                  ?>" />
-                                        </div>
-
-
-
                                     </div>
-
-                                    <?php
-                                    if (isset($_GET["cod_venda"])) {
-                                        $total = $conexao->query("SELECT Round(sum(v_total),3) as va_total FROM produtos_venda WHERE cod_venda = " . $_GET["cod_venda"]);
-                                        while ($total_venda = $total->fetch_assoc()) {
-                                    ?>
-                                            <div class="form-group">
-                                                <label class="small mb-6" for="valor_totl">Total</label>
-                                                <input type="text" class="form-control" id="valor_totl" value="<?php if (isset($_GET["cod_venda"])) {
-                                                                                                                        echo $total_venda["va_total"];
-                                                                                                                    } ?>" name="valor_total" />
-                                            </div>
-
-
-
-                                    <?php }
-                                    } ?>
-                                    <div class="form-group col-md-3 mb-0">
-                                        <label class="small mb-1"  for="cmbfp">Forma de pagamento</label>
-                                        <select id="cmbfp"  class="form-control py-2" name="forma_pagamento">
+                                    <div class="col-md-4">
+                                       <p> <label class="small mb-1" style="margin-left: -22px;"  for="cmbfp">Forma de pagamento</label></p>
+                                        <select id="cmbfp" name="forma_pagamento" style="margin-left: -22px;" class="form-control">
                                             <?php
                                             # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                             if (isset($_GET["cod_venda"])) {
                                                 foreach ($Forma_pagamento as $key => $value) {
-                                                    if ($dados["Forma_pagamento"] == $key) {
+                                                    if ($dadosVenda["forma_pagamento"] == $key) {
                                                         echo "<option value=" . $key . " selected>" . $value . "</option>";
                                                     } else {
                                                         echo "<option value=" . $key . ">" . $value . "</option>";
@@ -215,9 +195,12 @@
                                             ?>
                                         </select>
                                     </div>
+
+                                    
+                                  
                                     <div class="form-group row col-md-20 ">
                                         <div id="botoes" class="col-md-20 col-xs-12">
-                                            <button type="submit" style="margin-left: 400px;"  class="btn btn-success"><i class="fas fa-paw"></i> Inserir</button>
+                                            <button type="submit" style="margin-left: 400px;"  class="btn btn-success"><i class="fas fa-paw"></i> Inserir Venda</button>
 
                                         </div>
                                     </div>
@@ -328,22 +311,16 @@
     <script src="js/jquery.mask.js"></script>
 
     <script>
-              jQuery(document).ready(function() {
-                    $('.nome').mask('A', {
-                        translation: {
-                            A: {
-                                pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
-                                recursive: true
-                            },
-                        },
-                    });
-    jQuery(document).ready(function() {
+     jQuery(document).ready(function() {
+        $('.nome').mask('A', {
+  translation: {
+    A: { pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g, recursive: true },
+  },
+});
         $('.cpf').mask('000.000.000-00', {reverse: true});
-        $('.quantidade').mask("00000", {reverse: true});
+        $('.money2').mask("000", {reverse: true});
     })
-})
-   
-</script>
+    </script>
 </body>
 
 </html>

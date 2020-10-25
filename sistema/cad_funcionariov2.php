@@ -45,7 +45,7 @@
 
 
 
-<body class="func" class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="margin-top: 0px;">
     <script>
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
@@ -125,9 +125,9 @@
         <!--Tag de incorporação ao menu no codigo html-->
 
         <div id="layoutSidenav_content">
-            <main>
+            <main style="margin-top: -20px;">
                 <div class="breadcrumb">
-                    <h2>Gereciamento de Funcionários </h2>
+                    <h5>Gereciamento de Funcionários </h5>
                 </div>
                 <section>
                     <div class="col-md-12">
@@ -286,8 +286,8 @@
                                         <div class="box-body">
                                             <div class="form-group">
                                                 <label for="exampleInputName">Nome</label>
-                                                <input type="text" class="form-control" id="exampleInputName" value="<?php if (isset($_GET["Cod_funcionario"])) {
-                                                                                                                            #essa função do php pega o valor do input nome
+                                                <input type="text" class="form-control nome" id="nome" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                                                                                        #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["nome"];
                                                                                                                         } ?>" placeholder="Digite o nome do funcionário" name="nome" required>
                                                 <div class="help-block with-errors"></div>
@@ -348,7 +348,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Data de admissão</label>
-                                                <input type="date" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="date" min="2020-10-26" max="2020-11-24" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["dt_admicao"];
                                                                                                                         } ?>" name="dt_admicao">
@@ -378,7 +378,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Nascimento</label>
-                                                <input type="date" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="date" min="1950-10-26" max="2020-12-25" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["dt_nascimento"];
                                                                                                                         } ?>" name="dt_nascimento" required>
@@ -467,10 +467,7 @@
             </main>
             <?php include 'footer.php'; ?>
         </div>
-
     </div>
-
-
     <script src="js/validator.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -485,14 +482,20 @@
 
     <script>
     jQuery(document).ready(function() {
+        $('.nome').mask('A', {
+  translation: {
+    A: { pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g, recursive: true },
+  },
+});
         $('.cpf').mask('000.000.000-00', {reverse: true});
         $('.money2').mask("#.##0,00", {reverse: true});
-        $('.phone').mask('(00) 0000-0000');
+        $('.phone').mask('(00) 0000-00000');
         $('.time').mask('00:00:00');
         if((".time")>="10:00"){
             alert("horario invalido")
         }
         $('.rg').mask('00.000.000-0');
+
     })
 </script>
 

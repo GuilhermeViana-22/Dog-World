@@ -161,17 +161,17 @@
                             <div class="form-group row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label class="small mb-2"  style="margin-left: 15px;" for="textNome">Nome</label>
-                                        <input class="form-control py-2" style="margin-left: 15px;" value="<?php if (isset($_GET["id_cliente"])) { echo $dados["nome"];
+                                        <label class="small mb-2" for="textNome">Nome</label>
+                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) { echo $dados["nome"];
                                                                                 } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="small mb-2" style="margin-left: 15px;" for="inputLastName">Sobrenome</label>
-                                        <input class="form-control py-2" style="margin-left: 15px;" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label class="small mb-2" for="inputLastName">Sobrenome</label>
+                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input sobrenome
                                                                                     echo $dados["sobrenome"];
                                                                                 } ?>" id="inputLastName" type="text" placeholder="Digite o sobrenome" name="sobrenome" required />
@@ -181,19 +181,19 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label class="small mb-2" style="margin-left: 15px;" for="dtNasc">Data de nascimento</label>
-                                        <input class="form-control  py-2" style="margin-left: 15px;" id="dtNasc"
+                                        <label class="small mb-2" for="dtNasc">Data de nascimento</label>
+                                        <input class="form-control py-2" id="dtNasc"
                                          value="<?php if (isset($_GET["id_cliente"])) {
                                              #essa função do php pega o valor do input data de nascimento
                                           echo $dados["dt_nascimento"];
-                                    } ?>" type="date" placeholder="Digite o nascimento" name="dt_nascimento" required />
+                                    } ?>" type="date"min="2020-10-26" max="2020-11-24" placeholder="Digite o nascimento" name="dt_nascimento" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="small mb-1" style="margin-left: 15px;" for="txtCpf">CPF</label>
-                                        <input class="form-control py-2" style="margin-left: 15px;" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label class="small mb-1" for="txtCpf">CPF</label>
+                                        <input class="form-control py-2" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input cpf
                                                                                                             echo $dados["cpf"];
                                                                                                         } ?>" placeholder="Digite o CPF" name="cpf" required />
@@ -201,9 +201,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3 mb-0">
-                                    <label class="small mb-1" style="margin-left: 15px;" for="cmbSexo">Sexo</label>
+                                    <label class="small mb-1" for="cmbSexo">Sexo</label>
 
-                                    <select id="cmbSexo" style="margin-left: 15px;" class="form-control py-2" name="sexo">
+                                    <select id="cmbSexo" class="form-control py-2" name="sexo">
                                         <?php
                                         # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                         if (isset($_GET["id_cliente"])) {
@@ -224,8 +224,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="small mb-1" style="margin-left: 15px;" for="txtTelefone">Telefone / Celular</label>
-                                        <input class="form-control py-2" id="txtTelefone" style="margin-left: 15px;" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label class="small mb-1" for="txtTelefone">Telefone / Celular</label>
+                                        <input class="form-control py-2" id="txtTelefone" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                         echo $dados["telefone"];
                                                                                                     } ?>" type="text" placeholder="Digite o Telefone" name="telefone" required />
                                         <div class="help-block with-errors"></div>
@@ -233,37 +233,37 @@
                                 </div>
                                 <div class="col-md-10">
                                     <div class="col-md-15">
-                                        <label for="inputEmail" for="txtEmail" style="margin-left: 15px;" class="small md-3 ">E-mail</label>
-                                        <input type="email" class="form-control py-0" style="margin-left: 15px;" id="txtEmail" placeholder="E-mail" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label for="inputEmail" for="txtEmail" class="small md-3 ">E-mail</label>
+                                        <input type="email" class="form-control py-0" id="txtEmail" placeholder="E-mail" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                                                     echo $dados["email"];
                                                                                                                                 } ?>" name="email" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class=" col-md-3">
-                                    <label for="cep" style="margin-left: 15px;" class="small col-md-3 mb-1">CEP</label>
-                                    <input name="cep" style="margin-left: 15px;" type="text" placeholder="digite o CEP" class="form-control" id="cep" value="<?php if (isset($_GET["id_cliente"])) {
+                                    <label for="cep" class="small col-md-3 mb-1">CEP</label>
+                                    <input name="cep" type="text" placeholder="digite o CEP" class="form-control" id="cep" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                             echo $dados["cep"];
                                                                                                         } ?>" onblur="pesquisacep(this.value);">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputAddress" style="margin-left: 15px;" class="small mb-1">Endereço</label>
+                                    <label for="inputAddress" class="small mb-1">Endereço</label>
                                     <input value="<?php if (isset($_GET["id_cliente"])) {
                                                         echo $dados["logradouro"];
-                                                    } ?>" type="text" class="form-control py-3" style="margin-left: 15px;" id="rua" placeholder="Rua dos Bobos, nº 0" name="logradouro">
+                                                    } ?>" type="text" class="form-control py-3" id="rua" placeholder="Rua dos Bobos, nº 0" name="logradouro">
                                 </div>
-                                <div class="form-group col-md-2">
-                                    <label for="inputAddress2" style="margin-left: 15px;" class="small mb-1">Complemento</label>
-                                    <input type="text" class="form-control" style="margin-left: 15px;" id="inputAddress" value="<?php if (isset($_GET["id_cliente"])) {
+                                <div class="form-group col-md-3">
+                                    <label for="inputAddress2" class="small mb-1">Complemento</label>
+                                    <input type="text" class="form-control" id="inputAddress" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                             echo $dados["num_comp"];
                                                                                                         } ?>" placeholder="Apartamento, hotel, casa, etc." name="num_comp">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <div class="form-group">
-                                        <label class="small mb-1" style="margin-left: 15px;" for="inputLastName">Cidade</label>
+                                        <label class="small mb-1" for="inputLastName">Cidade</label>
 
-                                        <input type="text" style="margin-left: 15px;" class="form-control" id="cidade" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <input type="text" class="form-control" id="cidade" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                             echo $dados["cidade"];
                                                                                                         } ?>" placeholder="Digite a cidade." name="cidade" required>
 
@@ -274,20 +274,20 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <div class="form-group">
-                                        <label class="small mb-1" style="margin-left: 15px;" for="inputLastName">Estado</label>
-                                       <input type="text" style="margin-left: 15px;" class="form-control" id="uf" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <label class="small mb-1" for="inputLastName">Estado</label>
+                                       <input type="text" class="form-control" id="uf" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                             echo $dados["estado"];
                                                                                                         } ?>" placeholder="Digite a cidade." name="estado" required>
 
                                     </div>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" style="margin-left: 1px;" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["id_cliente"])) {
+                                    <input type="checkbox" class="form-check-input" value="S" id="AtivoCli" name="ativo" <?php if (isset($_GET["id_cliente"])) {
                                                                                                                                 if ($dados["ativo"] == "S") {
                                                                                                                                     echo "checked";
                                                                                                                                 }
                                                                                                                             } ?>>
-                                    <label class="form-check-label" style="margin-left: 15px;"  for="AtivoCli">Ativo</label>
+                                    <label class="form-check-label" for="AtivoCli">Ativo</label>
                                 </div>
                             </div>
 

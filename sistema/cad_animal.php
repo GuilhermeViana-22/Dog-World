@@ -315,7 +315,7 @@
                                 </form>
                         
                                 <div class="row w-100">
-                                    <div class="col-xl-12 col-md-12 ">
+                                    <div class="col-md">
                                         <div class="card">
                                             
                                             <div class="card-header">
@@ -342,6 +342,7 @@
                                             <input type="submit" class="btn btn-primary" value="pesquisar">
                                         </div>
                                     </div>
+                                    
                                 </form>
                                 <br>
                                                     <table class="table table-striped">
@@ -381,16 +382,15 @@
                                                                 <td width="20px"> <?php echo $dados["ativo"]; ?></td>
                                                                 <td width="20px"><?php echo $dados["id_cliente"]; ?></td>
                                                                 <td>
-                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" style="width: 40px;" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                                     &nbsp;&nbsp;
 
-                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" style="width: 40px;" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>
 
-                                                    </table>
-                                                
+                                                    </table>       
                                             </div>
                                         </div>
 
@@ -404,15 +404,6 @@
             <?php include 'footer.php'; ?>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 
     <script src="js/validator.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

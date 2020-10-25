@@ -172,7 +172,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cnpj">CNPJ</label>
-                                            <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["cnpj"];
                                                                                         } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" required />
                                             <div class="help-block with-errors"></div>
@@ -181,7 +181,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Endere&ccedil;o</label>
-                                            <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["logradouro"];
                                                                                         } ?>" id="rua" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" required />
                                             <div class="help-block with-errors"></div>
@@ -190,7 +190,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="small mb-2" for="inputnumber">Complemento:</label>
-                                            <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" placeholder="Digite o complemento" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["num_comp"];
                                                                                         } ?>" name="num_comp" id="inputFirstName" type="text" required />
                                             <div class="help-block with-errors"></div>
@@ -199,7 +199,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">CEP</label>
-                                            <input class="form-control py-2" id="cep" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" id="cep" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                     echo $dados["cep"];
                                                                                                 } ?>" name="cep" type="text" onblur="pesquisacep(this.value);" placeholder="Digite o CEP" />
                                         </div>
@@ -207,16 +207,15 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Cidade</label>
-                                            <input class="form-control py-2" id="cidade" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" id="cidade" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                         echo $dados["cidade"];
                                                                                                     } ?>" name="cidade" type="text" placeholder="Digite a cidade" />
                                         </div>
-
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Estado</label>
-                                            <input class="form-control py-2" id="uf" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" id="uf" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                     echo $dados["estado"];
                                                                                                 } ?>" name="estado" type="text" placeholder="Digite o Estado" />
                                         </div>
@@ -224,9 +223,9 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Telefone</label>
-                                            <input class="form-control py-2" id="inputLastName" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control py-2" placeholder="Digite o Telefone" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                             echo $dados["telefone"];
-                                                                                                        } ?>" name="telefone" type="text" placeholder="Digite o Telefone" required />
+                                                                                                        } ?>" name="telefone" type="text" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
