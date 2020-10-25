@@ -381,10 +381,10 @@
                                                                 <td width="20px"> <?php echo $dados["ativo"]; ?></td>
                                                                 <td width="20px"><?php echo $dados["id_cliente"]; ?></td>
                                                                 <td>
-                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" style="width: 40px;" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                                                     &nbsp;&nbsp;
 
-                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" style="width: 40px;" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>

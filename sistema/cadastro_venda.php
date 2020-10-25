@@ -133,16 +133,16 @@
                             <div class="form-group">
                                 <div class="form-group row">
                                     <div class="col-md-6 col-xs-10">
-                                        <label class="small mb-2" for="inputFirstName">Nome</label>
-                                        <input class="form-control py-2" id="nome_cliente" name="nome_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
+                                        <label class="small mb-2" style="margin-left: 15px;" for="inputFirstName">Nome</label>
+                                        <input class="form-control py-2 nome" style="margin-left: 15px;" id="nome_cliente" name="nome_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
                                                                                                                             echo $dadosVenda["nome_cliente"];
                                                                                                                         } ?>" type="text" placeholder="Digite o nome" />
 
                                     </div>
 
                                     <div class="col-md-3 col-xs-8">
-                                        <label class="small mb-2" for="inputFirstName">CPF</label>
-                                        <input class="form-control py-2" id="cpf_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
+                                        <label class="small mb-2" style="margin-left: 15px;" for="inputFirstName">CPF</label>
+                                        <input class="form-control py-2 cpf"  style="margin-left: 15px;"id="cpf_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
                                                                                                         echo $dadosVenda["cpf_cliente"];
                                                                                                     } ?>" name="cpf_cliente" type="text" placeholder="Digite o CPF" style="padding-right: 10px ;" />
 
@@ -153,14 +153,14 @@
                                     <div class="form-group row">
                                         <div class="form-group">
 
-                                            <label class="small mb-2" style="margin-left: -12px;" for="inputLastName">Código</label>
-                                            <input class="form-control py-2"  style="margin-left: -12px;" name="cod_produto" type="text" placeholder="Digite o Código" />
+                                            <label class="small mb-2"  for="inputLastName">Código</label>
+                                            <input class="form-control py-2"   name="cod_produto" type="text" placeholder="Digite o Código" />
 
                                         </div>
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 20px;" for="inputLastName">Quantidade</label>
-                                            <input class="form-control py-2"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
+                                            <input class="form-control py-2 quantidade"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
                                         </div>
 
                                         <div class="form-group">
@@ -195,8 +195,8 @@
                                     <?php }
                                     } ?>
                                     <div class="form-group col-md-3 mb-0">
-                                        <label class="small mb-1" style="margin-left: -36px;" for="cmbfp">Forma de pagamento</label>
-                                        <select id="cmbfp" style="margin-left: -36px;" class="form-control py-2" name="forma_pagamento">
+                                        <label class="small mb-1"  for="cmbfp">Forma de pagamento</label>
+                                        <select id="cmbfp"  class="form-control py-2" name="forma_pagamento">
                                             <?php
                                             # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                             if (isset($_GET["cod_venda"])) {
@@ -325,6 +325,25 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
+
+    <script>
+              jQuery(document).ready(function() {
+                    $('.nome').mask('A', {
+                        translation: {
+                            A: {
+                                pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
+                                recursive: true
+                            },
+                        },
+                    });
+    jQuery(document).ready(function() {
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.quantidade').mask("00000", {reverse: true});
+    })
+})
+   
+</script>
 </body>
 
 </html>
