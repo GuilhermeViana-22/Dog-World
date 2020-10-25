@@ -14,7 +14,7 @@ if(isset($_REQUEST["id_animal"])) {
         # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 3;
     } else {
-        $consulta = "UPDATE animal SET nome = '".$_REQUEST["nome"]."', raca = '".$_REQUEST["raca"]."', rga = '".$_REQUEST["rga"]."', idade = '".$_REQUEST["idade"]."', tipo = '".$_REQUEST["tipo"]."', sexo = '".$_REQUEST["sexo"]."', observacao = '".$_REQUEST["observacao"]."', ativo = '".$_REQUEST["ativo"]."' WHERE id_animal = ".$_REQUEST["id_animal"]."";
+        $consulta = "UPDATE animal SET nome = '".$_REQUEST["nome"]."', raca = '".$_REQUEST["raca"]."', rga = '".$_REQUEST["rga"]."', idade = '".$_REQUEST["idade"]."', tipo = '".$_REQUEST["tipo"]."', sexo = '".$_REQUEST["sexo"]."', observacao ='".$_REQUEST["observacao"]."', ativo = '".$_REQUEST["ativo"]."' WHERE id_animal = ".$_REQUEST["id_animal"]."";
                 # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
                 # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
         $operacao = 2;
@@ -25,7 +25,7 @@ if(isset($_REQUEST["id_animal"])) {
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;
 }
-var_dump($consulta);
+#var_dump($consulta);
 
 $query = $conexao->query($consulta);
 

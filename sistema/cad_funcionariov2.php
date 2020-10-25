@@ -40,6 +40,7 @@
     ?>
 
 
+
 </head>
 
 
@@ -244,7 +245,7 @@
                                             # crud_cliente
                                             # logo ele retorna a mensagem de cliente inserido com sucsso
                                             if ($_GET["sucesso"] == 1) {
-                                                echo "Cliente inserido com sucesso !";
+                                                echo " inserido com sucesso !";
                                                 # esse numero 2 refere-se a mensagem de sucesso exibida  no inicio da tela
                                                 # se o if ficar atrelado ao segundo laço ele estará no laço de atualizar que esta referenciado no 
                                                 # crud_cliente
@@ -293,7 +294,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">CPF</label>
-                                                <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" id="cpf" name="cpf" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="text" class="form-control cpf" placeholder="Ex.: 000.000.000-00" id="cpf" name="cpf" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                                     #essa função do php pega o valor do input cpf
                                                                                                                                                                     echo $dados["cpf"];
                                                                                                                                                                 } ?>" required>
@@ -301,7 +302,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">RG</label>
-                                                <input type="text" class="form-control" id="exampleInputName" placeholder="Digite o registro geral do funcionário" name="rg" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="text" class="form-control rg" id="exampleInputName" placeholder="Digite o registro geral do funcionário" name="rg" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                                                         #essa função do php pega o valor do input nome
                                                                                                                                                                                         echo $dados["rg"];
                                                                                                                                                                                     } ?>" required>
@@ -331,7 +332,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Salário</label>
-                                                <input name="salario" type="text" class="form-control" placeholder="Ex.: 1.798.00" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input name="salario" type="text" class="form-control money2" placeholder="Ex.: 1.798.00" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                 #essa função do php pega o valor do input nome
                                                                                                                                                 echo $dados["salario"];
                                                                                                                                             } ?>" required>
@@ -339,7 +340,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputName">Horário de expediente</label>
-                                                <input type="text" class="form-control time-mask" placeholder="Ex.: 00:00:00" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="text" class="form-control time" placeholder="Ex.: 00:00:00" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                                             echo $dados["horas"];
                                                                                                                                         } ?>" placeholder="Digite o expediente" name="horas" required>
@@ -430,10 +431,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control phone-mask" id="telefone" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="text" class="form-control phone" id="telefone" name="telefone" placeholder="(xx) xxxx-xxxx" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                                                             echo $dados["telefone"];
-                                                                                                                                                        } ?>" name="telefone" required>
+                                                                                                                                                        } ?>" >
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
@@ -480,22 +481,21 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
 
     <script>
-        /*
-        $(document).ready(function() {
-        $('#telefone').mask("(99)9999-9999"); //Máscara para telefone
-      $('#cpf').mask("999.999.999-99"); //Máscara para CPF
+    jQuery(document).ready(function() {
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.money2').mask("#.##0,00", {reverse: true});
+        $('.phone').mask('(00) 0000-0000');
+        $('.time').mask('00:00:00');
+        if((".time")>="10:00"){
+            alert("horario invalido")
+        }
+        $('.rg').mask('00.000.000-0');
+    })
 
-        });
-
-        jQuery(function($){
-$("#campoData").mask("99/99/9999");
-$("#telefone").mask("(99)9999-9999");
-$("#cpf").mask("999.999.999-99");
-});
-*/
-    </script>
+</script>
 
 </body>
 

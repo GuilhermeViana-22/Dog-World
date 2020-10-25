@@ -185,7 +185,7 @@
                                     ?>
                                             <div class="form-group">
                                                 <label class="small mb-6" for="valor_totl">Total</label>
-                                                <input type="text" class="form-control py-2" id="valor_totl" value="<?php if (isset($_GET["cod_venda"])) {
+                                                <input type="text" class="form-control" id="valor_totl" value="<?php if (isset($_GET["cod_venda"])) {
                                                                                                                         echo $total_venda["va_total"];
                                                                                                                     } ?>" name="valor_total" />
                                             </div>

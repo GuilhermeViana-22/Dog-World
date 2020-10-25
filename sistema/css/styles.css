@@ -10138,17 +10138,12 @@ body {
 .sb-sidenav-menu .nav-link .sb-nav-link-icon {
   margin-right: 0.5rem;
 }
-
-.sb-topnav {
-  padding-left: 0;
-  height: 56px;
-  z-index: 1039;
-}
 .sb-topnav .navbar-brand {
   width: 225px;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin: 0;
+  margin-top: -20px;
+
 }
 .sb-topnav.navbar-dark #sidebarToggle {
   color: rgba(255, 255, 255, 0.5);

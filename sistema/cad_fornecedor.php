@@ -160,17 +160,18 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="small mb-2" for="inputfirstName">Raz&#227;o Social</label>
-                                            <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
+                                            <label class="small mb-2" >Raz&#227;o Social</label>
+                                            <input class="form-control" placeholder="Digite a razâo social" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["fornecedor"];
-                                                                                        } ?>" id="inputLastName" name="fornecedor" type="text" placeholder="Digite a raz&#227;o Social" />
-                                            <div class="help-block with-errors"></div>
+                                                                                        } ?>" id="inputLastName" name="fornecedor" type="text" required>
+                                            <div class="help-block with-errors">
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">CNPJ</label>
+                                            <label class="small mb-1" for="cnpj">CNPJ</label>
                                             <input class="form-control py-2" value=" <?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["cnpj"];
                                                                                         } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" required />

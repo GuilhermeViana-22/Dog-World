@@ -285,9 +285,9 @@
                                         </div>
                                         <div class="form-group col-md-5">
                                             <label for="observacaoani">Observação</label>
-                                            <textarea class="form-control" id="observacaoani" rows="3" value="<?php if (isset($_GET["id_animal"])) {
+                                            <textarea name="observacao" class="form-control" id="observacaoani" rows="3" placeholder="Digite a observação do animal"><?php if (isset($_GET["id_animal"])) {
                                                                                                                     echo $dados["observacao"];
-                                                                                                                } ?>" placeholder="Digite a observação do animal" name="observacao"></textarea>
+                                                                                                                } ?></Textarea>
                                         </div>
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" value="S" id="AtivoAni" name="ativo" <?php if (isset($_GET["id_animal"])) {
@@ -313,7 +313,17 @@
 
 
                                 </form>
-                                <form method="GET" style="margin-top:15px;" action="cad_animal.php">
+                        
+                                <div class="row w-100">
+                                    <div class="col-xl-12 col-md-12 ">
+                                        <div class="card">
+                                            
+                                            <div class="card-header">
+                                                
+                                                <i class="fas fa-table mr-6"></i> Animais
+                                            </div>
+                                            
+                                            <form method="GET" style="margin-top:15px;" action="cad_animal.php">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="row">
@@ -333,14 +343,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row w-100">
-                                    <div class="col-xl-12 col-md-12 ">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <i class="fas fa-table mr-6"></i> Animais
-                                            </div>
-                                            
-                                                
+                                <br>
                                                     <table class="table table-striped">
                                                         <tr>
                                                             <th>ID_Animal</th>

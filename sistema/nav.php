@@ -1,5 +1,4 @@
 ﻿<?php include 'banco.php';  include 'verifica_login.php';  ?>
-
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
     <!---

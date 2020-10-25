@@ -13,6 +13,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
 </head>
+<script>
+    function produto(frm) {
+        /*
+        o parâmetro frm desta função significa: this.form,
+        pois a chamada da função - validaForm(this) foi
+        definida na tag form.
+        */
+        //Verifica se o campo nome foi preenchido e
+        //contém no mínimo três caracteres.
+        if (frm.nome.value == " " || frm.nome.value == null || frm.nome.value.lenght < 3) {
+            //É mostrado um alerta, caso o campo esteja vazio.
+            alert("Por favor, indique o seu nome.");
+            //Foi definido um focus no campo.
+            frm.nome.focus();
+            //o form não é enviado.
+            return false;
+        }
+        //o campo e-mail precisa de conter: "@", "." e não pode estar vazio
+        if (frm.email.value.indexOf("@") == -1 ||
+            frm.email.valueOf.indexOf(".") == -1 ||
+            frm.email.value == "" ||
+            frm.email.value == null) {
+            alert("Por favor, indique um e-mail válido.");
+            frm.email.focus();
+            return false;
+        }
+        // O utilizador necessita de selecionar um dos dois
+        //radio buttons: Masculino ou Feminino.
+        escolhaSexo = -1; //valor negativo default (padrão) que significa que nada foi escolhido ainda.
+        //No bloco de código abaixo foi criado um ciclo entre
+        //os radios button com o mesmo nome (sexo)
+        for (x = frm.sexo.lenght - 1; x > -1; x--) {
+            /*
+            x = frm.sexo.lenght -1 é a mesma coisa que: x = 2-
+            1, que resulta em 1.
+            x > -1 significa que o valor de x não pode ser igual a -1 e
+            sim maior, porque -1 significa que nada foi escolhido.
+            x-- significa que há um decremento no valor x, é algo como:
+            x = 1, x= 0 e pára pois x não pode ser -1.
+            */
+            if (frm.sexo[x].checked) { //checked quer dizer selecionado,
+                //então verifica se o primeiro (0) ou o
+                //segundo (1) radio button foi selecionado (checked).
+                escolhaSexo = x; //atribui à variável escolhaSexo o valor X.
+            }
+        }
+        //se nenhuma das opções (masculino ou feminino) forem
+        //escolhidas, mostra um alerta e cancela o envio.
+        if (escolhaSexo == -1) {
+            alert("qual o seu sexo?");
+            frm.sexo[0].focus();
+            return false;
+        }
+        /* valida a profissão:
+        O utilizador tem de escolher uma entre as três opções
+        (Programador, Designer e Tester).
+        */
+        if (frm.prof.value == "" || from.prof.value == "Todas") {
+            alert("De momento, precisamos de especialistas nas três áreas indicadas");
+            frm.prof.focus();
+            return false;
+        }
+        //Valida a textArea, que é como validar um campo de texto simples.
+        if (frm.sobre.value == "" || frm.sobre.value == null) {
+            alert("Por favor, conte-nos um pouco sobre si.");
+            frm.sobre.focus();
+            return false;
+        }
+    }
+</script>
+
 
 <body class="sb-nav-fixed">
 
@@ -31,7 +102,6 @@
 -->>
 
         <div id="layoutSidenav_content">
-
 
             <main>
                 <?php if (isset($_GET["sucesso"])) { ?>
@@ -71,10 +141,7 @@
                         ?>
                     </div>
                 <?php } ?>
-
-
-
-                <form action="crud_produto.php" method="post" name="produto" data-toggle="validator" role="form" >
+                <form action="crud_produto.php" method="post" name="produto" data-toggle="validator" role="form" onsubmit="return validaForm(this);">
 
                     <?php $dados;
                     if (isset($_GET["cod_produto"])) {
@@ -99,9 +166,9 @@
                                         <div class="form-group">
                                             <label class="small mb-1" for="textNome">Nome</label>
 
-                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_produto"])) {
-                                                                                        echo $dados["titulo"];
-                                                                                    } ?>" id="textNome" type="text" name="titulo" required/>
+                                            <input name="nome" id="nome" class="form-control" value="<?php if (isset($_GET["cod_produto"])) {
+                                                                                                                echo $dados["titulo"];
+                                                                                                            } ?>" id="textNome" type="text" name="titulo" required />
 
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -109,18 +176,22 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">Lote</label>
+                                            <label class="small mb-1">Lote</label>
                                             <input value=" <?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["cod_lote"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_lote" type="text" placeholder="Digite o lote" required/>
+                                                            } ?>" class="form-control"  name="cod_lote" type="text" placeholder="Digite o lote" required />
+
+                                            <div class="help-block with-errors"></div>
                                         </div>
+
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Quantidade</label>
-                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                            <input type="text" placeholder="Digite a quantidade" value=" <?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["quantidade"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text" placeholder="Digite a quantidade"required />
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text"  required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
 
@@ -129,7 +200,8 @@
                                             <label class="small mb-1" for="inputLastName">Valor</label>
                                             <input value=" <?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["valor_unitario"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite o valor" required/>
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite o valor" required />
+                                           <div class="help-block with-errors"></div>                 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -137,7 +209,8 @@
                                             <label class="small mb-1" for="inputLastName">Fornecedor</label>
                                             <input value=" <?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["cod_fornecedor"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" required/>
+                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="form-check">

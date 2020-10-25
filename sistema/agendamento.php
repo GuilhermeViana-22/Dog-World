@@ -125,16 +125,16 @@
 
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label style="margin-left: 10px;" class="small mb-2" for="inputFirstName">Código cliente</label>
-                                                    <input style="margin-left: 10px;" class="form-control py-2" name="cod_cliente" value=" <?php if (isset($_GET["cod_servico"])) {
-                                                                                                                                                echo $dados["cod_cliente"];
+                                                    <label style="margin-left: 10px;" class="small mb-2" for="inputFirstName">Nome do Animal</label>
+                                                    <input style="margin-left: 10px;" class="form-control py-2" name="" value=" <?php if (isset($_GET["cod_servico"])) {
+                                                                                                                                                echo $dados[""];
                                                                                                                                             } ?>" id="inputLastName" id="inputFirstName" type="text" placeholder="" />
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="small mb-2" for="inputLastName">Nome</label>
+                                                    <label class="small mb-2" for="inputLastName">Nome do Cliente</label>
                                                     <input class="form-control py-2" name="nome" value=" <?php if (isset($_GET["cod_servico"])) {
                                                                                                                 echo $dados["nome"];
                                                                                                             } ?>" id="inputLastName" type="text" placeholder="" />
