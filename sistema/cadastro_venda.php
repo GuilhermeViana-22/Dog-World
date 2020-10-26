@@ -201,7 +201,7 @@
                                   
                                     <div class="form-group row col-md-20 ">
                                         <div id="botoes" class="col-md-20 col-xs-12">
-                                            <button type="submit" style="margin-left: 400px;"  class="btn btn-success"><i class="fas fa-paw"></i> Inserir Venda</button>
+                                            <button type="submit" style="margin-left: 400px;"  class="btn btn-success"><i class="fas fa-paw"></i> Inserir Item</button>
 
                                         </div>
                                     </div>
