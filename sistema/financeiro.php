@@ -39,11 +39,11 @@
                                     <?php
 
                                     #$queryVendas = $conexao->query("SELECT valor_total FROM vendas");
-                                    $total = mysqli_query($conexao,'SELECT round(sum(valor_total),3) as Total FROM vendas');
+                                    $total = mysqli_query($conexao,'SELECT round(SUM(v_total),3)  as Total FROM produtos_venda INNER JOIN vendas ON produtos_venda.cod_venda = vendas.cod_venda');
 									$total_vendas = $total->fetch_assoc();
                                     ?>
 									
-                                    <div class="col-md-2">R$: <?php echo $total_vendas["Total"]; ?></div>
+                                    <div class="col-my-4">R$ <?php echo $total_vendas["Total"]; ?></div>
 
                                 </div>
                             </div>
@@ -53,28 +53,28 @@
                         <div class="col-xl-12 col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <i class="fas fa-table mr-1"></i> Ùltimas Vendas
+                                    <i class="fas fa-table mr-1"></i> Produtos Vendidos
                                 </div>
                                 <div class="card-body">
                                     
                                     <table class="table table-bordered">
                                         <tr>
-                                            <th>Código</th>
-                                            <th>Nome</th>
-                                            <th>Produtos</th>
+                                            <th>Código da Venda</th>
+                                            <th>Codigo dofuncionario</th>
+                                            <th>Nome do cliente</th>
                                             <th>Total</th>
                                         </tr>
                                         <?php
-                                        $sql = "SELECT * FROM vendas";
+                                        $sql = "SELECT v.cod_venda,v.nome_cliente,p.v_total,v.cod_funcionario FROM produtos_venda as p INNER JOIN vendas as v ON p.cod_venda = v.cod_venda and v.status_venda = 2";
                                        $queryVendas = $conexao->query($sql);
 
                                      while ($dados = $queryVendas->fetch_assoc()) {
                                     ?>
                                         <tr>
                                             <td class="td"><?php echo $dados["cod_venda"]; ?></td>
-                                            <td class="td"><?php echo $dados["nome_cliente"]; ?></td>
                                             <td class="td"><?php echo $dados["cod_funcionario"]; ?></td>
-                                            <td class="td">R$:<?php echo $dados["valor_total"]; ?></td>
+                                            <td class="td"><?php echo $dados["nome_cliente"]; ?></td>
+                                            <td class="td">R$:<?php echo $dados["v_total"]; ?></td>
                                             
 
                                         </tr>

@@ -161,7 +161,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="small mb-2" >Raz&#227;o Social</label>
-                                            <input class="form-control" placeholder="Digite a razâo social" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control " placeholder="Digite a razâo social" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["fornecedor"];
                                                                                         } ?>" id="inputLastName" name="fornecedor" type="text" required>
                                             <div class="help-block with-errors">
@@ -172,42 +172,33 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="cnpj">CNPJ</label>
-                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input style="margin-top: 4px;"class="form-control cnpj" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                             echo $dados["cnpj"];
                                                                                         } ?>" id="inputLastName" name="cnpj" type="text" placeholder="Digite o CNPJ" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">Endere&ccedil;o</label>
-                                            <input class="form-control py-2" value="<?php if (isset($_GET["cod_fornecedor"])) {
-                                                                                            echo $dados["logradouro"];
-                                                                                        } ?>" id="rua" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" required />
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="small mb-2" for="inputnumber">Complemento:</label>
-                                            <input class="form-control py-2" placeholder="Digite o complemento" value="<?php if (isset($_GET["cod_fornecedor"])) {
-                                                                                            echo $dados["num_comp"];
-                                                                                        } ?>" name="num_comp" id="inputFirstName" type="text" required />
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">CEP</label>
-                                            <input class="form-control py-2" id="cep" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input style="margin-top: 4px;"class="form-control cep" id="cep" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                     echo $dados["cep"];
                                                                                                 } ?>" name="cep" type="text" onblur="pesquisacep(this.value);" placeholder="Digite o CEP" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
+                                            <label class="small mb-1" for="inputLastName">Endere&ccedil;o</label>
+                                            <input class="form-control " value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                                                                            echo $dados["logradouro"];
+                                                                                        } ?>" id="rua" name="logradouro" type="text" placeholder="Digite a Endere&ccedil;o" required />
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Cidade</label>
-                                            <input class="form-control py-2" id="cidade" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control nome" id="cidade" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                         echo $dados["cidade"];
                                                                                                     } ?>" name="cidade" type="text" placeholder="Digite a cidade" />
                                         </div>
@@ -215,15 +206,24 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Estado</label>
-                                            <input class="form-control py-2" id="uf" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <input class="form-control nome" id="uf" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                     echo $dados["estado"];
                                                                                                 } ?>" name="estado" type="text" placeholder="Digite o Estado" />
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="small mb-2" for="inputnumber">Complemento:</label>
+                                            <input class="form-control nome" placeholder="Digite o complemento" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                                                                            echo $dados["num_comp"];
+                                                                                        } ?>" name="num_comp" id="inputFirstName" type="text" required />
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputLastName">Telefone</label>
-                                            <input class="form-control py-2" placeholder="Digite o Telefone" value="<?php if (isset($_GET["cod_fornecedor"])) {
+                                            <label style="margin-top: 8px;"class="small mb-1" for="inputLastName">Telefone</label>
+                                            <input class="form-control phone" placeholder="Digite o Telefone" value="<?php if (isset($_GET["cod_fornecedor"])) {
                                                                                                             echo $dados["telefone"];
                                                                                                         } ?>" name="telefone" type="text" required />
                                             <div class="help-block with-errors"></div>
@@ -313,9 +313,9 @@
                                 <td><?php echo $dados["num_comp"]; ?></td>
                                 <td><?php echo $dados["telefone"]; ?></td>
                                 <td>
-                                    <a href="cad_fornecedor.php?cod_fornecedor=<?php echo $dados["cod_fornecedor"]; ?>" class="btn btn-primary"><i style="font-size:x-small;" class="fas fa-pencil-alt"></i></a>
+                                   <p><a href="cad_fornecedor.php?cod_fornecedor=<?php echo $dados["cod_fornecedor"]; ?>" class="btn btn-primary"><i style="font-size:x-small;" class="fas fa-pencil-alt"></i></a>
                                     &nbsp;&nbsp;
-
+                                    </p> 
 
                                     <a href="crud_fornece.php?excluir=1&cod_fornecedor=<?php echo $dados["cod_fornecedor"]; ?>" class="btn btn-danger btn-excluir-fornecedor"><i style="" class="fas fa-times"></i></a>
                                 </td>
@@ -340,6 +340,28 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
+
+    <script>
+    jQuery(document).ready(function() {
+        $('.rs').mask('A', {
+  translation: {
+    A: { pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g, recursive: true },
+  },
+});
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.cep').mask('00000-000');
+        $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+        $('.money2').mask("#.##0,00", {reverse: true});
+        $('.phone').mask('(00) 0000-00000');
+        $('.time').mask('00:00:00');
+        if((".time")>="10:00"){
+            alert("horario invalido")
+        }
+        $('.rg').mask('00.000.000-0');
+
+    })
+</script>
 </body>
 
 </html>

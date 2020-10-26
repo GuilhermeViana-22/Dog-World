@@ -19,7 +19,7 @@ if(isset($_REQUEST["cod_produto"])) {
         $operacao = 2;
     }
 } else {
-    $consulta = "INSERT INTO produto ( titulo, quantidade, cod_lote, valor_unitario, cod_fornecedor, ativo) VALUES ('".$_REQUEST["titulo"]."','".$_REQUEST["quantidade"]."','".$_REQUEST["cod_lote"]."', '".$_REQUEST["valor_unitario"]."','".$_REQUEST["cod_fornecedor"]."','".$ativo."'  )";
+    $consulta = "INSERT INTO produto (titulo, quantidade, cod_lote, valor_unitario, cod_fornecedor, ativo) VALUES ('".$_REQUEST["titulo"]."','".$_REQUEST["quantidade"]."','".$_REQUEST["cod_lote"]."', '".$_REQUEST["valor_unitario"]."','".$_REQUEST["cod_fornecedor"]."','".$ativo."'  )";
             # a variavel operação está atrelada as mensagem de sucesso que aparecem na cor verde após realizar as funões do crud
             # tanto as mensagem de sucesso quando as de erro estão entrelaçadas a está variavel
     $operacao = 1;

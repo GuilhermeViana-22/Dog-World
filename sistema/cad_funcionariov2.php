@@ -127,14 +127,19 @@
         <div id="layoutSidenav_content">
             <main style="margin-top: -20px;">
                 <div class="breadcrumb">
-                    <h5>Gereciamento de Funcionários </h5>
+                    <h3>Gereciamento de Funcionários </h3>
                 </div>
                 <section>
                     <div class="col-md-12">
                         <div class="small-box bg-green">
                             <div class="inner">
-                                <h3>44</h3>
-                                <p>Novos Funcionários</p>
+                              <?php
+
+                                   
+                                    $total = mysqli_query($conexao,'SELECT COUNT(Cod_funcionario) as Total_funcionario from funcionario WHERE ativo="S"');
+									$total_fun = $total->fetch_assoc();
+                                    ?>
+                                    <div class="col-my-4" style="height: 80px;"><h2 ><strong><?php echo $total_fun["Total_funcionario"]; ?></strong></h2> Total de Funcionários</div>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -147,8 +152,14 @@
                         <!-- small box -->
                         <div style="height: 105px;" class="small-box bg-yellow">
                             <div class="inner">
-                                <h3>15</h3>
-                                Administradores
+                            <div class="inner">
+                              <?php
+ 
+                                    $total = mysqli_query($conexao,'SELECT COUNT(Cod_funcionario) as Total_funcionario from funcionario WHERE cargo="Gerente"');
+									$total_fun = $total->fetch_assoc();
+                                    ?>
+                                    <div class="col-my-4" style="height: 80px;"><h2 ><strong><?php echo $total_fun["Total_funcionario"]; ?></strong></h2> Administradores</div>
+                            </div>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
@@ -251,9 +262,9 @@
                                                 # crud_cliente
                                                 # logo ele retorna a mensagem de cliente inserido com sucsso
                                             } else if ($_GET["sucesso"] == 2) {
-                                                echo "Cliente atualizado com sucesso!";
+                                                echo "Funcionario atualizado com sucesso!";
                                             } else {
-                                                echo "Cliente excluído com sucesso!";
+                                                echo "Funcionario excluído com sucesso!";
                                             }
                                             ?>
                                         </div>
@@ -264,11 +275,11 @@
                                         <div class="alert alert-danger">
                                             <?php
                                             if ($_GET["erro"] == 1) {
-                                                echo "Erro ao inserir cliente!";
+                                                echo "Erro ao inserir Funcionário!";
                                             } else if ($_GET["erro"] == 2) {
-                                                echo "Erro ao atualizar cliente!";
+                                                echo "Erro ao atualizar Funcionário!";
                                             } else {
-                                                echo "Erro ao excluir cliente   !";
+                                                echo "Erro ao excluir Funcionário   !";
                                             }
                                             ?>
                                         </div>

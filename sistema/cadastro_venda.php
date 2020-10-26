@@ -44,7 +44,7 @@
             <main>
 
                 <div class="container-fluid">
-                    <form method="POST" id="vendas" action="crud_venda.php">
+                    <form method="POST" id="vendas" action="crud_venda.php" data-toggle="validator" role="form" >
 
                         <div class="card">
                             <div class="card-header">
@@ -144,7 +144,7 @@
                                         <label class="small mb-2" for="inputFirstName">CPF</label>
                                         <input class="form-control cpf" id="cpf_cliente" value="<?php if (isset($_REQUEST["cod_venda"])) {
                                                                                                         echo $dadosVenda["cpf_cliente"];
-                                                                                                    } ?>" name="cpf_cliente" type="text" placeholder="Digite o CPF" style="padding-right: 10px ;" />
+                                                                                                    } ?>" name="cpf_cliente" type="text" placeholder="Digite o CPF" style="padding-right: 10px ;"  />
 
                                     </div>
                                 </div>
@@ -154,8 +154,8 @@
                                         <div class="form-group col-md-4">
 
                                             <label class="small mb-2" style="margin-left: -12px;" for="inputLastName">Produto</label>
-                                            <select style="margin-left: -10px;" class="form-control" name="cod_produto">
-                                                    <option>Selecione</option>
+                                            <select style="margin-left: -10px;" class="form-control" name="cod_produto" >
+                                                
                                                     <?php
 
 
@@ -171,12 +171,13 @@
 
                                         <div class="form-group">
                                             <label class="small mb-2" style="margin-left: 20px;" for="inputLastName">Quantidade</label>
-                                            <input class="form-control money2"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" />
+                                            <input class="form-control money2"  style="margin-left: 20px;" id="cod_prod_quantidade" name="cod_prod_quantidade" type="text" placeholder="Digite a Quantidade" required/>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                        <p> <label class="small mb-1" style="margin-left: -22px;"  for="cmbfp">Forma de pagamento</label></p>
-                                        <select id="cmbfp" name="forma_pagamento" style="margin-left: -22px;" class="form-control">
+                                        <select id="cmbfp" name="forma_pagamento" style="margin-left: -22px;" class="form-control" >
                                             <?php
                                             # A logica utilizada nos selects é diferente dos demais blocos de codigo do nosso sistema
                                             if (isset($_GET["cod_venda"])) {
@@ -193,7 +194,7 @@
                                                 }
                                             }
                                             ?>
-                                        </select>
+                                        </select required>
                                     </div>
 
                                     
@@ -244,12 +245,23 @@
                                         </tbody>
 
                                     </table>
+                                   
+                                    <?php
+                                    if (isset($_GET["cod_venda"])) {
+                                        $total = $conexao->query("SELECT Round(sum(v_total),3) as va_total FROM produtos_venda WHERE cod_venda = " . $_GET["cod_venda"]);
+                                        while ($total_venda = $total->fetch_assoc()) {
+                                    ?>
+                                            <div class="form-group">
+                                                <label class="small mb-6" for="valor_totl">Total</label>
+                                                <input type="text" class="form-control py-2" id="valor_totl" value="<?php if (isset($_GET["cod_venda"])) {
+                                                                                                                                            echo $total_venda["va_total"];
+                                                                                                                                        } ?>" disabled/>
+                                            </div>
 
-                                </div>
-                                <div class="form-group form-check">
 
 
-                                </div>
+                                    <?php }
+                                    } ?>
 
 
 

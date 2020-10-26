@@ -198,7 +198,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="small mb-2" for="NomeAnimal">Nome</label>
-                                                <input class="form-control py-2" id="NomeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
+                                                <input class="form-control nome" id="NomeAnimal" type="text" value="<?php if (isset($_GET["id_animal"])) {
                                                                                                                         echo $dados["nome"];
                                                                                                                     } ?>" placeholder="Digite o nome" name="nome" required />
                                                 <div class="help-block with-errors"></div>
@@ -274,20 +274,43 @@
                                                 ?>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="Raca">ID do Cliente</label>
-                                                <input class="form-control py-2" id="Raca" type="text" value="<?php if (isset($_GET["id_animal"])) {
-                                                                                                                    echo $dados["id_cliente"];
-                                                                                                                } ?>" placeholder="Digite o ID do Cliente" name="id_cliente" required />
-                                                <div class="help-block with-errors"></div>
+                                                <label class="small mb-1" for="Raca">Nome do Cliente</label>
+                                                <select style="margin-left: -3px;" class="form-control" name="id_cliente">
+                                                    <option>Selecione</option>
+                                                    <?php
+                                                    $consultaCliente = "SELECT * FROM cliente";
+                                                    $queryCliente = $conexao->query($consultaCliente);
+                                                    while ($dadosCliente = $queryCliente->fetch_assoc()) {
+                                                    ?>
+                                                        <?php
+                                                        if (isset($_GET["id_animal"])) {
+                                                            $resultadoVerificaAnimal = $conexao->query("SELECT * FROM cliente WHERE id_cliente = " . $_GET["id_cliente"]);
+                                                            $dadosverificaCliente = $resultadoVerificaAnimal->fetch_assoc();
+                                                            if ($dadosCliente["id_cliente"] == $dadosverificaCliente["cod_cliente"]) {
+                                                                echo '<option selected value="' . $dadosCliente["id_cliente"] . '">' . $dadosCliente["nome"] . '</option>';
+                                                            } else {
+                                                                echo '<option value="' . $dadosCliente["id_cliente"] . '">' . $dadosCliente["nome"] . '</option>';
+                                                            }
+                                                        ?>
+                                                        <?php
+                                                        } else {
+                                                            echo '<option value="' . $dadosCliente["id_cliente"] . '">' . $dadosCliente["nome"] . '</option>';
+                                                        }
+                                                        ?>
+                                                    <?php } ?>
+                                                </select>
+
+
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-5">
                                             <label for="observacaoani">Observação</label>
                                             <textarea name="observacao" class="form-control" id="observacaoani" rows="3" placeholder="Digite a observação do animal"><?php if (isset($_GET["id_animal"])) {
-                                                                                                                    echo $dados["observacao"];
-                                                                                                                } ?></textarea>
+                                                                                                                                                                            echo $dados["observacao"];
+                                                                                                                                                                        } ?></textarea>
                                         </div>
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" value="S" id="AtivoAni" name="ativo" <?php if (isset($_GET["id_animal"])) {
@@ -305,101 +328,101 @@
 
                                     </div>
                                     <div id="botoes" class="col-md-9 col-xs-12">
-                            <div style="padding-left:370px;" class="col-md-15">
-                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
-                                                    </div>  
+                                        <div style="padding-left:370px;" class="col-md-15">
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-paw"></i> Salvar</button>
+                                        </div>
 
-                            </div>
+                                    </div>
 
 
                                 </form>
-                        
-                                <div class="row w-100">
-                                    <div class="col-md">
+
+                                <div class="row ">
+                                    <div class="col-m">
                                         <div class="card">
-                                            
+
                                             <div class="card-header">
-                                                
+
                                                 <i class="fas fa-table mr-6"></i> Animais
                                             </div>
-                                            
+
                                             <form method="GET" style="margin-top:15px;" action="cad_animal.php">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <br />
-                                                <div style="padding-left:25px;" class="col-md-3">
-                                                    Pesquisar:
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <br />
+                                                            <div style="padding-left:25px;" class="col-md-3">
+                                                                Pesquisar:
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
+                                                                                                echo $_GET["pesquisa"];
+                                                                                            } ?>" name="pesquisa" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="submit" class="btn btn-primary" value="pesquisar">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" value="<?php if (isset($_GET["pesquisa"])) {
-                                                                                    echo $_GET["pesquisa"];
-                                                                                } ?>" name="pesquisa" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="submit" class="btn btn-primary" value="pesquisar">
+
+                                            </form>
+                                            <br>
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <th>ID_Animal</th>
+                                                    <th>Nome</th>
+                                                    <th>Raça</th>
+                                                    <th>RGA</th>
+                                                    <th>idade</th>
+                                                    <th>Sexo</th>
+                                                    <th>Observação</th>
+                                                    <th>Ativo</th>
+                                                    <th>ID_Cliente</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                                <?php
+                                                $consultaTabela = "";
+                                                if (isset($_GET["pesquisa"])) {
+                                                    $pesquisa = $_GET["pesquisa"];
+                                                    $consultaTabela = "SELECT * FROM animal WHERE nome LIKE '%$pesquisa%' OR raca LIKE '%$pesquisa%' OR tipo LIKE '%$pesquisa%' OR sexo LIKE '%$pesquisa%'";
+                                                } else {
+                                                    $consultaTabela = "SELECT * FROM animal";
+                                                }
+                                                $queryAnimal = $conexao->query($consultaTabela);
+
+                                                while ($dados = $queryAnimal->fetch_assoc()) {
+                                                ?>
+
+                                                    <tr width="20px">
+                                                        <td width="20px"><?php echo $dados["id_animal"]; ?> </td>
+                                                        <td width="20px"><?php echo $dados["nome"]; ?></td>
+                                                        <td width="20px"><?php echo $dados["raca"]; ?></td>
+                                                        <td width="20px"> <?php echo $dados["rga"]; ?></td>
+                                                        <td width="20px"><?php echo $dados["idade"]; ?></td>
+                                                        <td width="20px"><?php echo $dados["sexo"]; ?></td>
+                                                        <td width="20px"><?php echo $dados["observacao"]; ?></td>
+                                                        <td width="20px"> <?php echo $dados["ativo"]; ?></td>
+                                                        <td width="20px"><?php echo $dados["id_cliente"]; ?></td>
+                                                        <td>
+                                                            <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-primary"><i style="font-size: 10pt;" class="fas fa-pencil-alt"></i></a>
+                                                                &nbsp;&nbsp;
+
+                                                            <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-danger btn-excluir-cliente"><i style="font-size: 12pt; " class="fas fa-times"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            </table>
                                         </div>
                                     </div>
-                                    
-                                </form>
-                                <br>
-                                                    <table class="table table-striped">
-                                                        <tr>
-                                                            <th>ID_Animal</th>
-                                                            <th>Nome</th>
-                                                            <th>Raça</th>
-                                                            <th>RGA</th>
-                                                            <th>idade</th>
-                                                            <th>Sexo</th>
-                                                            <th>Observação</th>
-                                                            <th>Ativo</th>
-                                                            <th>ID_Cliente</th>
-                                                            <th>Funções</th>
-                                                        </tr>
-                                                        <?php
-                                                        $consultaTabela = "";
-                                                        if (isset($_GET["pesquisa"])) {
-                                                            $pesquisa = $_GET["pesquisa"];
-                                                            $consultaTabela = "SELECT * FROM animal WHERE nome LIKE '%$pesquisa%' OR raca LIKE '%$pesquisa%' OR tipo LIKE '%$pesquisa%' OR sexo LIKE '%$pesquisa%'";
-                                                        } else {
-                                                            $consultaTabela = "SELECT * FROM animal";
-                                                        }
-                                                        $queryAnimal = $conexao->query($consultaTabela);
 
-                                                        while ($dados = $queryAnimal->fetch_assoc()) {
-                                                        ?>
-
-                                                            <tr width="20px">
-                                                                <td width="20px"><?php echo $dados["id_animal"]; ?> </td>
-                                                                <td width="20px"><?php echo $dados["nome"]; ?></td>
-                                                                <td width="20px"><?php echo $dados["raca"]; ?></td>
-                                                                <td width="20px"> <?php echo $dados["rga"]; ?></td>
-                                                                <td width="20px"><?php echo $dados["idade"]; ?></td>                                                                
-                                                                <td width="20px"><?php echo $dados["sexo"]; ?></td>
-                                                                <td width="20px"><?php echo $dados["observacao"]; ?></td>
-                                                                <td width="20px"> <?php echo $dados["ativo"]; ?></td>
-                                                                <td width="20px"><?php echo $dados["id_cliente"]; ?></td>
-                                                                <td>
-                                                                    <a href="cad_animal.php?id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
-                                                                    &nbsp;&nbsp;
-
-                                                                    <a href="crud_animal.php?excluir=1&id_animal=<?php echo $dados["id_animal"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php } ?>
-
-                                                    </table>       
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
+                </div>
             </main>
             <?php include 'footer.php'; ?>
         </div>
@@ -417,12 +440,24 @@
     <script src="assets/demo/datatables-demo.js"></script>
     <script src="js/jquery.mask.js"></script>
     <script>
-    jQuery(document).ready(function() {
-        $('.rga').mask('000-00', {reverse: true});
-        $('.idade').mask('00');
-  
-    })
-</script>
+        
+        jQuery(document).ready(function() {
+            $('.nome').mask('A', {
+                translation: {
+                    A: {
+                        pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
+                        recursive: true
+                    },
+                },
+            });
+
+            $('.rga').mask('000-00', {
+                reverse: true
+            });
+            $('.idade').mask('00');
+        })
+    </script>
+
 </body>
 
 </html>

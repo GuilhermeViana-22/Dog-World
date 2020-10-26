@@ -6,6 +6,8 @@
     <title>System Dog World || Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/stylelogin.css">
+    <link rel="stylesheet" href="img/incone_dogworld.jpg">
+    <link rel="icon" type="/img" href="img/icon2.PNG" style="border-radius: 100%;" />
 </head>
 <body>
 

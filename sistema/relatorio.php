@@ -55,6 +55,7 @@
                                     <tr>
                                         <th scope="col">Código da venda</th>
                                         <th scope="col">Código do Funcionário</th>
+                                        <th scope="col">Nome do Cliente</th>
                                         <th scope="col">Data da venda</th>
                                         <th scope="col">Valor total</th>
                                         <th scope="col">Código serviço</th>
@@ -66,7 +67,7 @@
                                  $consultaTabela = "";
                                  if (isset($_GET["pesquisa"])) {
                                      $pesquisa = $_GET["pesquisa"];
-                                     $consultaTabela = "SELECT * FROM vendas WHERE cod_venda LIKE '%$pesquisa%' OR sobrenome LIKE '%$pesquisa%' OR email LIKE '%$pesquisa%' OR cpf LIKE '%$pesquisa%'";
+                                     
                                  } else {
                                      $consultaTabela = "SELECT * FROM vendas";
                                  }
@@ -83,6 +84,7 @@
       
                                                 <td><?php echo $dados["cod_venda"]; ?></td>
                                                 <td><?php echo $dados["cod_funcionario"]; ?></td>
+                                                <td><?php echo $dados["nome_cliente"]; ?></td>
                                                 <td><?php echo date("d/m/Y", strtotime($dados["data_venda"])); ?></td>
                                                 <td><?php echo $totalVenda ?></td>
                                                 <td><?php echo $dados["cod_servico"]; ?></td>       

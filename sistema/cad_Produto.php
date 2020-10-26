@@ -164,11 +164,11 @@
 
                                     <div class="col-md-7">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="textNome">Nome</label>
+                                            <label class="small mb-1" for="textNome">Titudo Produto</label>
 
-                                            <input name="nome" id="nome" class="form-control" value="<?php if (isset($_GET["cod_produto"])) {
-                                                                                                                echo $dados["titulo"];
-                                                                                                            } ?>" id="textNome" type="text" name="titulo" required />
+                                            <input type="text" id="nome" class="form-control" placeholder="Digite o Nome do produto" name="titulo" value="<?php if (isset($_GET["cod_produto"])) {
+                                                                                                                                                                echo $dados["titulo"];
+                                                                                                                                                            } ?>" required />
 
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -177,10 +177,9 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1">Lote</label>
-                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
-                                                                echo $dados["cod_lote"];
-                                                            } ?>" class="form-control"  name="cod_lote" type="text" placeholder="Digite o lote" required />
-
+                                            <input type="text" name="cod_lote" class="form-control lote" placeholder="Digite o lote"  value="<?php if (isset($_GET["cod_produto"])) {
+                                                                                                                        echo $dados["cod_lote"];
+                                                                                                                    } ?>"required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -188,9 +187,9 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Quantidade</label>
-                                            <input type="text" placeholder="Digite a quantidade" value=" <?php if (isset($_GET["cod_produto"])) {
-                                                                echo $dados["quantidade"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="quantidade" type="text"  required />
+                                            <input type="text" class="form-control py-2 quantidade" id="inputLastName" name="quantidade" placeholder="Digite a quantidade" value="<?php if (isset($_GET["cod_produto"])) {
+                                                                                                                echo $dados["quantidade"];
+                                                                                                            } ?>" required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -198,18 +197,18 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Valor</label>
-                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                            <input type="text" class="form-control py-2 money2" id="inputLastName" name="valor_unitario" placeholder="Digite o valor unitário" value="<?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["valor_unitario"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="valor_unitario" type="text" placeholder="Digite o valor" required />
-                                           <div class="help-block with-errors"></div>                 
+                                                            } ?>" required />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="small mb-1" for="inputLastName">Fornecedor</label>
-                                            <input value=" <?php if (isset($_GET["cod_produto"])) {
+                                            <input type="text" class="form-control py-2" id="inputLastName" name="cod_fornecedor"  placeholder="Digite a quanridade"  value="<?php if (isset($_GET["cod_produto"])) {
                                                                 echo $dados["cod_fornecedor"];
-                                                            } ?>" class="form-control py-2" id="inputLastName" name="cod_fornecedor" type="text" placeholder="Digite a quanridade" required />
+                                                            } ?>"  required />
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -291,9 +290,11 @@
                                     <td><?php echo $dados["cod_fornecedor"]; ?></td>
                                     <td><?php echo $dados["ativo"]; ?></td>
                                     <td>
-                                        <a href="cad_Produto.php?cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                       <p><a href="cad_Produto.php?cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-primary"><i class="fas fa-pencil-alt" style="font-size: 12pt; "></i></a>
                                         &nbsp;&nbsp;
-                                        <a href="crud_produto.php?excluir=1&cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times"></i></a>
+                                        </p> 
+                                        <a href="crud_produto.php?excluir=1&cod_produto=<?php echo $dados["cod_produto"]; ?>" class="btn btn-danger btn-excluir-cliente"><i class="fas fa-times" style="font-size: 12pt; "></i></a>
+
                                     </td>
 
                                 </tr>
@@ -328,6 +329,29 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            $('.nome').mask('A', {
+                translation: {
+                    A: {
+                        pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
+                        recursive: true
+                    },
+                },
+            });
+
+            $('.money2').mask("0.000,00", {
+                reverse: true
+            });
+            $('.quantidade').mask("000");
+
+        })
+
+        $('.lote').mask("000000");
+    </script>
+
 </body>
 
 </html>

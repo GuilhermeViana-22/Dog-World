@@ -162,7 +162,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="textNome">Nome</label>
-                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) { echo $dados["nome"];
+                                        <input class="form-control py-2 nome" value="<?php if (isset($_GET["id_cliente"])) { echo $dados["nome"];
                                                                                 } ?>" id="textNome" type="text" placeholder="Digite o nome" name="nome" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -171,7 +171,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-2" for="inputLastName">Sobrenome</label>
-                                        <input class="form-control py-2" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <input class="form-control py-2 nome" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input sobrenome
                                                                                     echo $dados["sobrenome"];
                                                                                 } ?>" id="inputLastName" type="text" placeholder="Digite o sobrenome" name="sobrenome" required />
@@ -182,7 +182,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="small mb-2" for="dtNasc">Data de nascimento</label>
-                                        <input class="form-control py-2" id="dtNasc"
+                                        <input class="form-control py-2 nascimento" id="dtNasc"
                                          value="<?php if (isset($_GET["id_cliente"])) {
                                              #essa função do php pega o valor do input data de nascimento
                                           echo $dados["dt_nascimento"];
@@ -193,7 +193,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="small mb-1" for="txtCpf">CPF</label>
-                                        <input class="form-control py-2" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <input class="form-control py-2 cpf" id="txtCpf" type="text" value="<?php if (isset($_GET["id_cliente"])) {
                                             #essa função do php pega o valor do input cpf
                                                                                                             echo $dados["cpf"];
                                                                                                         } ?>" placeholder="Digite o CPF" name="cpf" required />
@@ -225,7 +225,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="small mb-1" for="txtTelefone">Telefone / Celular</label>
-                                        <input class="form-control py-2" id="txtTelefone" value="<?php if (isset($_GET["id_cliente"])) {
+                                        <input class="form-control py-2 telefone" id="txtTelefone" value="<?php if (isset($_GET["id_cliente"])) {
                                                                                                         echo $dados["telefone"];
                                                                                                     } ?>" type="text" placeholder="Digite o Telefone" name="telefone" required />
                                         <div class="help-block with-errors"></div>
@@ -346,7 +346,7 @@
                                                 <th>Data de nascimento</th>
                                                 <th>Email</th>
                                                 <th>cidade</th>
-                                                <th>A/</th>
+                                                <th>Ações</th>
                                             </tr>
                                             <?php
                                             $consultaTabela = "";
@@ -419,6 +419,20 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/datatables-demo.js"></script>
+    <script src="js/jquery.mask.js"></script>
+
+    <script>
+     jQuery(document).ready(function() {
+        $('.nome').mask('A', {
+  translation: {
+    A: { pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g, recursive: true },
+  },
+});
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.money2').mask("000", {reverse: true});
+        $('.telefone').mask("(00)00000-0000")
+    })
+    </script>
 </body>
 
 </html>
