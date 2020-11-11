@@ -31,7 +31,7 @@ if(isset($_REQUEST["cod_servico"])) {
         $operacao = 4;
     
     } else {
-        $consulta = "INSERT INTO atendimento ( cod_funcionario, cod_cliente, id_animal, dt_agendamento, valor, tipo_atendimento, horario, status, nome) VALUES (".$_SESSION["Cod_funcionario"].",'".$_REQUEST["cod_cliente"]."','".$_REQUEST["id_animal"]."','".$_REQUEST["dt_agendamento"]."','0','".$_REQUEST["tipo_atendimento"]."','".$_REQUEST["horario"]."','','')";
+        $consulta = "INSERT INTO atendimento (cod_funcionario, cod_cliente, id_animal, dt_agendamento, valor, tipo_atendimento, horario, status, nome) VALUES (".$_SESSION["Cod_funcionario"].",'".$_REQUEST["cod_cliente"]."','".$_REQUEST["id_animal"]."','".$_REQUEST["dt_agendamento"]."','0','".$_REQUEST["tipo_atendimento"]."','".$_REQUEST["horario"]."','','')";
         $operacao = 1;
     }
    
