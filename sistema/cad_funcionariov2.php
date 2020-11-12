@@ -359,7 +359,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputBirth">Data de admissão</label>
-                                                <input type="date" min="2020-10-26" max="2020-11-24" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
+                                                <input type="date" min="1000-10-26" max="2020-11-24" class="form-control" id="exampleInputBirth" value="<?php if (isset($_GET["Cod_funcionario"])) {
                                                                                                                             #essa função do php pega o valor do input nome
                                                                                                                             echo $dados["dt_admicao"];
                                                                                                                         } ?>" name="dt_admicao">

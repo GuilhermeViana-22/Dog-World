@@ -186,7 +186,7 @@
                                          value="<?php if (isset($_GET["id_cliente"])) {
                                              #essa função do php pega o valor do input data de nascimento
                                           echo $dados["dt_nascimento"];
-                                    } ?>" type="date"min="2020-10-26" max="2020-11-24" placeholder="Digite o nascimento" name="dt_nascimento" required />
+                                    } ?>" type="date"min="1950-01-01" max="2020-11-12" placeholder="Digite o nascimento" name="dt_nascimento" required />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
